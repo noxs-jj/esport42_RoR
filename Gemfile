@@ -4,7 +4,7 @@ gem 'rails', '4.2.6'
 gem 'sqlite3'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'unicorn'
+gem 'puma'
 gem 'pg'
 gem 'slim-rails'
 gem 'simple_form'
@@ -29,8 +29,7 @@ gem 'bcrypt-ruby'
 gem 'bcrypt'
 gem 'devise'
 gem 'omniauth'
-
-gem 'puma'
+gem 'cancan'
 
 group :development, :test do
   gem 'byebug'
