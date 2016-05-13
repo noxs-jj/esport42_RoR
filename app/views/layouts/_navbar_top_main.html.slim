@@ -1,0 +1,13 @@
+nav.navbar.navbar-default.navbar-fixed-top style="padding: 0px; padding-left: 20px; padding-right: 20px;"
+  .navbar-collapse.collapse
+    ul.nav.navbar-nav
+      li = link_to t('navbar.welcome'), main_app.welcome_path
+      li = link_to t('navbar.event_form'), ""
+      li = link_to t('navbar.contact'), ""
+      li.dropdown
+        a.dropdown-toggle aria-expanded="false" aria-haspopup="true" role="button" url='#'
+          = I18n.locale.capitalize
+          span.caret
+        ul.dropdown-menu
+          li = link_to_unless I18n.locale == :en, "En", locale: :en
+          li = link_to_unless I18n.locale == :fr, "Fr", locale: :fr

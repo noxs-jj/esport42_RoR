@@ -1,0 +1,49 @@
+source 'https://rubygems.org'
+
+gem 'rails', '4.2.6'
+gem 'sqlite3'
+gem 'jbuilder', '~> 2.0'
+gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'unicorn'
+gem 'pg'
+gem 'slim-rails'
+gem 'simple_form'
+gem 'mail_form'
+
+# css stylesheets pipeline conpressor...
+gem 'sass-rails'
+gem 'bootstrap-sass'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
+gem 'therubyracer'
+gem 'autoprefixer-rails'
+gem 'turbolinks'
+gem 'sprockets'
+gem 'sprockets-rails'
+gem 'jquery-rails'
+gem 'uglifier'
+gem 'coffee-rails'
+
+# authentification
+gem 'bcrypt-ruby'
+gem 'bcrypt'
+gem 'devise'
+gem 'omniauth'
+
+gem 'puma'
+
+group :development, :test do
+  gem 'byebug'
+  gem 'web-console', '~> 2.0'
+  gem 'capistrano', require: false
+  gem 'capistrano-rvm', require: false
+  gem 'capistrano-rails',require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma', require: false
+  #gem 'rvm-capistrano'
+  gem 'spring'
+  gem 'quiet_assets'
+  gem 'awesome_print'
+  gem 'html2haml'
+  gem 'haml2slim'
+end

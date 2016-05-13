@@ -1,0 +1,25 @@
+doctype html
+html
+head
+  title = t('application.title')
+  = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+
+body
+  = render('layouts/navbar_top_main')
+  .container-fluid style="margin-top: 55px"
+    - if !notice.blank?
+      .alert.alert-info
+        = notice
+    - if !alert.blank?
+      .alert.alert-danger
+        = alert
+
+  .container-fluid.text-center
+    = yield
+
+  hr
+  footer.footer
+    .container
+      | By Jean-Jacques MOIROUX

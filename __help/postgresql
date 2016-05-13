@@ -1,0 +1,11 @@
+CREATE USER esport42 WITH PASSWORD 'esport42'; ALTER ROLE esport42 WITH CREATEDB; \q
+
+List all databases \list ot \l
+
+utiliser base de donne \c databasename
+
+liste les tables d'une base de donne \dt
+
+voir les entry d'une tables SELECT * FROM 'tables'; SELECT login42, login, email, firstname, lastname FROM users LIMIT 10;
+
+rake db:drop && rake db:create && rake db:migrate && rake db:seed

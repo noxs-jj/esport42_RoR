@@ -1,0 +1,27 @@
+development:
+  adapter: postgresql
+  encoding: UTF8
+  host: localhost
+  database: esport42
+  username: esport42
+  password: esport42
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+  database: db/test.sqlite3
+
+production:
+  adapter: postgresql
+  encoding: UTF8
+  host: esport42.cmgwdvewfzcc.eu-west-1.rds.amazonaws.com
+  port: 5432
+  database: esport42
+  username: esport42
+  password: <%= begin IO.read("/home/ubuntu/apps/esport42/shared/.db_password") rescue "" end %>
+  #password: <%= ENV['DATABASE_USER_PASSWORD'] %>
+  pool: 5
+  timeout: 5000
