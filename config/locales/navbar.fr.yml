@@ -3,3 +3,6 @@ fr:
     welcome: "Bienvenue"
     event_form: "Formulaire"
     contact: "Contactez-nous"
+    registration: "S'enregistrer"
+    sign_in: "Se connecter"
+    logout: "Se delog"

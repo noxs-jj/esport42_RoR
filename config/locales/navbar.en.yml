@@ -3,3 +3,6 @@ en:
     welcome: "Welcome"
     event_form: "Form"
     contact: "Contact Us"
+    registration: "Registration"
+    sign_in: "Sign in"
+    logout: "Logout"
