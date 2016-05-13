@@ -8,21 +8,25 @@ head
 
 body
   = render('layouts/navbar_top_main')
-  .container-fluid style="margin-top: 55px"
-    - if !notice.blank?
-      .alert.alert-info
-        = notice
-    - if !alert.blank?
-      .alert.alert-danger
-        = alert
 
-  .container-fluid style="background-image: url(' #{image_url("esport42_banner_001.png")} ');
-        background-repeat:no-repeat; background-position:right center;
-        background-color: #31384d; height: 317px;"
+  .container-fluid
+    .col-xs-12 style="margin-top: 55px"
+      - if !notice.blank?
+        .alert.alert-info
+          = notice
+      - if !alert.blank?
+        .alert.alert-danger
+          = alert
+
+  .container-fluid.col-xs-12 style="background-image: url(' #{image_url("esport42_banner_001.png")} ');
+      background-repeat:no-repeat; background-position:right center;
+      background-color: #31384d; height: 317px;"
     = image_tag("esport42_logo_001.png", size: "317x317")
 
-  .container-fluid.text-center
-    = yield
+  .container
+    .col-sm-12
+      .text-center
+        = yield
 
   hr
   footer.footer

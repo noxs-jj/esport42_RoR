@@ -6,10 +6,10 @@ nav.navbar.navbar-default.navbar-fixed-top style="padding: 0px; padding-left: 20
       li = link_to t('navbar.contact'), ""
 
       - if !user_signed_in?
-        li = link_to t('navbar.registration'), main_app.new_user_registration_path
-        li = link_to t('navbar.sign_in'), main_app.new_user_session_path
+        li = link_to t('navbar.registration'), new_user_registration_path
+        li = link_to t('navbar.sign_in'), new_user_session_path
       - else
-        li = link_to t('navbar.logout'), main_app.destroy_user_session_path
+        li = link_to t('navbar.logout'), destroy_user_session_path, :method => :delete
 
       li.dropdown
         a.dropdown-toggle aria-expanded="false" aria-haspopup="true" role="button" url='#'
