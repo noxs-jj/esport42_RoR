@@ -4,7 +4,7 @@ nav.navbar.navbar-default.navbar-fixed-top style="padding: 0px; padding-left: 20
       li = link_to t('navbar.welcome'), main_app.welcome_path
       li = link_to t('navbar.events'), main_app.event_index_path
       li = link_to t('navbar.event_form'), ""
-      li = link_to t('navbar.contact'), ""
+      li = link_to t('navbar.contact'), main_app.contact_us_path
 
       - if !user_signed_in?
         li = link_to t('navbar.registration'), new_user_registration_path
