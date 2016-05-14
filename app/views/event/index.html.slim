@@ -1,0 +1,14 @@
+.container
+  .col-md-12
+    table.table.table-striped.text-left
+      thead
+        th Name
+        th Created_by
+        th Date
+
+      - @events.each do |entry|
+        tr
+          td
+						= link_to entry.name,  event_show_path(entry.id)
+          td = entry.created_by
+          td = entry.date

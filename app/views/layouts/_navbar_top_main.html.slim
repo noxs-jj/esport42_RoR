@@ -2,6 +2,7 @@ nav.navbar.navbar-default.navbar-fixed-top style="padding: 0px; padding-left: 20
   .navbar-collapse.collapse
     ul.nav.navbar-nav
       li = link_to t('navbar.welcome'), main_app.welcome_path
+      li = link_to t('navbar.events'), main_app.event_index_path
       li = link_to t('navbar.event_form'), ""
       li = link_to t('navbar.contact'), ""
 
