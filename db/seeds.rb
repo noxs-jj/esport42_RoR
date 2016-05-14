@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+if !User.find_by(email: 'superRoot@esport.42.fr')
+  user = User.new(
+      :email                 => "superRoot@esport.42.fr",
+      :password              => "XXXXXXXX", # Ofuscated in source code
+      :password_confirmation => "XXXXXXXX" # Ofuscated in source code
+  )
+  user.admin = true
+  user.save!
+end

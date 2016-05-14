@@ -29,7 +29,8 @@ gem 'bcrypt-ruby'
 gem 'bcrypt'
 gem 'devise'
 gem 'omniauth'
-gem 'cancan'
+gem 'cancancan'
+gem 'rails_admin'
 
 group :development, :test do
   gem 'byebug'
