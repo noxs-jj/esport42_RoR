@@ -1,10 +1,11 @@
-if User.find_by(email: 'superRoot@esport.42.fr') != nil
+if User.find_by(email: 'superroot@esport.42.fr') == nil
   user = User.new(
-    :email                 => "superRoot@esport.42.fr",
+    :email                 => "superroot@esport.42.fr",
     :password              => "XXXXXXXX", # Ofuscated in source code
     :password_confirmation => "XXXXXXXX" # Ofuscated in source code
   )
   user.admin = true
+  puts "superroot@esport.42.fr created !"
   user.save!
 end
 
@@ -14,7 +15,6 @@ if Event.all.length == 0
     created_by: 1,
     date: 1364046539
   )
-  puts event
   event.save!
 end
 
