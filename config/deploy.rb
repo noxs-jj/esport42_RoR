@@ -50,6 +50,7 @@ namespace :deploy do
   task :seed do
     on roles(:app) do
       execute "cd /home/#{fetch(:user)}/apps/#{fetch(:application)}/current ; bundle exec rake db:seed"
+    end
   end
 
   desc 'Restart application'
