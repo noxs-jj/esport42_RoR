@@ -48,7 +48,7 @@ namespace :deploy do
 
   desc "reload the database with seed data"
   task :seed do
-    run "cd /home/#{fetch(:user)}/apps/#{fetch(:application)}/current ; bundle exec rake db:seed"
+    execute "cd /home/#{fetch(:user)}/apps/#{fetch(:application)}/current ; bundle exec rake db:seed"
   end
 
   desc 'Restart application'
