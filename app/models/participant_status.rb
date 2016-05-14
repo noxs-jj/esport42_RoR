@@ -1,2 +1,2 @@
-class ParticipantStatu < ActiveRecord::Base
+class ParticipantStatus < ActiveRecord::Base
 end

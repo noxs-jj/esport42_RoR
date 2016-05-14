@@ -1,7 +1,6 @@
 class EventController < ApplicationController
   def index
     @events = Event.all
-    ap @events
   end
 
   def show
@@ -9,19 +8,6 @@ class EventController < ApplicationController
     if @event.nil?
       redirect_to event_index_path
     end
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-
-  def update
-  end
-
-  def delete
   end
 
   private
