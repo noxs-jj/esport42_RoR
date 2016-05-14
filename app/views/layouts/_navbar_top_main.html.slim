@@ -2,8 +2,7 @@ nav.navbar.navbar-default.navbar-fixed-top style="padding: 0px; padding-left: 20
   .navbar-collapse.collapse
     ul.nav.navbar-nav
       li = link_to t('navbar.welcome'), main_app.welcome_path
-      li = link_to t('navbar.events'), main_app.event_index_path
-      li = link_to t('navbar.event_form'), ""
+      li = link_to t('navbar.events'), main_app.event_index_path, style: 'text-decoration: line-through;'
       li = link_to t('navbar.contact'), main_app.contact_us_path
 
       - if !user_signed_in?
@@ -21,4 +20,5 @@ nav.navbar.navbar-default.navbar-fixed-top style="padding: 0px; padding-left: 20
           li = link_to_unless I18n.locale == :fr, "Fr", locale: :fr
 
       - if user_signed_in? && current_user.admin?
-        li = link_to 'ADMIN', rails_admin_path
+        li = link_to 'ADMIN', "#", style: 'text-decoration: line-through;'
+        li = link_to 'RAILSADMIN', rails_admin_path
