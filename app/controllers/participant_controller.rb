@@ -1,7 +1,6 @@
 class ParticipantController < ApplicationController
   def index
     @participants = Participant.where(event_id: params[:event_id])
-    ap @participants
   end
 
   def create
