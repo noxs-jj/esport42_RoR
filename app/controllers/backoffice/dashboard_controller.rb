@@ -1,4 +1,4 @@
-class Backoffice::DashboardController < ApplicationController
+class Backoffice::DashboardController < Backoffice::ApplicationController
   def index
   end
 end

@@ -13,7 +13,17 @@ Rails.application.routes.draw do
   get 'welcome' => 'welcome#index'
 
   namespace :backoffice do
-    get 'dashboard/index'
+    get 'event/index'
+    get 'event/show'
+    get 'event/new'
+    get 'event/create'
+    get 'event/edit'
+    get 'event/update'
+    get 'event/delete'
+
+    get 'dashboard/index' => "dashboard#index"
+
+    root :to => "dashboard#index"
   end
 
   root :to => 'welcome#index'

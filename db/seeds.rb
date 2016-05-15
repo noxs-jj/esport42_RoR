@@ -51,3 +51,20 @@ if ParticipantType.all.length < 6
 	type = ParticipantType.new(name: "Organizer")
 	type.save!
 end
+
+if EventStatus.all.length < 7
+  status = EventStatus.new(name: "Unknow")
+	status.save!
+  status = EventStatus.new(name: "Announced")
+	status.save!
+  status = EventStatus.new(name: "Pending")
+	status.save!
+  status = EventStatus.new(name: "Registration opens")
+	status.save!
+  status = EventStatus.new(name: "In progress")
+	status.save!
+  status = EventStatus.new(name: "Canceled")
+	status.save!
+  status = EventStatus.new(name: "Close")
+	status.save!
+end

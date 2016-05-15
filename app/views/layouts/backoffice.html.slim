@@ -1,0 +1,27 @@
+doctype html
+html
+head
+  title = "backoffice Esport 42"
+  = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+
+body
+  .container-fluid
+    .col-xs-12 style="margin-top: 55px"
+      - if !notice.blank?
+        .alert.alert-info
+          = notice
+      - if !alert.blank?
+        .alert.alert-danger
+          = alert
+
+  .container
+    .col-sm-12
+      .text-center
+        = yield
+
+  hr
+  footer.footer
+    .container
+      | By Jean-Jacques MOIROUX

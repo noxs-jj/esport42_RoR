@@ -4,8 +4,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :participants
-
   def organizer?
     return true if self.organizer == true
     false

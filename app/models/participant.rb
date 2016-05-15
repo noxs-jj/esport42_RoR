@@ -1,9 +1,4 @@
 class Participant < ActiveRecord::Base
-  belongs_to :participant_types
-  belongs_to :participant_statuses
-  has_one :events
-  has_one :users
-
   def user_name
     result = User.unscoped.find(self.user_id).username
     return result if !result.blank?
