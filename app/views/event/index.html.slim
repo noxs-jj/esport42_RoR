@@ -5,6 +5,7 @@
         th Name
         th Created_by
         th Date
+        th Actions
 
       - @events.each do |entry|
         tr
@@ -12,3 +13,4 @@
 						= link_to entry.name,  event_show_path(entry.id)
           td = entry.created_by
           td = entry.date
+          td = link_to "List", participants_event_index_path(entry.id), class: "btn btn-default btn-xs"

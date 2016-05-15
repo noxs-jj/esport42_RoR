@@ -1,11 +1,15 @@
 .container
+  div style="height: 20px;"
   .col-xs-12
-		.panel.panel-primary
-			.panel-head
-				.panel-title
-					= @event.name
+      = link_to "Register Event", main_app.participant_event_create_path(@event.id), class: "btn btn-primary"
+      div style="height: 20px;"
 
-			.panel-body
-				.col-md-4
-					| Name:
-					= @event.name
+  .col-xs-12
+    .panel.panel-primary
+      .panel-head
+        .panel-title
+          = @event.name
+    .panel-body
+      .col-md-4
+        | Name:
+        = @event.name

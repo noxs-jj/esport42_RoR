@@ -1,2 +1,22 @@
-h1 Participant#index
-p Find me in app/views/participant/index.html.slim
+h1
+  = 'Participant on event '
+  = params[:event_id].to_s
+
+.container
+  .col-xs-12
+    table.table.table-striped.text-left
+      thead
+        th Name
+        th type_id
+        - if user_signed_in? && current_user.admin?
+          th Status
+          th Email
+          th Actions
+
+      - @participants.each do |entry|
+        tr
+          td = entry.user_name
+          td = entry.type_name
+          - if user_signed_in? && current_user.admin?
+            td = entry.status_name
+            td = entry.user_email

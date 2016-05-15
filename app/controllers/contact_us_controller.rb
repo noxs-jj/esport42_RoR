@@ -6,9 +6,9 @@ class ContactUsController < ApplicationController
   def create
 		@contact = ContactUs.new(contact_us_params)
 		if !@contact.save
-			redirect_to main_app.contact_us_path, :alert => "Contact form not saved, contact Administratior"
+			redirect_to main_app.contact_us_path, alert: "Contact form not saved, contact Administratior"
 		else
-			redirect_to main_app.root_path, :notice => "Contact stored success !!"
+			redirect_to main_app.root_path, notice: "Contact stored success !!"
 		end
   end
 
