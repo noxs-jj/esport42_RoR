@@ -1,5 +1,6 @@
 class Backoffice::EventController < Backoffice::ApplicationController
   def index
+    @events = Event.all
   end
 
   def show

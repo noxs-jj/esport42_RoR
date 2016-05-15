@@ -1,2 +1,19 @@
-h1 Backoffice::Event#index
-p Find me in app/views/backoffice/event/index.html.slim
+h1 Events List
+
+.col-md-12
+  table.table.table-striped.text-left
+    thead
+      th Name
+      th Created_by
+      th Date
+      th Actions
+    - @events.each do |entry|
+      tr
+        td
+					= link_to entry.user_name,  event_show_path(entry.id)
+        td = entry.created_by
+        td = entry.date
+        td
+          = link_to "List", participants_event_index_path(entry.id), class: "btn btn-default btn-xs"
+          = link_to "Update", backoffice_event_edit_path(entry.id), class: "btn btn-primary btn-xs"
+          = link_to "Delete", backoffice_event_delete_path(entry.id), class: "btn btn-warning btn-xs"
