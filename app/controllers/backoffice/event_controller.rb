@@ -6,6 +6,7 @@ class Backoffice::EventController < Backoffice::ApplicationController
   end
 
   def new
+    @event = Event.new
   end
 
   def create

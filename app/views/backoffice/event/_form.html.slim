@@ -1,0 +1,34 @@
+.form-group.text-left
+  .col-sm-12
+    = f.input 'name', required: true, input_html: { style: 'width: 90%' }
+    div style="height: 20px;"
+  .col-sm-12
+    = f.input 'date', required: true
+    div style="height: 20px;"
+
+  .col-sm-12
+    div style="height: 20px;"
+  .col-sm-6
+    = f.input 'adress_line1', required: false, placeholder: 'adress_line1'
+    div style="height: 20px;"
+    = f.input 'adress_line2', required: false, placeholder: 'adress_line2'
+    div style="height: 20px;"
+    = f.input 'adress_line3', required: false, placeholder: 'adress_line3'
+    div style="height: 20px;"
+    = f.input 'adress_otherDetails', required: false, placeholder: 'adress_otherDetails'
+
+  .col-sm-6
+    = f.input 'adress_city', required: false, placeholder: 'adress_city'
+    div style="height: 20px;"
+    = f.input 'adress_province', required: false, placeholder: 'adress_province'
+    div style="height: 20px;"
+    = f.input 'adress_postalcode', required: false, placeholder: 'adress_postalcode'
+    div style="height: 20px;"
+    = f.input 'adress_country', required: false, as: :string, placeholder: 'adress_country'
+
+  .col-sm-12
+    div style="height: 20px;"
+    div style="height: 20px;"
+
+.form-actions.col-sm-12.text-left
+  = f.button :submit, "Send", class: 'btn btn-primary'

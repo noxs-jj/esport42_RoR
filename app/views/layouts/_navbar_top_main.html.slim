@@ -20,5 +20,5 @@ nav.navbar.navbar-default.navbar-fixed-top style="padding: 0px; padding-left: 20
           li = link_to_unless I18n.locale == :fr, "Fr", locale: :fr
 
       - if user_signed_in? && current_user.admin?
-        li = link_to 'ADMIN', main_app.backoffice_dashboard_index_path, style: 'text-decoration: line-through;'
-        li = link_to 'RAILSADMIN', rails_admin_path
+        li = link_to 'ADMIN_NEW', main_app.backoffice_dashboard_index_path, style: 'text-decoration: line-through;'
+        li = link_to 'ADMIN_OLD', rails_admin_path
