@@ -1,22 +1,44 @@
 h2
   | Edit
   = resource_name.to_s.humanize
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :email, required: true, autofocus: true
-    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-      p
-        | Currently waiting confirmation for:
-        = resource.unconfirmed_email
-    = f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false
-    = f.input :password_confirmation, required: false
-    = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
-  .form-actions
-    = f.button :submit, "Update"
-h3
-  | Cancel my account
-p
-  | Unhappy?
-  = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
-= link_to "Back", :back
+
+div
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = f.error_notification
+
+    .col-sm-6
+      .form-group
+        = f.input :email, required: true, autofocus: true, input_html: { style: 'width: 100%' }
+      .form-group
+        = f.input :username, required: false, input_html: { style: 'width: 100%' }
+      .form-group
+        = f.input :first_name, required: false, input_html: { style: 'width: 100%' }
+      .form-group
+        = f.input :last_name, required: false, input_html: { style: 'width: 100%' }
+      .form-group
+        div.in-line style="max-width:250px;"
+          = f.input :birthday, required: false, as: :date_picker, input_html: { style: 'width: 100%' }
+
+    .col-sm-6
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        p
+          | Currently waiting confirmation for:
+          = resource.unconfirmed_email
+
+      .form-group
+        = f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false, input_html: { style: 'width: 100%' }
+      .form-group
+        = f.input :password_confirmation, required: false, input_html: { style: 'width: 100%' }
+      .form-group
+        = f.input :current_password, hint: "we need your current password to confirm your changes", required: true, input_html: { style: 'width: 100%' }
+
+    .col-sm-12
+      .form-actions
+        = f.button :submit, "Update", class: "btn btn-primary", input_html: { style: 'width: 100%' }
+      div style="height: 20px;"
+      = link_to "Back", :back, class: "btn btn-default"
+//h3
+//  | Cancel my account
+//p
+//  | Unhappy?
+//  = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
