@@ -5,4 +5,10 @@ class ParticipantType < ActiveRecord::Base
   CONCURRENT = 3
   VISITOR = 2
   UNKOWN = 1
+
+  def self.list_type
+    ParticipantType.all.map do |t|
+      [t.name, t.id]
+    end
+  end
 end

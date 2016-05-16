@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
 	get 'contact_us/new' => 'contact_us#new', as: 'contact_us'
   post 'contact_us/create' => 'contact_us#create', as: 'contact_us_create'
 
@@ -13,6 +14,10 @@ Rails.application.routes.draw do
   get 'welcome' => 'welcome#index'
 
   namespace :backoffice do
+    get 'event/:event_id/participant/index'       => 'participant#index', as: 'event_participant_index'
+    post 'event/:event_id/participant/:id/update' => 'participant#update', as: 'event_participant_update'
+    get 'event/:event_id/participant/:id/delete'  => 'participant#delete', as: 'event_participant_delete'
+
     get 'event/index'
     get 'event/show/:id'    => 'event#show', as: 'event_show'
     get 'event/new'

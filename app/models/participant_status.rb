@@ -7,4 +7,10 @@ class ParticipantStatus < ActiveRecord::Base
   PAYMENT_PENDING = 3
   PENDING = 2
   UNKNOW = 1
+
+  def self.list_status
+    ParticipantStatus.all.map do |t|
+      [t.name, t.id]
+    end
+  end
 end

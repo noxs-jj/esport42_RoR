@@ -1,0 +1,22 @@
+h1
+  = 'List participant event #'
+  = params[:event_id].to_s
+
+.col-md-12
+  table.table.table-striped.text-left
+    thead
+      th Name
+      th Register on
+      th Actions
+    - @participants.each do |entry|
+      tr
+        td = entry.user_name
+        td = entry.created_at.strftime("%Y/%m/%d %H:%M")
+        td
+          .form-inline
+            = simple_form_for( entry, url: backoffice_event_participant_update_path(event_id: params[:event_id], id: entry.id), method: 'POST') do |f|
+              .form-group
+                = f.input 'status_id', required: true, collection: ParticipantStatus::list_status, include_blank: false
+              .form-group
+                = f.input 'type_id', required: false, collection: ParticipantType::list_type, include_blank: false
+              = f.button :submit, "Apply", class: 'btn btn-primary'
