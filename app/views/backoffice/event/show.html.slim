@@ -1,2 +1,14 @@
 h1 Backoffice::Event#show
-p Find me in app/views/backoffice/event/show.html.slim
+
+.col-xs-12
+    = link_to "Register Event", main_app.participant_event_create_path(@event.id), class: "btn btn-primary"
+    div style="height: 20px;"
+.col-xs-12
+  .panel.panel-primary
+    .panel-head
+      .panel-title
+        = @event.name
+  .panel-body
+    .col-md-4
+      | Name:
+      = @event.name

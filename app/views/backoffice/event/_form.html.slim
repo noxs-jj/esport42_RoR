@@ -2,12 +2,13 @@
   .col-sm-12
     = f.input 'name', required: true, input_html: { style: 'width: 90%' }
     div style="height: 20px;"
-  .col-sm-12
-    = f.input 'date', required: true
-    div style="height: 20px;"
+  .col-xs-4
+    = f.input 'date', required: true, as: :date_picker
 
   .col-sm-12
     div style="height: 20px;"
+    = f.input 'info', :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }
+
   .col-sm-6
     = f.input 'adress_line1', required: false, placeholder: 'adress_line1'
     div style="height: 20px;"

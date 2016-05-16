@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
 	get 'contact_us/new' => 'contact_us#new', as: 'contact_us'
   post 'contact_us/create' => 'contact_us#create', as: 'contact_us_create'
 
@@ -20,7 +19,8 @@ Rails.application.routes.draw do
     post 'event/create'     => 'event#create', as: 'event_create'
     get 'event/edit/:id'    => 'event#edit', as: 'event_edit'
     post 'event/update/:id' => 'event#update', as: 'event_update'
-    get 'event/delete'
+    get 'event/delete/:id'  => 'event#delete', as: 'event_delete'
+    resources :event
 
     get 'user/index'
     get 'user/show/:id'     => 'user#show', as: 'user_show'
@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
   root :to => 'welcome#index'
 
+  mount Ckeditor::Engine => '/ckeditor'
   mount RailsAdmin::Engine => '/rails_admin', as: 'rails_admin'
   devise_for :users
 end

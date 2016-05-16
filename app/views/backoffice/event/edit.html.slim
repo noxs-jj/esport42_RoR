@@ -1,2 +1,8 @@
-h1 Backoffice::Event#edit
-p Find me in app/views/backoffice/event/edit.html.slim
+h1
+  = "Edit Event # "
+  = params[:id].to_s
+
+.container-fluid
+  .col-sm-12
+    = simple_form_for( @event, url: backoffice_event_update_path(@event), method: 'POST') do |f|
+      = render 'backoffice/event/form', f: f

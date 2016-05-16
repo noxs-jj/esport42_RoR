@@ -9,6 +9,10 @@ gem 'pg'
 gem 'slim-rails'
 gem 'simple_form'
 gem 'mail_form'
+gem 'ckeditor'
+# https://github.com/zpaulovics/datetimepicker-rails
+gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 
 # css stylesheets pipeline conpressor...
 gem 'sass-rails'

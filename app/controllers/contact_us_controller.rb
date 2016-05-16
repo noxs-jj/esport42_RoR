@@ -15,10 +15,10 @@ class ContactUsController < ApplicationController
 	private
 	  def contact_us_params
 	    params.require(:contact_us).permit(
-				:nickname, :first_name, :last_name, :email, :phone, :entity, :object,
-				:message, :other, :adress_line1, :adress_line2, :adress_line3,
-				:adress_city, :adress_province, :adress_postalcode, :adress_country,
-				:adress_otherDetails,
-			)
-	  end
+        :nickname, :first_name, :last_name, :email, :phone, :entity, :object,
+        :message, :other, :adress_line1, :adress_line2, :adress_line3,
+        :adress_city, :adress_province, :adress_postalcode, :adress_country,
+        :adress_otherDetails,
+      )
+    end
 end
