@@ -2,8 +2,11 @@
   .col-sm-12
     = f.input 'name', required: true, input_html: { style: 'width: 90%' }
     div style="height: 20px;"
+
   .col-xs-4
     = f.input 'date', required: true, as: :date_picker
+  .col-xs-4
+    = f.input 'status_id', required: true, collection: EventStatus::list_status, include_blank: false
 
   .col-sm-12
     div style="height: 20px;"

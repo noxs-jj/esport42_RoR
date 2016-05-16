@@ -1,0 +1,40 @@
+- if user_signed_in?
+  .col-xs-6
+    = link_to "Register Event", main_app.participant_event_create_path(@event.id), class: "btn btn-primary"
+    div style="height: 20px;"
+
+
+  - if participant_help_is_user_register_to_event?(current_user.id, params[:id]) == true
+    .col-xs-6
+      = link_to "Unregister Event", "", class: "btn btn-warning"
+
+
+.col-xs-12
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title
+        b = @event.name
+    .panel-body
+
+      .col-xs-6
+        b = "Date: "
+        = @event.date.strftime("%Y/%m/%d")
+      .col-xs-6
+        b = "Status "
+        = @event.status_name
+
+      -if user_signed_in? && current_user.admin?
+        .col-xs-6
+          b = "Created by: "
+          = @event.user_name
+        .col-xs-6
+          b = "On: "
+          = @event.created_at.strftime("%Y/%m/%d %H:%M")
+
+      .col-xs-12
+        h2 Infos
+        = @event.info.to_s.html_safe
+
+      .col-xs-12
+        h3 Address
+        = render "layouts/address", entry: @event

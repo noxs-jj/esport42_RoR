@@ -4,4 +4,11 @@ class Event < ActiveRecord::Base
     return result if !result.blank?
     ""
   end
+
+  def status_name
+    result = EventStatus.find_by(id: self.status_id)
+    return result.name if !result.nil?
+    "nil"
+  end
+
 end

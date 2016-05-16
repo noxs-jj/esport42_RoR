@@ -6,4 +6,10 @@ class EventStatus < ActiveRecord::Base
   PENDING = 3
   ANNOUNCED = 2
   UNKNOW = 1
+
+  def self.list_status
+    EventStatus.all.map do |t|
+      [t.name, t.id]
+    end
+  end
 end

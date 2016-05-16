@@ -34,11 +34,12 @@ class Backoffice::EventController < Backoffice::ApplicationController
 
   def update
     @event = Event.find(params[:id])
+
     if @event.nil?
       redirect_to backoffice_event_index_path, alert: "Event #{params[:id].to_s} doesn't exist"
     else
       if @event.update(event_params)
-        redirect_to backoffice_event_show_path(@event.id), notice: "update Success"
+        redirect_to backoffice_event_show_path(@event.id), notice: "Update success"
       else
         redirect_to backoffice_event_index_path, alert: "Failed to update event."
       end
@@ -52,8 +53,8 @@ class Backoffice::EventController < Backoffice::ApplicationController
 	  def event_params
 	    params.require(:event).permit(
         :name, :info, :games_ids, :tournament_ids, :participant_ids,
-        :date, :adress_line2, :adress_line3, :adress_city, :adress_province,
-        :adress_postalcode, :adress_country, :adress_otherDetails
+        :date, :adress_line1, :adress_line2, :adress_line3, :adress_city, :adress_province,
+        :adress_postalcode, :adress_country, :adress_otherDetails, :status_id
 			)
 	  end
 end
