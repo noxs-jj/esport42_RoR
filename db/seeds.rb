@@ -13,7 +13,7 @@ if Event.all.length == 0
   event = Event.new(
     name: "event test 01",
     created_by: 1,
-    date: 1364046539
+    date: "2016-05-06 00:00:00"
   )
   event.save!
 end

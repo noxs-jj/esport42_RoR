@@ -1,14 +1,24 @@
-h1 Backoffice::Event#show
+h1
+  = "Event ##{@event.id}"
 
 .col-xs-12
     = link_to "Register Event", main_app.participant_event_create_path(@event.id), class: "btn btn-primary"
     div style="height: 20px;"
+
 .col-xs-12
   .panel.panel-primary
     .panel-head
       .panel-title
         = @event.name
   .panel-body
-    .col-md-4
+    .col-xs-6
       | Name:
       = @event.name
+
+    .col-xs-6
+      | Date:
+      = @event.date.strftime("%Y/%m/%d")
+
+    .col-xs-12
+      | Infos
+      = @event.info.to_s.html_safe
