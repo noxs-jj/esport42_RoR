@@ -1,7 +1,7 @@
-class Backoffice::ParticipantController < ApplicationController
+class Backoffice::ParticipantController < Backoffice::ApplicationController
   load_and_authorize_resource
   def index
-    @participants = Participant.where(event_id: params[:event_id])
+    @participants = Participant.where(event_id: params[:event_id]).order(created_at: :desc)
   end
 
   def update

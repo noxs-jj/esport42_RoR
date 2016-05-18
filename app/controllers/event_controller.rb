@@ -1,7 +1,7 @@
 class EventController < ApplicationController
   load_and_authorize_resource
   def index
-    @events = Event.all
+    @events = Event.all.order(created_at: :desc)
   end
 
   def show

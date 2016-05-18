@@ -2,7 +2,7 @@ class ParticipantController < ApplicationController
   include ParticipantHelper
 
   def index
-    @participants = Participant.where(event_id: params[:event_id])
+    @participants = Participant.where(event_id: params[:event_id]).order(created_at: :desc)
   end
 
   def create
