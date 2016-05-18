@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require bootstrap-datetimepicker
+ *= require dropdown_open_on_hover
  *= require_tree .
  *= require_self
  */
