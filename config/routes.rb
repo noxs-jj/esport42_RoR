@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-	get 'contact_us/new' => 'contact_us#new', as: 'contact_us'
+	get 'contact_us/new'     => 'contact_us#new', as: 'contact_us'
   post 'contact_us/create' => 'contact_us#create', as: 'contact_us_create'
 
   get 'participant/index/:event_id' 	=> 'participant#index', as: 'participants_event_index'
@@ -15,9 +15,11 @@ Rails.application.routes.draw do
 
   namespace :backoffice do
     get 'game/index'
-    get 'game/show/:id'     => 'game#show', as: 'game_show'
-    get 'game/edit/:id'     => 'game#edit', as: 'game_edit'
-    post 'game/update/:id'  => 'game#update', as: 'game_update'
+    get 'game/index/new'      => 'game#new', as: 'game_new'
+    post 'game/index/create'  => 'game#create', as: 'game_create'
+    get 'game/show/:id'       => 'game#show', as: 'game_show'
+    get 'game/edit/:id'       => 'game#edit', as: 'game_edit'
+    post 'game/update/:id'    => 'game#update', as: 'game_update'
 
     get 'event/:event_id/participant/index'       => 'participant#index', as: 'event_participant_index'
     post 'event/:event_id/participant/:id/update' => 'participant#update', as: 'event_participant_update'

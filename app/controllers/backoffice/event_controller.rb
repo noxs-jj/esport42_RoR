@@ -5,7 +5,7 @@ class Backoffice::EventController < Backoffice::ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    @event = Event.find_by(id: params[:id])
     if @event.nil?
       redirect_to backoffice_event_index_path, alert: "Event #{params[:id].to_s} doesn't exist"
     end

@@ -1,0 +1,6 @@
+h1 Create New Game
+
+.container-fluid
+  .col-sm-12
+    = simple_form_for( @game, url: backoffice_game_create_path(@game)) do |f|
+      = render 'backoffice/game/form', f: f

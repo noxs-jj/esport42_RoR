@@ -1,2 +1,18 @@
-h1 Backoffice::Game#index
-p Find me in app/views/backoffice/game/index.html.slim
+h1 Games List
+
+.col-xs-12
+  table.table.table-striped.text-left
+    thead
+      th Name
+      th Icon
+      th Url
+      th Actions
+    - @games.each do |entry|
+      tr
+        td
+					= link_to entry.name,  event_show_path(entry.id)
+        td = entry.icon
+        td = entry.url
+        td
+          = link_to "Show", backoffice_game_show_path(entry.id), class: "btn btn-success btn-xs"
+          = link_to "Edit", backoffice_game_edit_path(entry.id), class: "btn btn-primary btn-xs"

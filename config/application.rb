@@ -23,6 +23,11 @@ module App
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    # ckeditor
+    config.assets.precompile += Ckeditor.assets
+    config.assets.precompile += %w( ckeditor/* )
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+
     # put slm to default on rails generate
     config.generators do |g|
       g.template_engine :slim

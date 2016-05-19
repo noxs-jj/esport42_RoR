@@ -1,2 +1,7 @@
-h1 Backoffice::Game#edit
-p Find me in app/views/backoffice/game/edit.html.slim
+h1
+  = "Game ##{@game.id} Edit"
+
+.container-fluid
+  .col-sm-12
+    = simple_form_for( @game, url: backoffice_game_update_path(@game), method: 'POST') do |f|
+      = render "backoffice/game/form", f: f
