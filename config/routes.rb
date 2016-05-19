@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   get 'welcome' => 'welcome#index'
 
   namespace :backoffice do
+    get 'game/index'
+    get 'game/show/:id'     => 'game#show', as: 'game_show'
+    get 'game/edit/:id'     => 'game#edit', as: 'game_edit'
+    post 'game/update/:id'  => 'game#update', as: 'game_update'
+
     get 'event/:event_id/participant/index'       => 'participant#index', as: 'event_participant_index'
     post 'event/:event_id/participant/:id/update' => 'participant#update', as: 'event_participant_update'
     get 'event/:event_id/participant/:id/delete'  => 'participant#delete', as: 'event_participant_delete'
@@ -41,5 +46,5 @@ Rails.application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
   mount RailsAdmin::Engine => '/rails_admin', as: 'rails_admin'
-  devise_for :users
+  devise_for :users, controllers: {registrations: 'users/registrations'}
 end

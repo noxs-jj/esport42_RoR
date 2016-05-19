@@ -3,6 +3,7 @@
     table.table.table-striped.text-left
       thead
         th Name
+        th Status
         th Created_by
         th Date
         th Actions
@@ -11,6 +12,7 @@
         tr
           td
 						= link_to entry.name,  event_show_path(entry.id)
-          td = entry.created_by
+          td = entry.status_name
+          td = entry.user_name
           td = entry.date
           td = link_to "List", participants_event_index_path(entry.id), class: "btn btn-default btn-xs"

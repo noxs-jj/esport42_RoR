@@ -1,0 +1,2 @@
+module Backoffice::GameHelper
+end

@@ -4,6 +4,7 @@ h1 Events List
   table.table.table-striped.text-left
     thead
       th Name
+      th Status
       th Created By
       th Date Event
       th Created On
@@ -12,6 +13,7 @@ h1 Events List
       tr
         td
 					= link_to entry.name,  event_show_path(entry.id)
+        td = entry.status_name
         td = entry.user_name
         td = entry.date.strftime("%Y/%m/%d")
         td = entry.created_at.strftime("%Y/%m/%d %H:%M")

@@ -25,10 +25,8 @@ h2
         .form-group
           = f.input :password_confirmation, required: true, input_html: { style: 'width: 100%' }
 
-      .col-sm-12
         .form-actions
           = f.button :submit, "Sign up", class: "btn btn-primary"
 
-.col-sm-12
-  div style="height: 20px;"
-  = render "users/shared/links"
+          div style="height: 20px;"
+          = render "users/shared/links"

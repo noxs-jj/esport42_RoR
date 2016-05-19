@@ -1,14 +1,14 @@
 upstream puma {
-  server unix:///home/ubuntu/esport42/shared/tmp/sockets/appname-puma.sock;
+  server unix:///home/ubuntu/apps/esport42/shared/tmp/sockets/esport42-puma.sock;
 }
 
 server {
   listen 80 default_server deferred;
   # server_name example.com;
 
-  root /home/ubuntu/esport42/current/public;
-  access_log /home/ubuntu/esport42/current/log/nginx.access.log;
-  error_log /home/ubuntu/esport42/current/log/nginx.error.log info;
+  root /home/ubuntu/apps/esport42/current/public;
+  access_log /home/ubuntu/apps/esport42/current/log/nginx.access.log;
+  error_log /home/ubuntu/apps/esport42/current/log/nginx.error.log info;
 
   location ^~ /assets/ {
     gzip_static on;

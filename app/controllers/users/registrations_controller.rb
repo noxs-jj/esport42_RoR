@@ -50,13 +50,17 @@ protected
 
   def configure_account_update_params
     # devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(
       :email, :password, :current_password, :username, :first_name, :last_name,
       :birthday, :adress_line1, :adress_line2, :adress_line3, :adress_city,
       :adress_province, :adress_postalcode, :adress_country,
       :adress_otherDetails, :adress_postalcode,
       :adress_country, :adress_otherDetails
     ) }
+  end
+
+  def update_resource(resource, params)
+    resource.update_without_password(params)
   end
 
   # The path used after sign up.
