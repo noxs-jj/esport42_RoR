@@ -1,4 +1,5 @@
 class Backoffice::TournamentController < Backoffice::ApplicationController
+  include TournamentHelper
   load_and_authorize_resource
 
   def index
@@ -18,12 +19,16 @@ class Backoffice::TournamentController < Backoffice::ApplicationController
 
   def create
     tournament = Tournament.new(tournament_params)
-    tournament.created_by = current_user.id
-    tournament.save
-    if tournament
-      redirect_to backoffice_user_show_path(tournament.id), notice: "Tournament created success"
+    if tournamentHelper_is_event_can_create_tournament?(tournament.event_id) == true
+      tournament.created_by = current_user.id
+      tournament.save
+      if tournament
+        redirect_to backoffice_user_show_path(tournament.id), notice: "Tournament created success"
+      else
+        redirect_to request.headers["HTTP_REFERER"], alert: "Failed to create Tournament, plz contact admin"
+      end
     else
-      redirect_to request.headers["HTTP_REFERER"], alert: "Failed to create Tournament, plz contact admin"
+      redirect_to request.headers["HTTP_REFERER"], alert: "Can't to create Tournament, the event isn't registrable/pending/open"
     end
   end
 
@@ -36,14 +41,18 @@ class Backoffice::TournamentController < Backoffice::ApplicationController
 
   def update
     @tournament = Tournament.find(params[:id])
-    if @tournament.nil?
-      redirect_to backoffice_tournament_index_path, alert: "Event #{params[:id].to_s} doesn't exist"
-    else
-      if @tournament.update(tournament_params)
-        redirect_to backoffice_tournament_show_path(@tournament.id), notice: "Update success"
+    if tournamentHelper_is_event_can_create_tournament?(tournament.event_id) == true
+      if @tournament.nil?
+        redirect_to backoffice_tournament_index_path, alert: "Event #{params[:id].to_s} doesn't exist"
       else
-        redirect_to backoffice_tournament_index_path, alert: "Failed to update tournament."
+        if @tournament.update(tournament_params)
+          redirect_to backoffice_tournament_show_path(@tournament.id), notice: "Update success"
+        else
+          redirect_to backoffice_tournament_index_path, alert: "Failed to update tournament."
+        end
       end
+    else
+      redirect_to request.headers["HTTP_REFERER"], alert: "Can't to update Tournament, the event isn't registrable/pending/open"
     end
   end
 
