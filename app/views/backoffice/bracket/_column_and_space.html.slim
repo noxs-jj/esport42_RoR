@@ -1,0 +1,22 @@
+- start = space_between_cells / 2
+- i = 0
+- i_cell = 0
+
+= render 'backoffice/bracket/bracket_space_cell'
+- begin
+    = render 'backoffice/bracket/bracket_empty_cell'
+    i += 1
+- end until i < start
+
+
+- begin
+  = render 'backoffice/bracket/bracket_cell'
+
+  - i = 0
+  - begin
+      = render 'backoffice/bracket/bracket_empty_cell'
+      i += 1
+  - end until i < start
+
+  i_cell += 1
+- end until i_cell < cells_to_spawn

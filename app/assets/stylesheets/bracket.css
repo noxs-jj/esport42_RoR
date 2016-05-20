@@ -8,22 +8,26 @@
   display:table-row;
   width:auto;
   background-color: grey;
+  border:1px solid yellow;
+  padding: 2px;
 }
 
 .div-table-row-empty{
   display:table-row;
   width:auto;
   background-color: white;
+  padding: 2px;
 }
 
 .div-table-row-space{
   display:table-row;
   width:auto;
   background-color: white;
+  padding: 2px;
 }
 
 .div-table-col{
   float:left;/*fix for  buggy browsers*/
   display:table-column;
-  width:200px;
+  width:100px;
 }
