@@ -16,5 +16,6 @@ h1 tournament List
         td = entry.creator_user_name
         td = entry.created_at.strftime("%Y/%m/%d %H:%M")
         td
+          = link_to "Bracket", backoffice_tournament_bracket_show_path(entry.id), class: "btn btn-default btn-xs"
           = link_to "Show", backoffice_tournament_show_path(entry.id), class: "btn btn-success btn-xs"
           = link_to "Edit", backoffice_tournament_edit_path(id: entry.id), class: "btn btn-primary btn-xs"
