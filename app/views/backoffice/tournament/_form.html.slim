@@ -1,0 +1,35 @@
+.form-group.text-left
+  .col-sm-12
+    = f.input 'name', required: true, input_html: { style: 'width: 100%' }
+    div style="height: 20px;"
+
+  .col-sm-4
+    = f.input 'game_id', collection: Game::list_game, include_blank: false
+
+  .col-sm-4
+    = f.input 'event_id', required: true, collection: Event::list_event_registrable, include_blank: false
+
+  .col-sm-4
+    = f.input 'participant_ids'
+
+  .col-sm-4
+    = f.input 'max_players'
+
+  .col-sm-12
+    div style="height: 20px;"
+    = f.input 'rules', :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }
+
+  .col-sm-12
+    div style="height: 20px;"
+    = f.input 'brackets_info', :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }
+
+  .col-sm-12
+    div style="height: 20px;"
+    = f.input 'other_info', :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }
+
+  .col-sm-12
+    div style="height: 20px;"
+    div style="height: 20px;"
+
+.form-actions.col-sm-12.text-left
+  = f.button :submit, "Send", class: 'btn btn-primary'

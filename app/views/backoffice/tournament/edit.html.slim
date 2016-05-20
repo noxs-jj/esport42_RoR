@@ -1,0 +1,7 @@
+h1
+  = "Edit tournament ##{@tournament.id} - #{@tournament.name}"
+
+.container-fluid
+  .col-sm-12
+    = simple_form_for( @tournament, url: backoffice_tournament_update_path(@tournament), method: 'POST') do |f|
+      = render 'backoffice/tournament/form', f: f

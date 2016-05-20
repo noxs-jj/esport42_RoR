@@ -1,4 +1,6 @@
 class Backoffice::GameController < Backoffice::ApplicationController
+  load_and_authorize_resource
+
   def index
     @games = Game.all.order(created_at: :desc)
   end

@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'tournament/index'  => 'tournament#index', as: 'tournament_index'
+  get 'tournament/show'   => 'tournament#show', as: 'tournament_show'
+
+  get 'game/index'    => 'game#index', as: 'gane_index'
+  get 'game/show/:id' => 'game#show', as: 'game_show'
+
 	get 'contact_us/new'     => 'contact_us#new', as: 'contact_us'
   post 'contact_us/create' => 'contact_us#create', as: 'contact_us_create'
 
@@ -14,6 +20,13 @@ Rails.application.routes.draw do
   get 'welcome' => 'welcome#index'
 
   namespace :backoffice do
+    get 'tournament/index'        => 'tournament#index', as: 'tournament_index'
+    get 'tournament/show/:id'     => 'tournament#show', as: 'tournament_show'
+    get 'tournament/new'          => 'tournament#new', as: 'tournament_new'
+    post 'tournament/create'      => 'tournament#create', as: 'tournament_create'
+    get 'tournament/:id/edit'     => 'tournament#edit', as: 'tournament_edit'
+    post 'tournament/:id/update'  => 'tournament#update', as: 'tournament_update'
+
     get 'game/index'
     get 'game/index/new'      => 'game#new', as: 'game_new'
     post 'game/index/create'  => 'game#create', as: 'game_create'

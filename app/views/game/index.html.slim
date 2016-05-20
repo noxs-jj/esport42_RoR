@@ -1,0 +1,17 @@
+h1 Games List
+
+.col-xs-12
+  table.table.table-striped.text-left
+    thead
+      th Name
+      th Icon
+      th Url
+      th Actions
+    - @games.each do |entry|
+      tr
+        td
+					= entry.name
+        td = entry.icon
+        td = entry.url
+        td
+          = link_to "Show", game_show_path(entry.id), class: "btn btn-success btn-xs"

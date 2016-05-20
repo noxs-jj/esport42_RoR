@@ -9,26 +9,6 @@ if User.find_by(email: 'superroot@esport.42.fr') == nil
   user.save!
 end
 
-if User.find_by(email: 'testuser@esport.42.fr') == nil
-  user = User.new(
-    :email                 => "testuser@esport.42.fr",
-    :password              => "testuser", # Ofuscated in source code
-    :password_confirmation => "testuser" # Ofuscated in source code
-  )
-  user.admin = false
-  puts "testuser@esport.42.fr created !"
-  user.save!
-end
-
-if Event.all.length == 0
-  event = Event.new(
-    name: "event test 01",
-    created_by: 1,
-    date: "2016-05-06 00:00:00"
-  )
-  event.save!
-end
-
 if ParticipantStatus.all.length < 8
 	status = ParticipantStatus.new(name: "Unknow")
 	status.save!
@@ -78,4 +58,73 @@ if EventStatus.all.length < 7
 	status.save!
   status = EventStatus.new(name: "Close")
 	status.save!
+end
+
+if Game.all.length < 7
+  game = Game.new(name: "Unknow")
+  game.save!
+  game = Game.new(name: "League of Legends")
+  game.save!
+  game = Game.new(name: "Counter-Strike Global Offensive")
+  game.save!
+  game = Game.new(name: "HeartStone")
+  game.save!
+  game = Game.new(name: "Startcraft II")
+  game.save!
+  game = Game.new(name: "TrackMania 2")
+  game.save!
+  game = Game.new(name: "ShootMania")
+  game.save!
+end
+
+# for DEVELOPEMENT ONLY
+if Rails.env == "development"
+  if User.find_by(email: 'testuser0@esport.42.fr') == nil
+    user = User.new(
+      :email                 => "testuser0@esport.42.fr",
+      :password              => "00000000", # Ofuscated in source code
+      :password_confirmation => "00000000" # Ofuscated in source code
+    )
+    user.admin = false
+    puts "testuser0@esport.42.fr created !"
+    user.save!
+  end
+
+  if User.find_by(email: 'testuser1@esport.42.fr') == nil
+    user = User.new(
+      :email                 => "testuser1@esport.42.fr",
+      :password              => "00000000", # Ofuscated in source code
+      :password_confirmation => "00000000" # Ofuscated in source code
+    )
+    user.admin = false
+    puts "testuser1@esport.42.fr created !"
+    user.save!
+  end
+
+  if Event.all.length == 0
+    event = Event.new(name: "event test 01",
+      created_by: 1, status_id: EventStatus::REGISTRATION_OPENS,
+      date: "2016-05-06 00:00:00" )
+    event.save!
+
+    event = Event.new(name: "event test 02",
+      created_by: 1, status_id: EventStatus::PENDING,
+      date: "2016-05-06 00:00:00")
+    event.save!
+
+    event = Event.new(name: "event test 03",
+      created_by: 1, status_id: EventStatus::ANNOUNCED,
+      date: "2016-05-06 00:00:00")
+    event.save!
+
+    event = Event.new(name: "event test 04 cenceled",
+      created_by: 1, status_id: EventStatus::CANCELED,
+      date: "2016-05-06 00:00:00")
+    event.save!
+
+    event = Event.new(name: "event test 05 closed",
+      created_by: 1, status_id: EventStatus::CLOSE,
+      date: "2016-05-06 00:00:00")
+    event.save!
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518152940) do
+ActiveRecord::Schema.define(version: 20160519152141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20160518152940) do
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.integer  "status_id"
-    t.text     "info"
+    t.text     "info",                default: ""
   end
 
   create_table "games", force: :cascade do |t|
@@ -112,6 +112,20 @@ ActiveRecord::Schema.define(version: 20160518152940) do
     t.integer  "tournament_ids", default: [],              array: true
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+  end
+
+  create_table "tournaments", force: :cascade do |t|
+    t.string   "name",            default: "", null: false
+    t.string   "game_id",         default: ""
+    t.string   "event_id",        default: "", null: false
+    t.integer  "participant_ids", default: [],              array: true
+    t.integer  "max_players",     default: 0
+    t.integer  "created_by",                   null: false
+    t.text     "rules",           default: ""
+    t.text     "brackets_info",   default: ""
+    t.text     "other_info",      default: ""
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,6 @@
+h1 Create New Tournament
+
+.container-fluid
+  .col-sm-12
+    = simple_form_for( @tournament, url:   backoffice_tournament_create_path(@tournament)) do |f|
+      = render 'backoffice/tournament/form', f: f

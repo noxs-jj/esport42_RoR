@@ -10,6 +10,7 @@ class Ability
     end
     can :read, Event
     can :read, Participant
+    can :read, Game
     can :create, ContactUs
   end
 end
