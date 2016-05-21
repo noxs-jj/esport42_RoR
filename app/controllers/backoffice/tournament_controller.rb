@@ -52,7 +52,7 @@ class Backoffice::TournamentController < Backoffice::ApplicationController
 
   def update
     @tournament = Tournament.find(params[:id])
-    if tournamentHelper_is_event_can_create_tournament?(tournament.event_id) == true
+    if tournamentHelper_is_event_can_create_tournament?(@tournament.event_id) == true
       if @tournament.nil?
         redirect_to backoffice_tournament_index_path, alert: "Event #{params[:id].to_s} doesn't exist"
       else

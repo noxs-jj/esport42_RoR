@@ -1,82 +1,16 @@
 .col-xs-12
   div.div-table
     div.div-table-col
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_cell'
+      = bracketHelper_cells_and_spaces(16, 0).html_safe
 
     div.div-table-col
-      = render 'backoffice/bracket/bracket_space_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_cell'
+      = bracketHelper_cells_and_spaces(8, 1).html_safe
 
     div.div-table-col
-      = render 'backoffice/bracket/bracket_space_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_cell'
+      = bracketHelper_cells_and_spaces(4, 3).html_safe
 
     div.div-table-col
-      = render 'backoffice/bracket/bracket_space_cell'
-      = render 'backoffice/bracket/bracket_space_cell'
-      = render 'backoffice/bracket/bracket_space_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_cell'
+      = bracketHelper_cells_and_spaces(2, 7).html_safe
 
     div.div-table-col
-      = render 'backoffice/bracket/bracket_space_cell'
-      = render 'backoffice/bracket/bracket_space_cell'
-      = render 'backoffice/bracket/bracket_space_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_empty_cell'
-      = render 'backoffice/bracket/bracket_cell'
+      = bracketHelper_cells_and_spaces(1, 15).html_safe
