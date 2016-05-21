@@ -10,6 +10,9 @@
     = f.input 'event_id', required: true, collection: Event::list_event_registrable, include_blank: false
 
   .col-sm-4
+    = f.input 'tournament_status', required: true, collection: TournamentStatus::list_status, include_blank: false
+
+  .col-sm-4
     = f.input 'participant_ids'
 
   .col-sm-4

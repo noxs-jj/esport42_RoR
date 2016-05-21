@@ -11,10 +11,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160519152141) do
+ActiveRecord::Schema.define(version: 20160521172907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bracket_statuses", force: :cascade do |t|
+    t.string   "name",       default: "", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "brackets", force: :cascade do |t|
+    t.integer  "tournament_id",              null: false
+    t.integer  "event_id",                   null: false
+    t.string   "name",          default: "", null: false
+    t.integer  "created_by"
+    t.integer  "players"
+    t.text     "info",          default: ""
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "cell_statuses", force: :cascade do |t|
+    t.string   "name",       default: "", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "cells", force: :cascade do |t|
+    t.integer  "tournament_id"
+    t.integer  "event_id"
+    t.integer  "bracket_id"
+    t.integer  "slot_id_cell_in_bracket"
+    t.integer  "seed_id_parent_openent_1"
+    t.integer  "participant_1_id"
+    t.integer  "score_1"
+    t.integer  "seed_id_parent_openent_2"
+    t.integer  "participant_2_id"
+    t.integer  "score_2"
+    t.datetime "scheduled"
+    t.integer  "winner_participant_id"
+    t.integer  "cell_id_son"
+    t.integer  "updated_by"
+    t.text     "info"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "ckeditor_assets", force: :cascade do |t|
     t.string   "data_file_name",               null: false
@@ -114,18 +157,25 @@ ActiveRecord::Schema.define(version: 20160519152141) do
     t.datetime "updated_at",                  null: false
   end
 
+  create_table "tournament_statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tournaments", force: :cascade do |t|
-    t.string   "name",            default: "", null: false
-    t.string   "game_id",         default: ""
-    t.string   "event_id",        default: "", null: false
-    t.integer  "participant_ids", default: [],              array: true
-    t.integer  "max_players",     default: 0
-    t.integer  "created_by",                   null: false
-    t.text     "rules",           default: ""
-    t.text     "brackets_info",   default: ""
-    t.text     "other_info",      default: ""
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.string   "name",              default: "", null: false
+    t.string   "game_id",           default: ""
+    t.string   "event_id",          default: "", null: false
+    t.integer  "participant_ids",   default: [],              array: true
+    t.integer  "max_players",       default: 0
+    t.integer  "created_by",                     null: false
+    t.text     "rules",             default: ""
+    t.text     "brackets_info",     default: ""
+    t.text     "other_info",        default: ""
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "tournament_status", default: 1
   end
 
   create_table "users", force: :cascade do |t|

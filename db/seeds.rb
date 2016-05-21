@@ -35,7 +35,7 @@ if ParticipantType.all.length < 6
 	type.save!
 	type = ParticipantType.new(name: "Concurrent")
 	type.save!
-	type = ParticipantType.new(name: "referee")
+	type = ParticipantType.new(name: "Referee")
 	type.save!
 	type = ParticipantType.new(name: "Admin")
 	type.save!
@@ -56,7 +56,7 @@ if EventStatus.all.length < 7
 	status.save!
   status = EventStatus.new(name: "Canceled")
 	status.save!
-  status = EventStatus.new(name: "Close")
+  status = EventStatus.new(name: "Closed")
 	status.save!
 end
 
@@ -75,6 +75,57 @@ if Game.all.length < 7
   game.save!
   game = Game.new(name: "ShootMania")
   game.save!
+end
+
+if BracketStatus.all.length < 6
+  status = BracketStatus.new(name: "Unknow")
+  status.save!
+  status = BracketStatus.new(name: "Deleted")
+  status.save!
+  status = BracketStatus.new(name: "Registation Open")
+  status.save!
+  status = BracketStatus.new(name: "Running")
+  status.save!
+  status = BracketStatus.new(name: "Closed")
+  status.save!
+  status = BracketStatus.new(name: "Terminated")
+  status.save!
+end
+
+if CellStatus.all.length < 8
+  status = CellStatus.new(name: "Unknow")
+  status.save!
+  status = CellStatus.new(name: "Deleted")
+  status.save!
+  status = CellStatus.new(name: "Canceled")
+  status.save!
+  status = CellStatus.new(name: "Pending")
+  status.save!
+  status = CellStatus.new(name: "Running")
+  status.save!
+  status = CellStatus.new(name: "Forfeit win")
+  status.save!
+  status = CellStatus.new(name: "Win")
+  status.save!
+  status = CellStatus.new(name: "Terminated")
+  status.save!
+end
+
+if TournamentStatus.all.length < 7
+  status = TournamentStatus.new(name: "Unknow")
+  status.save!
+  status = TournamentStatus.new(name: "Deleted")
+  status.save!
+  status = TournamentStatus.new(name: "Canceled")
+  status.save!
+  status = TournamentStatus.new(name: "Registation Open")
+  status.save!
+  status = TournamentStatus.new(name: "In progress")
+  status.save!
+  status = TournamentStatus.new(name: "Closed")
+  status.save!
+  status = TournamentStatus.new(name: "Terminated")
+  status.save!
 end
 
 # for DEVELOPEMENT ONLY

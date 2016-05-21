@@ -11,6 +11,8 @@ class Ability
     can :read, Event
     can :read, Participant
     can :read, Game
+    can :read, Bracket
+    can :read, Cell
     can :create, ContactUs
   end
 end

@@ -33,6 +33,10 @@
         b = "Date: "
         = @tournament.created_at.strftime("%Y/%m/%d %H:%M")
 
+      .col-sm-6
+        b = "Status: "
+        = @tournament.status_name
+
       .col-sm-12
         div style="height: 20px;"
         b = "Rules: "

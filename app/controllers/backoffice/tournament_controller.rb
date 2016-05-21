@@ -71,7 +71,7 @@ private
   def tournament_params
     params.require(:tournament).permit(
       :name, :game_id, :event_id, :participant_ids, :max_players,
-      :rules, :brackets_info, :other_info
+      :tournament_status, :rules, :brackets_info, :other_info
     )
   end
 end

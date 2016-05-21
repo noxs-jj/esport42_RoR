@@ -1,0 +1,20 @@
+.form-group.text-left
+  .col-sm-12
+    = f.input 'name', required: true, input_html: { style: 'width: 100%' }
+    div style="height: 20px;"
+
+  .col-xs-4
+    = f.input 'tournament_id', required: true, as: :date_picker
+  .col-xs-4
+    = f.input 'status_id', required: true, collection: EventStatus::list_status, include_blank: false
+
+  .col-sm-12
+    div style="height: 20px;"
+    = f.input 'info', :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }
+
+  .col-sm-12
+    div style="height: 20px;"
+    div style="height: 20px;"
+
+.form-actions.col-sm-12.text-left
+  = f.button :submit, "Send", class: 'btn btn-primary'
