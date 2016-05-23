@@ -1,2 +1,22 @@
-h1 Backoffice::Bracket#index
-p Find me in app/views/backoffice/bracket/index.html.slim
+h1 Brackets List
+
+.col-xs-12
+  table.table.table-striped.text-left
+    thead
+      th Name
+      th Tournament
+      th Created by
+      th Players
+      th Created On
+      th Actions
+    - @brackets.each do |entry|
+      tr
+        td
+					= link_to entry.name,  backoffice_bracket_show_path(entry.id)
+        td = entry.tournament_name
+        td = entry.creator_user_name
+        td = entry.players
+        td = entry.created_at.strftime("%Y/%m/%d %H:%M")
+        td
+          = link_to "Show", backoffice_bracket_show_path(entry.id), class: "btn btn-success btn-xs"
+          = link_to "Edit", backoffice_bracket_edit_path(entry.id), class: "btn btn-primary btn-xs"

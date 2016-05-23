@@ -50,9 +50,11 @@ module BracketHelper
     i       = 0
     i_cell  = 0
     start   = space_between_cells / 2.0
+    switch_color = 1
 
     if space_between_cells != 0
       result += render partial: 'backoffice/bracket/bracket_space_cell'
+
     end
     if start > 1.0
       while i < start - 1
@@ -61,7 +63,8 @@ module BracketHelper
       end
     end
     while i_cell < cells_to_spawn
-      result += render partial: 'backoffice/bracket/bracket_cell', locals: {id_cell: var_id_cell}
+      result += render partial: 'backoffice/bracket/bracket_cell', locals: {id_cell: var_id_cell, var_set_color: switch_color}
+      switch_color = (switch_color == 1)? 2 : 1
       i = 0
       while i < space_between_cells && i_cell + 1 < cells_to_spawn
           result += render partial: 'backoffice/bracket/bracket_empty_cell'

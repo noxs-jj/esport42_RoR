@@ -1,2 +1,6 @@
-h1 Backoffice::Bracket#new
-p Find me in app/views/backoffice/bracket/new.html.slim
+h1 Create New Bracket
+
+.container-fluid
+  .col-sm-12
+    = simple_form_for( @bracket, url: backoffice_bracket_create_path(@bracket)) do |f|
+      = render 'backoffice/bracket/form', f: f

@@ -1,0 +1,18 @@
+.col-sm-12
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title
+        b = @bracket.name
+
+    .panel-body
+      -if user_signed_in? && current_user.admin?
+        .col-sm-6
+          b = "Created by: "
+          = @bracket.creator_user_name
+        .col-sm-6
+          b = "On: "
+          = @bracket.created_at.strftime("%Y/%m/%d %H:%M")
+
+      .col-sm-12
+        h2 Infos
+        = @bracket.info.to_s.html_safe

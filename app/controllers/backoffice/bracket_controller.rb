@@ -1,4 +1,5 @@
 class Backoffice::BracketController < Backoffice::ApplicationController
+  include BracketHelper
   load_and_authorize_resource
 
   def index
@@ -9,6 +10,14 @@ class Backoffice::BracketController < Backoffice::ApplicationController
     @bracket = Bracket.find_by(id: params[:id])
     if @bracket.nil?
       redirect_to backoffice_bracket_index_path, alert: "Bracket #{params[:id].to_s} doesn't exist"
+    else
+      @tournament = Tournament.find_by(id: @bracket.tournament_id)
+      if @tournament.nil?
+        redirect_to backoffice_bracket_index_path, alert: "Tournament #{params[:id].to_s} doesn't exist on Bracket #{params[:id].to_s}"
+      else
+        @bracket_column = bracketHelper_number_column_with_number_participants(@tournament.max_players)
+        @bracket_cell = bracketHelper_number_cell_with_number_participants(@tournament.max_players)
+      end
     end
   end
 
@@ -19,9 +28,10 @@ class Backoffice::BracketController < Backoffice::ApplicationController
   def create
     bracket = Bracket.new(bracket_params)
     bracket.created_by = current_user.id
+    bracket.event_id = bracket.find_event_id_with_tournament_id
     bracket.save
     if bracket
-      redirect_to backoffice_user_show_path(bracket.id), notice: "Register success"
+      redirect_to  backoffice_bracket_show_path(bracket.id), notice: "Register success"
     else
       redirect_to request.headers["HTTP_REFERER"], alert: "Register failed, plz contact admin"
     end

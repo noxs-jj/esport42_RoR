@@ -1,9 +1,9 @@
 class Tournament < ActiveRecord::Base
-  def tournament_list
-    Tournament.where( "status_id = ? OR status_id = ?",
+  def self.tournament_list
+    Tournament.where( "tournament_status = ? OR tournament_status = ?",
         TournamentStatus::REGISTRATION_OPENS,
         TournamentStatus::IN_PROGRESS
-      ).all.map do |t|
+      ).map do |t|
         [t.name, t.id]
     end
   end

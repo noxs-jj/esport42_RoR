@@ -3,9 +3,9 @@
     = f.input 'name', required: true, input_html: { style: 'width: 100%' }
     div style="height: 20px;"
 
-  .col-xs-4
+  .col-sm-4
     = f.input 'date', required: true, as: :date_picker
-  .col-xs-4
+  .col-sm-4
     = f.input 'status_id', required: true, collection: EventStatus::list_status, include_blank: false
 
   .col-sm-12

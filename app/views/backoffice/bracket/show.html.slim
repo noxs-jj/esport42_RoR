@@ -1,2 +1,6 @@
-h1 Backoffice::Bracket#show
-p Find me in app/views/backoffice/bracket/show.html.slim
+h1
+  = "Bracket ##{@bracket.id} - #{@bracket.name}"
+
+= render "backoffice/bracket/detail"
+
+= render 'backoffice/bracket/bracket'

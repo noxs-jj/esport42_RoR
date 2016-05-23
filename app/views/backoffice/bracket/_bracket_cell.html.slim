@@ -1,6 +1,8 @@
+- color = (var_set_color == 1)? "#195070" : "#b63152"
+
 .table-row
   a href="#"
-    div id="#{id_cell}" style="border-radius: 5px; background-color: grey; height: 60px; color: white; padding: 0px;"
+    div id="#{id_cell}" style="border-radius: 5px; background-color: #{color}; height: 60px; color: white; padding: 0px;"
       span id="cell_#{id_cell}_participant_1_name"
         a href="#" style="color: inherit"
           | qwertyu
@@ -8,4 +10,4 @@
       br
       span id="cell_#{id_cell}_participant_2_name"
         a href="#" style="color: inherit"
-          | 742565236
+          | 742565236s
