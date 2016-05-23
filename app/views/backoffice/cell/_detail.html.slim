@@ -1,0 +1,59 @@
+.col-sm-12
+  - if user_signed_in? && current_user.admin == true
+    = "nil"
+
+.col-sm-12
+  .panel.panel-default
+    .panel-heading
+      h3.panel-title
+        b = @cell.id
+
+    .panel-body
+      .col-sm-4
+        b = "id"
+        = @cell.id
+      .col-sm-4
+        b = "tournament_id "
+        = @cell.tournament_id
+      .col-sm-4
+        b = "event_id "
+        = @cell.event_id
+      .col-sm-4
+        b = "bracket_id "
+        = @cell.bracket_id
+      .col-sm-4
+        b = "slot_id_cell_in_bracket "
+        = @cell.slot_id_cell_in_bracket
+      .col-sm-4
+        b = "seed_id_parent_openent_1 "
+        = @cell.seed_id_parent_openent_1
+      .col-sm-4
+        b = "participant_1_id "
+        = @cell.participant_1_id
+      .col-sm-4
+        b = "score_1 "
+        = @cell.score_1
+      .col-sm-4
+        b = "seed_id_parent_openent_2 "
+        = @cell.seed_id_parent_openent_2
+      .col-sm-4
+        b = "participant_2_id "
+        = @cell.participant_2_id
+      .col-sm-4
+        b = "score_2 "
+        = @cell.score_2
+      .col-sm-4
+        b = "scheduled "
+        = @cell.scheduled
+      .col-sm-4
+        b = "winner_participant_id "
+        = @cell.winner_participant_id
+      .col-sm-4
+        b = "cell_id_son "
+        = @cell.cell_id_son
+      .col-sm-4
+        b = "updated_by "
+        = @cell.updated_by
+      .col-sm-4
+        b = "info "
+        = @cell.info.html_safe

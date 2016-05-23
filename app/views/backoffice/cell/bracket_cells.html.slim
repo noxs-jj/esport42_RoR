@@ -1,0 +1,39 @@
+h1 Bracket cells list
+
+.col-xs-12
+  table.table.table-striped.text-left style="margin-top: 155px; padding:0px;"
+    thead
+      th
+      th.rotate-string-vertical Id
+      th.rotate-string-vertical tournament_id
+      th.rotate-string-vertical event
+      th.rotate-string-vertical bracket
+      th.rotate-string-vertical slot_id
+      th.rotate-string-vertical seed_id_parent_openent_1
+      th.rotate-string-vertical part_1_id
+      th.rotate-string-vertical score_1
+      th.rotate-string-vertical seed_id_parent_openent_2
+      th.rotate-string-vertical part_2_id
+      th.rotate-string-vertical score_2
+      th.rotate-string-vertical scheduled
+      th.rotate-string-vertical winner_part_id
+      th.rotate-string-vertical cell_id_son
+      th.rotate-string-vertical updated_by.id
+    tbody
+      - @cells.each do |entry|
+        tr
+          td = link_to "##{entry.id}",  backoffice_cell_show_path(entry.id)
+          td = entry.tournament_id
+          td = entry.event_id
+          td = entry.bracket_id
+          td = entry.slot_id_cell_in_bracket
+          td = entry.seed_id_parent_openent_1
+          td = entry.participant_1_id
+          td = entry.score_1
+          td = entry.seed_id_parent_openent_2
+          td = entry.participant_2_id
+          td = entry.score_2
+          td = entry.scheduled
+          td = entry.winner_participant_id
+          td = entry.cell_id_son
+          td = entry.updated_by

@@ -1,0 +1,38 @@
+h1 Populate cells result
+
+.col-xs-12
+  table.table.table-striped.text-left
+    thead
+      th style="max-width: 5px;"
+        | tournament_id
+      th event_id
+      th bracket_id
+      th slot_id_cell_in_bracket
+      th seed_id_parent_openent_1
+      th participant_1_id
+      th score_1
+      th seed_id_parent_openent_2
+      th participant_2_id
+      th score_2
+      th scheduled
+      th winner_participant_id
+      th cell_id_son
+      th updated_by.id
+      th info.html_safe
+    - @generated_cells.each do |entry|
+      tr
+        td = entry.tournament_id
+        td = entry.event_id
+        td = entry.bracket_id
+        td = entry.slot_id_cell_in_bracket
+        td = entry.seed_id_parent_openent_1
+        td = entry.participant_1_id
+        td = entry.score_1
+        td = entry.seed_id_parent_openent_2
+        td = entry.participant_2_id
+        td = entry.score_2
+        td = entry.scheduled
+        td = entry.winner_participant_id
+        td = entry.cell_id_son
+        td = entry.updated_by
+        td = entry.info.html_safe

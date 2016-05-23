@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get 'tournament/index'  => 'tournament#index', as: 'tournament_index'
   get 'tournament/show'   => 'tournament#show', as: 'tournament_show'
 
@@ -20,6 +19,12 @@ Rails.application.routes.draw do
   get 'welcome' => 'welcome#index'
 
   namespace :backoffice do
+    get 'bracket/:bracket_id/cell/index'  => 'cell#bracket_cells', as: 'bracket_cells_list'
+    get 'cell/show/:id'                   => 'cell#show', as: 'cell_show'
+    get 'cell/edit/:id'                   => 'cell#edit', as: 'cell_edit'
+    post 'cell/update/:id'                => 'cell#update', as: 'cell_update'
+    get 'cell/populate_bracket/:bracket'  => 'cell#populate_bracket', as: 'cell_populate_bracket'
+
     get 'bracket/index'        => 'bracket#index', as: 'bracket_index'
     get 'bracket/show/:id'     => 'bracket#show', as: 'bracket_show'
     get 'bracket/new'          => 'bracket#new', as: 'bracket_new'
