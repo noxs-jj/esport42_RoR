@@ -1,5 +1,6 @@
 class Backoffice::BracketController < Backoffice::ApplicationController
   include BracketHelper
+  include CellHelper
   load_and_authorize_resource
 
   def index
@@ -15,8 +16,8 @@ class Backoffice::BracketController < Backoffice::ApplicationController
       if @tournament.nil?
         redirect_to backoffice_bracket_index_path, alert: "Tournament #{params[:id].to_s} doesn't exist on Bracket #{params[:id].to_s}"
       else
-        @bracket_column = bracketHelper_number_column_with_number_participants(@tournament.max_players)
-        @bracket_cell = bracketHelper_number_cell_with_number_participants(@tournament.max_players)
+        @cells = get_cells_if_bracket(params[:id])
+        #ap @cells
       end
     end
   end

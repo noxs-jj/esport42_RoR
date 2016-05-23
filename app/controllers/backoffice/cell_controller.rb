@@ -60,7 +60,7 @@ class Backoffice::CellController < Backoffice::ApplicationController
   end
 
   def bracket_cells
-    @cells = Cell.where(bracket_id: params[:bracket_id])
+    @cells = Cell.where(bracket_id: params[:bracket_id]).order(slot_id_cell_in_bracket: :asc)
   end
 
 end
