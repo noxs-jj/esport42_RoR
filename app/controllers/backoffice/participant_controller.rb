@@ -12,7 +12,6 @@ class Backoffice::ParticipantController < Backoffice::ApplicationController
     entry = params[:entry]
     if @tournament.participant_ids.include?(entry[:participant_id].to_i) == false
       @tournament.participant_ids.push(entry[:participant_id].to_i)
-      ap "AFTER"
       @tournament.save
       @participants_tounament = Participant.where( "#{params[:tournament_id]} = ANY (tournament_ids)" ).order(created_at: :desc)
       @participants_event = Participant.where(event_id: params[:event_id] ).order(created_at: :desc)
@@ -29,7 +28,6 @@ class Backoffice::ParticipantController < Backoffice::ApplicationController
     @tournament = Tournament.find_by(id: params[:id])
     entry = params[:entry]
     @tournament.participant_ids.delete(entry[:participant_id].to_i)
-    ap @tournament.participant_ids
     @tournament.save
     @participants_tounament = Participant.where( "#{params[:tournament_id]} = ANY (tournament_ids)" ).order(created_at: :desc)
     @participants_event = Participant.where(event_id: params[:event_id] ).order(created_at: :desc)
