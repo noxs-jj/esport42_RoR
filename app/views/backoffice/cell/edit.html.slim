@@ -1,2 +1,8 @@
-h1 Backoffice::Cell#edit
-p Find me in app/views/backoffice/cell/edit.html.slim
+h1
+  = "Edit Cell/Match # "
+  = params[:id].to_s
+
+.container-fluid
+  .col-sm-12
+    = simple_form_for( @cell, url: backoffice_cell_update_path(@cell), method: 'POST') do |f|
+      = render 'backoffice/cell/form', f: f

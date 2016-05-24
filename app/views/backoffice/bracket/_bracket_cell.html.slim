@@ -1,14 +1,15 @@
 - color = (var_set_color == 1)? "#195070" : "#b63152"
+- url = (var_data_cell == nil) ? "#" : "/backoffice/cell/edit/#{var_data_cell.id.to_s}"
 
-.table-row
-  a href="#"
-    div id="#{id_cell}" title="Cell #{id_cell}" style="border-radius: 5px; background-color: #{color}; height: 60px; color: white; padding: 0px;"
-      span id="cell_#{id_cell}_participant_1_name"
-        a href="#" style="color: inherit"
-          = var_data_cell.participant_1_id
-
-      br
-      br
-      span id="cell_#{id_cell}_participant_2_name"
-        a href="#" style="color: inherit"
-          = var_data_cell.participant_1_id
+a href="#{url}"
+  .table-row
+    a href="#{url}"
+      div id="#{id_cell}" title="Cell #{id_cell}" style="border-radius: 5px; background-color: #{color}; height: 60px; color: white; padding: 0px;"
+        span id="cell_#{id_cell}_participant_1_name"
+          a href="#{url}" style="color: inherit"
+            = (var_data_cell == nil) ? "Popuate !" : var_data_cell.participant_1_id.to_s
+        br
+        br
+        span id="cell_#{id_cell}_participant_2_name"
+          a href="#{url}" style="color: inherit"
+            = (var_data_cell == nil) ? "Popuate !" : var_data_cell.participant_2_id.to_s

@@ -6,8 +6,8 @@ server 'ec2-52-30-89-78.eu-west-1.compute.amazonaws.com', port: 22, roles: [:web
 set :application,     'esport42'
 set :repo_url,        'git@bitbucket.org:NoXsNoNo/esport42.git'
 set :user,            'ubuntu'
-set :puma_threads,    [2, 8]
-set :puma_workers,    0
+set :puma_threads,    [2, 4]
+set :puma_workers,    4
 
 # Don't change these unless you know what you're doing
 set :pty,             true
@@ -78,13 +78,4 @@ namespace :deploy do
       end
     end
   end
-
-  # after :restart, :clear_cache do
-  #   on roles(:web), in: :groups, limit: 3, wait: 10 do
-  #     # Here we can do anything such as:
-  #     # within release_path do
-  #     #   execute :rake, 'cache:clear'
-  #     # end
-  #   end
-  # end
 end

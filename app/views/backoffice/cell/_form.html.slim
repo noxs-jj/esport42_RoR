@@ -1,0 +1,60 @@
+.form-group.text-left
+  .col-sm-3
+    b = "tournament_id: "
+    = @cell.tournament_id
+  .col-sm-3
+    b = "event_id: "
+    = @cell.event_id
+  .col-sm-3
+    b = "bracket_id: "
+    = @cell.bracket_id
+  .col-sm-3
+    b = "slot_id_cell_in_bracket: "
+    = @cell.slot_id_cell_in_bracket
+  .col-sm-3
+    b = "cell_id_son: "
+    = @cell.cell_id_son
+  .col-sm-3
+    b = "updated_by: "
+    = @cell.updated_by
+  .col-sm-3
+    b = "created_at: "
+    = @cell.created_at.strftime("%Y/%m/%d %H:%M")
+  .col-sm-3
+    b = "updated_at: "
+    = @cell.updated_at.strftime("%Y/%m/%d %H:%M")
+
+  .col-sm-12
+    hr
+
+  .col-sm-3
+    b = "seed_id_parent_openent_1: "
+    = f.input 'seed_id_parent_openent_1'
+  .col-sm-3
+    b = "participant_1_id: "
+    = f.input 'participant_1_id'
+  .col-sm-3
+    b = "score_1: "
+    = f.input 'score_1'
+  .col-sm-3
+    b = "seed_id_parent_openent_2: "
+    = f.input 'seed_id_parent_openent_2'
+  .col-sm-3
+    b = "participant_2_id: "
+    = f.input 'participant_2_id'
+  .col-sm-3
+    b = "score_2: "
+    = f.input 'score_2'
+  .col-sm-3
+    b = "scheduled: "
+    = f.input 'scheduled', as: :datetime_picker
+  .col-sm-3
+    b = "winner_participant_id: "
+    = f.input 'winner_participant_id'
+
+  .col-sm-12
+    b = "info: "
+    = f.input 'info', :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }
+
+.form-actions.col-sm-12.text-left
+  = f.button :submit, "Send", class: 'btn btn-primary'
