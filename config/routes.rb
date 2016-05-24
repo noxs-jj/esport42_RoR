@@ -47,9 +47,13 @@ Rails.application.routes.draw do
     get 'game/edit/:id'       => 'game#edit', as: 'game_edit'
     post 'game/update/:id'    => 'game#update', as: 'game_update'
 
-    get 'event/:event_id/participant/index'       => 'participant#index', as: 'event_participant_index'
-    post 'event/:event_id/participant/:id/update' => 'participant#update', as: 'event_participant_update'
-    get 'event/:event_id/participant/:id/delete'  => 'participant#delete', as: 'event_participant_delete'
+    get 'event/:event_id/tournament/:tournament_id/participants' => 'participant#event_tournament_participants', as: 'event_tournament_participants'
+    post 'participant/:id/tournament/add'                        => 'participant#tournament_participants_add', as: 'tournament_participants_add'
+    post 'participant/:id/tournament/remove'                     => 'participant#tournament_participants_remove', as: 'tournament_participants_remove'
+
+    get 'event/:event_id/participant/index'                      => 'participant#index', as: 'event_participant_index'
+    post 'event/:event_id/participant/:id/update'                => 'participant#update', as: 'event_participant_update'
+    get 'event/:event_id/participant/:id/delete'                 => 'participant#delete', as: 'event_participant_delete'
 
     get 'event/index'
     get 'event/show/:id'    => 'event#show', as: 'event_show'

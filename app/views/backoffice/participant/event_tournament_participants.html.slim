@@ -1,0 +1,28 @@
+= javascript_include_tag "application", params[:controller]
+h1
+  = 'List participant tournament #'
+  = params[:tournament_id].to_s
+
+.col-xs-12
+  table.table.table-striped.text-left
+    thead
+      th Name
+      th Register on
+      th Actions
+    tbody
+      div id="participant_tournament_list"
+        = render 'participants_tournament'
+
+.col-sm-12
+  hr
+
+.col-xs-12
+  table.table.table-striped.text-left
+    thead
+      th Name
+      th Register on
+      th Actions
+
+    tbody
+      div id="participant_event_list"
+        = render 'participants_event'

@@ -1,0 +1,2 @@
+Array:
+  .where("'history' = ANY (subjects)")

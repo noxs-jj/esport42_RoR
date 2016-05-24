@@ -131,7 +131,7 @@ if TournamentStatus.all.length < 7
   status.save!
 end
 
-# for DEVELOPEMENT ONLY
+### for DEVELOPEMENT ONLY
 if Rails.env == "development"
   if User.find_by(email: 'testuser1@esport.42.fr') == nil
     user = User.new( email: "testuser1@esport.42.fr", username: "testuser1", password: "00000000", password_confirmation: "00000000" )
@@ -145,7 +145,6 @@ if Rails.env == "development"
     puts "testuser2@esport.42.fr created !"
     user.save!
   end
-
   if User.find_by(email: 'testuser3@esport.42.fr') == nil
     user = User.new( email: "testuser3@esport.42.fr", username: "testuser3", password: "00000000", password_confirmation: "00000000" )
     user.admin = false
@@ -158,7 +157,6 @@ if Rails.env == "development"
     puts "testuser4@esport.42.fr created !"
     user.save!
   end
-
   if User.find_by(email: 'testuser5@esport.42.fr') == nil
     user = User.new( email: "testuser5@esport.42.fr", username: "testuser5", password: "00000000", password_confirmation: "00000000" )
     user.admin = false
@@ -171,7 +169,6 @@ if Rails.env == "development"
     puts "testuser6@esport.42.fr created !"
     user.save!
   end
-
   if User.find_by(email: 'testuser7@esport.42.fr') == nil
     user = User.new( email: "testuser7@esport.42.fr", username: "testuser7", password: "00000000", password_confirmation: "00000000" )
     user.admin = false
@@ -184,7 +181,6 @@ if Rails.env == "development"
     puts "testuser8@esport.42.fr created !"
     user.save!
   end
-
   if User.find_by(email: 'testuser9@esport.42.fr') == nil
     user = User.new( email: "testuser9@esport.42.fr", username: "testuser9", password: "00000000", password_confirmation: "00000000" )
     user.admin = false
@@ -197,7 +193,6 @@ if Rails.env == "development"
     puts "testuser10@esport.42.fr created !"
     user.save!
   end
-
   if User.find_by(email: 'testuser11@esport.42.fr') == nil
     user = User.new( email: "testuser11@esport.42.fr", username: "testuser11", password: "00000000", password_confirmation: "00000000" )
     user.admin = false
@@ -210,7 +205,6 @@ if Rails.env == "development"
     puts "testuser12@esport.42.fr created !"
     user.save!
   end
-
   if User.find_by(email: 'testuser13@esport.42.fr') == nil
     user = User.new( email: "testuser13@esport.42.fr", username: "testuser13", password: "00000000", password_confirmation: "00000000" )
     user.admin = false
@@ -223,14 +217,12 @@ if Rails.env == "development"
     puts "testuser14@esport.42.fr created !"
     user.save!
   end
-
   if User.find_by(email: 'testuser15@esport.42.fr') == nil
     user = User.new( email: "testuser15@esport.42.fr", username: "testuser15", password: "00000000", password_confirmation: "00000000" )
     user.admin = false
     puts "testuser15@esport.42.fr created !"
     user.save!
   end
-
   if User.find_by(email: 'testuser16@esport.42.fr') == nil
     user = User.new( email: "testuser16@esport.42.fr", username: "testuser16", password: "00000000", password_confirmation: "00000000" )
     user.admin = false
@@ -243,22 +235,18 @@ if Rails.env == "development"
       created_by: 1, status_id: EventStatus::REGISTRATION_OPENS,
       date: "2016-05-06 00:00:00" )
     event.save!
-
     event = Event.new(name: "event test 02",
       created_by: 1, status_id: EventStatus::PENDING,
       date: "2016-05-06 00:00:00")
     event.save!
-
     event = Event.new(name: "event test 03",
       created_by: 1, status_id: EventStatus::ANNOUNCED,
       date: "2016-05-06 00:00:00")
     event.save!
-
     event = Event.new(name: "event test 04 cenceled",
       created_by: 1, status_id: EventStatus::CANCELED,
       date: "2016-05-06 00:00:00")
     event.save!
-
     event = Event.new(name: "event test 05 closed",
       created_by: 1, status_id: EventStatus::CLOSE,
       date: "2016-05-06 00:00:00")
@@ -298,7 +286,7 @@ if Rails.env == "development"
     participant.save!
     participant = Participant.new(user_id: 17, event_id: 1, type_id: 3, status_id: 4)
     participant.save!
-    puts "16 Participants created !"
   end
+  puts "16 Participants created !"
 
 end

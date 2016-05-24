@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160521172907) do
+ActiveRecord::Schema.define(version: 20160524140738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,14 +23,15 @@ ActiveRecord::Schema.define(version: 20160521172907) do
   end
 
   create_table "brackets", force: :cascade do |t|
-    t.integer  "tournament_id",              null: false
-    t.integer  "event_id",                   null: false
-    t.string   "name",          default: "", null: false
+    t.integer  "tournament_id",                  null: false
+    t.integer  "event_id",                       null: false
+    t.string   "name",           default: "",    null: false
     t.integer  "created_by"
     t.integer  "players"
-    t.text     "info",          default: ""
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.text     "info",           default: ""
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "cell_populated", default: false
   end
 
   create_table "cell_statuses", force: :cascade do |t|
@@ -176,6 +177,7 @@ ActiveRecord::Schema.define(version: 20160521172907) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.integer  "tournament_status", default: 1
+    t.integer  "participant_1_id",  default: [],              array: true
   end
 
   create_table "users", force: :cascade do |t|

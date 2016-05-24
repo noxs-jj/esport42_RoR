@@ -1,0 +1,11 @@
+- @participants_event.each do |entry|
+  tr
+    td = entry.user_name
+    td = entry.created_at.strftime("%Y/%m/%d %H:%M")
+    td
+      = simple_form_for( :entry, url: backoffice_tournament_participants_add_path(id: params[:tournament_id]),
+                          remote: true, method: 'POST' ) do |f|
+
+        .hidden
+          = f.input 'participant_id', input_html: { value: entry.id }
+        = f.submit "Add", class: "btn btn-success"

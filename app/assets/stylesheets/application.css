@@ -11,9 +11,12 @@
  * file per style scope.
  *
  *= require bootstrap-datetimepicker
+ *= require bootstrap_and_overrides
  *= require dropdown_open_on_hover
+ *= require contact_us
+ *= require game
  *= require rotate-vertical
+ *= require tournament
  *= require bracket
- *= require_tree .
  *= require_self
  */

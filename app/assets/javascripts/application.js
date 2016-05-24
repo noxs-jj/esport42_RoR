@@ -18,4 +18,3 @@
 //= require bootstrap-datetimepicker
 //= require pickers
 //= require ckeditor/init
-//= require_tree .

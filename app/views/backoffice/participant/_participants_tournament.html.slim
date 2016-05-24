@@ -1,0 +1,11 @@
+- @participants_tounament.each do |entry|
+  tr
+    td = entry
+    td
+    td
+      = simple_form_for( :entry, url: backoffice_tournament_participants_remove_path(id: params[:tournament_id]),
+                          remote: true, method: 'POST' ) do |f|
+
+        .hidden
+          = f.input 'participant_id', input_html: { value: entry }
+        = f.submit "Remove", class: "btn btn-danger"
