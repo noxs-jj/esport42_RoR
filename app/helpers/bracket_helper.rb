@@ -1,4 +1,18 @@
 module BracketHelper
+  def bracketHelper_brackets_links_with_tournament_id(tournament_id)
+    brackets = Bracket.where(tournament_id: tournament_id)
+    result = ""
+    i = 1
+
+    brackets.each do |entry|
+      result += '<a href="/backoffice/bracket/show/' + entry.id.to_s + '" title="' + entry.name + '">#' + i.to_s + '</a> '
+
+      i += 1
+    end
+
+    return result
+  end
+
   def bracketHelper_columns_from_players(players, cells)
     if players <= 2
       bracket_size = 1

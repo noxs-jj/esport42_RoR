@@ -11,6 +11,7 @@ gem 'simple_form'
 gem 'mail_form'
 gem 'ckeditor'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem 'will_paginate-bootstrap'
 # https://github.com/zpaulovics/datetimepicker-rails
 gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true

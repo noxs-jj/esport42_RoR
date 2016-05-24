@@ -1,8 +1,11 @@
 if User.find_by(email: 'superroot@esport.42.fr') == nil
   user = User.new(
-    :email                 => "superroot@esport.42.fr",
-    :password              => "XXXXXXXX", # Ofuscated in source code
-    :password_confirmation => "XXXXXXXX" # Ofuscated in source code
+    email: "superroot@esport.42.fr",
+    username: "SuperRoot",
+    first_name: "Super",
+    last_name: "ROOT",
+    password: "XXXXXXXX", # Ofuscated in source code
+    password_confirmation: "XXXXXXXX" # Ofuscated in source code
   )
   user.admin = true
   puts "superroot@esport.42.fr created !"
@@ -130,25 +133,108 @@ end
 
 # for DEVELOPEMENT ONLY
 if Rails.env == "development"
-  if User.find_by(email: 'testuser0@esport.42.fr') == nil
-    user = User.new(
-      :email                 => "testuser0@esport.42.fr",
-      :password              => "00000000", # Ofuscated in source code
-      :password_confirmation => "00000000" # Ofuscated in source code
-    )
+  if User.find_by(email: 'testuser1@esport.42.fr') == nil
+    user = User.new( email: "testuser1@esport.42.fr", username: "testuser1", password: "00000000", password_confirmation: "00000000" )
     user.admin = false
-    puts "testuser0@esport.42.fr created !"
+    puts "testuser1@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'testuser2@esport.42.fr') == nil
+    user = User.new( email: "testuser2@esport.42.fr", username: "testuser2", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "testuser2@esport.42.fr created !"
     user.save!
   end
 
-  if User.find_by(email: 'testuser1@esport.42.fr') == nil
-    user = User.new(
-      :email                 => "testuser1@esport.42.fr",
-      :password              => "00000000", # Ofuscated in source code
-      :password_confirmation => "00000000" # Ofuscated in source code
-    )
+  if User.find_by(email: 'testuser3@esport.42.fr') == nil
+    user = User.new( email: "testuser3@esport.42.fr", username: "testuser3", password: "00000000", password_confirmation: "00000000" )
     user.admin = false
-    puts "testuser1@esport.42.fr created !"
+    puts "testuser3@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'testuser4@esport.42.fr') == nil
+    user = User.new( email: "testuser4@esport.42.fr", username: "testuser4", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "testuser4@esport.42.fr created !"
+    user.save!
+  end
+
+  if User.find_by(email: 'testuser5@esport.42.fr') == nil
+    user = User.new( email: "testuser5@esport.42.fr", username: "testuser5", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "testuser5@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'testuser6@esport.42.fr') == nil
+    user = User.new( email: "testuser6@esport.42.fr", username: "testuser6", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "testuser6@esport.42.fr created !"
+    user.save!
+  end
+
+  if User.find_by(email: 'testuser7@esport.42.fr') == nil
+    user = User.new( email: "testuser7@esport.42.fr", username: "testuser7", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "testuser7@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'testuser8@esport.42.fr') == nil
+    user = User.new( email: "testuser8@esport.42.fr", username: "testuser8", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "testuser8@esport.42.fr created !"
+    user.save!
+  end
+
+  if User.find_by(email: 'testuser9@esport.42.fr') == nil
+    user = User.new( email: "testuser9@esport.42.fr", username: "testuser9", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "testuser9@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'testuser10@esport.42.fr') == nil
+    user = User.new( email: "testuser10@esport.42.fr", username: "testuser10", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "testuser10@esport.42.fr created !"
+    user.save!
+  end
+
+  if User.find_by(email: 'testuser11@esport.42.fr') == nil
+    user = User.new( email: "testuser11@esport.42.fr", username: "testuser11", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "testuser11@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'testuser12@esport.42.fr') == nil
+    user = User.new( email: "testuser12@esport.42.fr", username: "testuser12", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "testuser12@esport.42.fr created !"
+    user.save!
+  end
+
+  if User.find_by(email: 'testuser13@esport.42.fr') == nil
+    user = User.new( email: "testuser13@esport.42.fr", username: "testuser13", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "testuser13@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'testuser14@esport.42.fr') == nil
+    user = User.new( email: "testuser14@esport.42.fr", username: "testuser14", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "testuser14@esport.42.fr created !"
+    user.save!
+  end
+
+  if User.find_by(email: 'testuser15@esport.42.fr') == nil
+    user = User.new( email: "testuser15@esport.42.fr", username: "testuser15", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "testuser15@esport.42.fr created !"
+    user.save!
+  end
+
+  if User.find_by(email: 'testuser16@esport.42.fr') == nil
+    user = User.new( email: "testuser16@esport.42.fr", username: "testuser16", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "testuser16@esport.42.fr created !"
     user.save!
   end
 
@@ -178,4 +264,41 @@ if Rails.env == "development"
       date: "2016-05-06 00:00:00")
     event.save!
   end
+
+  if Participant.where(event_id: 1, type_id: 3, status_id: 4).length != 16
+    participant = Participant.new(user_id: 2, event_id: 1, type_id: 3, status_id: 4)
+    participant.save!
+    participant = Participant.new(user_id: 3, event_id: 1, type_id: 3, status_id: 4)
+    participant.save!
+    participant = Participant.new(user_id: 4, event_id: 1, type_id: 3, status_id: 4)
+    participant.save!
+    participant = Participant.new(user_id: 5, event_id: 1, type_id: 3, status_id: 4)
+    participant.save!
+    participant = Participant.new(user_id: 6, event_id: 1, type_id: 3, status_id: 4)
+    participant.save!
+    participant = Participant.new(user_id: 7, event_id: 1, type_id: 3, status_id: 4)
+    participant.save!
+    participant = Participant.new(user_id: 8, event_id: 1, type_id: 3, status_id: 4)
+    participant.save!
+    participant = Participant.new(user_id: 9, event_id: 1, type_id: 3, status_id: 4)
+    participant.save!
+    participant = Participant.new(user_id: 10, event_id: 1, type_id: 3, status_id: 4)
+    participant.save!
+    participant = Participant.new(user_id:11, event_id: 1, type_id: 3, status_id: 4)
+    participant.save!
+    participant = Participant.new(user_id: 12, event_id: 1, type_id: 3, status_id: 4)
+    participant.save!
+    participant = Participant.new(user_id: 13, event_id: 1, type_id: 3, status_id: 4)
+    participant.save!
+    participant = Participant.new(user_id: 14, event_id: 1, type_id: 3, status_id: 4)
+    participant.save!
+    participant = Participant.new(user_id: 15, event_id: 1, type_id: 3, status_id: 4)
+    participant.save!
+    participant = Participant.new(user_id: 16, event_id: 1, type_id: 3, status_id: 4)
+    participant.save!
+    participant = Participant.new(user_id: 17, event_id: 1, type_id: 3, status_id: 4)
+    participant.save!
+    puts "16 Participants created !"
+  end
+
 end
