@@ -1,3 +1,14 @@
-.col-xs-12
-  div.div-table
-    = bracketHelper_columns_from_players(@bracket.players, @cells).html_safe
+- if action_name == "show"
+  .col-xs-12
+    div.div-table
+      = bracketHelper_columns_from_players(@bracket.players, @cells).html_safe
+
+- elsif action_name == "edit_cell"
+  = simple_form_for( :cellules, url: backoffice_bracket_update_cell_path(params[:id]), method: "POST" ) do |cell_entry|
+    .col-xs-12
+      div.div-table style="border: 0px;"
+        = bracketHelper_columns_from_players(@bracket.players, @cells, cell_entry).html_safe
+
+    .col-sm-12
+      br
+      = cell_entry.submit "Apply modification", class: 'btn btn-primary'

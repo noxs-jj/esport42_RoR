@@ -25,12 +25,15 @@ Rails.application.routes.draw do
     post 'cell/update/:id'                => 'cell#update', as: 'cell_update'
     get 'cell/populate_bracket/:bracket'  => 'cell#populate_bracket', as: 'cell_populate_bracket'
 
-    get 'bracket/index'        => 'bracket#index', as: 'bracket_index'
-    get 'bracket/show/:id'     => 'bracket#show', as: 'bracket_show'
-    get 'bracket/new'          => 'bracket#new', as: 'bracket_new'
-    post 'bracket/create'      => 'bracket#create', as: 'bracket_create'
-    get 'bracket/:id/edit'    => 'bracket#edit', as: 'bracket_edit'
-    post 'bracket/:id/update' => 'bracket#update', as: 'bracket_update'
+    get 'bracket/index'            => 'bracket#index', as: 'bracket_index'
+    get 'bracket/show/:id'         => 'bracket#show', as: 'bracket_show'
+    get 'bracket/new'              => 'bracket#new', as: 'bracket_new'
+    post 'bracket/create'          => 'bracket#create', as: 'bracket_create'
+    get 'bracket/:id/edit'         => 'bracket#edit', as: 'bracket_edit'
+    post 'bracket/:id/update'      => 'bracket#update', as: 'bracket_update'
+
+    get 'bracket/:id/edit_cell'    => 'bracket#edit_cell', as: 'bracket_edit_cell'
+    post 'bracket/:id/update_cell' => 'bracket#update_cell', as: 'bracket_update_cell'
 
     get 'tournament/bracket/:id'  => 'tournament#bracket_show', as: 'tournament_bracket_show'
     get 'tournament/index'        => 'tournament#index', as: 'tournament_index'
@@ -50,7 +53,6 @@ Rails.application.routes.draw do
     get 'event/:event_id/tournament/:tournament_id/participants' => 'participant#event_tournament_participants', as: 'event_tournament_participants'
     post 'participant/:id/tournament/radio_add'                  => 'participant#tournament_participants_radio_add', as: 'tournament_participants_radio_add'
     post 'participant/:id/tournament/radio_remove'               => 'participant#tournament_participants_radio_remove', as: 'tournament_participants_radio_remove'
-
     get 'event/:event_id/participant/index'                      => 'participant#index', as: 'event_participant_index'
     post 'event/:event_id/participant/:id/update'                => 'participant#update', as: 'event_participant_update'
     get 'event/:event_id/participant/:id/delete'                 => 'participant#delete', as: 'event_participant_delete'

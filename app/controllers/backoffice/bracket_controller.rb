@@ -1,6 +1,7 @@
 class Backoffice::BracketController < Backoffice::ApplicationController
   include BracketHelper
   include CellHelper
+  include ParticipantHelper
   load_and_authorize_resource
 
   def index
@@ -16,6 +17,8 @@ class Backoffice::BracketController < Backoffice::ApplicationController
       if @tournament.nil?
         redirect_to backoffice_bracket_index_path, alert: "Tournament #{params[:id].to_s} doesn't exist on Bracket #{params[:id].to_s}"
       else
+        @participants = []
+        @paricipants = participant_help_bracket_tournament_list(@tournament.id)
         @cells = get_cells_if_bracket(params[:id])
       end
     end
@@ -56,6 +59,40 @@ class Backoffice::BracketController < Backoffice::ApplicationController
         redirect_to backoffice_bracket_index_path, alert: "Failed to update event."
       end
     end
+  end
+
+  def edit_cell
+    @bracket = Bracket.find_by(id: params[:id])
+    if @bracket.nil?
+      redirect_to backoffice_bracket_index_path, alert: "Bracket #{params[:id].to_s} doesn't exist"
+    else
+      @tournament = Tournament.find_by(id: @bracket.tournament_id)
+      if @tournament.nil?
+        redirect_to backoffice_bracket_index_path, alert: "Tournament #{params[:id].to_s} doesn't exist on Bracket #{params[:id].to_s}"
+      else
+        @participants = []
+        @paricipants = participant_help_bracket_tournament_list(@tournament.id)
+        @cells = get_cells_if_bracket(params[:id])
+        @participant_collection = participant_help_collection_participant_name_id(@paricipants)
+      end
+    end
+  end
+
+  def update_cell
+    i = 1
+    @cells = get_cells_if_bracket(params[:id])
+    data_param = params[:cellules]
+
+    while i - 1 < (data_param.length / 2)
+      cell = Cell.find_by( bracket_id: params[:id], slot_id_cell_in_bracket: i )
+      tmp1 = "slot_#{i  * 2 - 1}"
+      tmp2 = "slot_#{i * 2}"
+      cell.update_attributes(participant_1_id: data_param[tmp1].to_i) if data_param[tmp1].to_i != -1
+      cell.update_attributes(participant_2_id: data_param[tmp2].to_i) if data_param[tmp2].to_i != -1
+      i += 1
+    end
+
+    redirect_to request.headers["HTTP_REFERER"], notice: "Update Success"
   end
 
 private

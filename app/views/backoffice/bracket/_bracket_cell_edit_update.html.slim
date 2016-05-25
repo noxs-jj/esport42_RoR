@@ -1,0 +1,16 @@
+- color = "white"
+- url = (cell == nil) ? "#" : "/backoffice/cell/edit/#{var_data_cell.id.to_s}"
+
+div
+  a href="#{url}"
+    .table-row
+      a href="#{url}"
+        div id="cell_#{id_cell}" title="Cell #{id_cell}" style="border-radius: 5px; background-color: #{color}; height: 60px; color: white; padding: 0px;"
+          span id="slot_#{id_cell * 2 - 1}_participant_1_name"
+            a href="#{url}" style="color: inherit"
+              = (var_data_cell == nil) ? "Popuate !" : var_data_cell.participant_1_id.to_s
+          br
+          br
+          span id="slot_#{id_cell * 2}_participant_2_name"
+            a href="#{url}" style="color: inherit"
+              = (var_data_cell == nil) ? "Popuate !" : var_data_cell.participant_2_id.to_s

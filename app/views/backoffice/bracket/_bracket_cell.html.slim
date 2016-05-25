@@ -1,15 +1,28 @@
 - color = (var_set_color == 1)? "#195070" : "#b63152"
 - url = (var_data_cell == nil) ? "#" : "/backoffice/cell/edit/#{var_data_cell.id.to_s}"
 
-a href="#{url}"
-  .table-row
-    a href="#{url}"
-      div id="#{id_cell}" title="Cell #{id_cell}" style="border-radius: 5px; background-color: #{color}; height: 60px; color: white; padding: 0px;"
-        span id="cell_#{id_cell}_participant_1_name"
-          a href="#{url}" style="color: inherit"
-            = (var_data_cell == nil) ? "Popuate !" : var_data_cell.participant_1_id.to_s
-        br
-        br
-        span id="cell_#{id_cell}_participant_2_name"
-          a href="#{url}" style="color: inherit"
-            = (var_data_cell == nil) ? "Popuate !" : var_data_cell.participant_2_id.to_s
+- if action_name == "show" || first_column == false
+  a href="#{url}"
+    .table-row
+      a href="#{url}"
+        div id="cell_#{id_cell}" title="Cell #{id_cell}" style="border-radius: 5px; background-color: #{color}; height: 60px; color: white; padding: 0px;"
+          span id="slot_#{id_cell * 2 - 1}_participant_1_name"
+            a href="#{url}" style="color: inherit"
+              = (var_data_cell == nil) ? "Popuate !" : var_data_cell.participant_1_name
+          br
+          br
+          span id="slot_#{id_cell * 2}_participant_2_name"
+            a href="#{url}" style="color: inherit"
+              = (var_data_cell == nil) ? "Popuate !" : var_data_cell.participant_2_name
+
+- elsif action_name == "edit_cell"
+  .table-row style="color: black;"
+    div.text-center id="cell_#{id_cell}" title="Cell #{id_cell}" style="width: 150px; border-radius: 5px; background-color: #{color}; height: 60px; color: black; padding: 0px;"
+      span id="slot_#{id_cell}_participant_1_name"
+        = cell_entry.input "slot_#{id_cell * 2 - 1}", collection: @participant_collection,
+              selected: -1, label: false, include_blank: false
+
+      span id="slot_#{id_cell}_participant_2_name"
+        = cell_entry.input "slot_#{id_cell * 2}", collection: @participant_collection,
+              selected: -1, label: false, include_blank: false
+  = render 'bracket_space_cell'

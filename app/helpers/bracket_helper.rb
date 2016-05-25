@@ -13,7 +13,7 @@ module BracketHelper
     return result
   end
 
-  def bracketHelper_columns_from_players(players, cells)
+  def bracketHelper_columns_from_players(players, cells, cell_entry = nil)
     if players <= 2
       bracket_size = 1
       columns = 1
@@ -44,6 +44,7 @@ module BracketHelper
     end
     space_number = 0
     i_column = 0
+    first_column = true
     result = ""
     id_first_cell_of_column = 1
 
@@ -52,8 +53,12 @@ module BracketHelper
         var_cell: bracket_size,
         var_space: space_number,
         var_id_cell: id_first_cell_of_column,
-        var_cell_array: cells
+        var_cell_array: cells,
+        first_column: first_column,
+        cell_entry: cell_entry
       }
+      first_column = false;
+      break if action_name == "edit_cell"
       id_first_cell_of_column += bracket_size
       bracket_size = bracket_size / 2
       space_number = (space_number * 2) + 1
@@ -63,7 +68,8 @@ module BracketHelper
     return result
   end
 
-  def bracketHelper_cells_and_spaces(cells_to_spawn, space_between_cells, var_id_cell, var_cell_array)
+  def bracketHelper_cells_and_spaces(cells_to_spawn, space_between_cells,
+            var_id_cell, var_cell_array, first_column, cell_entry = nil)
     result  = ""
     i       = 0
     i_cell  = 0
@@ -83,7 +89,9 @@ module BracketHelper
       result += render partial: 'backoffice/bracket/bracket_cell', locals: {
         id_cell: var_id_cell,
         var_set_color: switch_color,
-        var_data_cell: var_cell_array[var_id_cell - 1]
+        var_data_cell: var_cell_array[var_id_cell - 1],
+        first_column: first_column,
+        cell_entry: cell_entry
       }
       switch_color = (switch_color == 1)? 2 : 1
       i = 0
