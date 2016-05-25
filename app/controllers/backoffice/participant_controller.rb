@@ -2,39 +2,37 @@ class Backoffice::ParticipantController < Backoffice::ApplicationController
   load_and_authorize_resource
 
   def event_tournament_participants
-    @participants_tounament = Tournament.find_by(id: params[:tournament_id]).participant_ids
+    tournament = Tournament.find_by(id: params[:tournament_id])
+    @participants_tounament = []
+    @participants_event = []
+    @participants_tounament = Participant.where(id: tournament.participant_ids) if !tournament.nil? && !tournament.participant_ids.nil?
     @participants_event = Participant.where(event_id: params[:event_id] ).order(created_at: :desc)
   end
 
-#http://stackoverflow.com/questions/17447555/adding-to-database-without-refreshing-the-page
-  def tournament_participants_add
-    @tournament = Tournament.find_by(id: params[:id])
-    entry = params[:entry]
-    if @tournament.participant_ids.include?(entry[:participant_id].to_i) == false
-      @tournament.participant_ids.push(entry[:participant_id].to_i)
-      @tournament.save
-      @participants_tounament = Participant.where( "#{params[:tournament_id]} = ANY (tournament_ids)" ).order(created_at: :desc)
-      @participants_event = Participant.where(event_id: params[:event_id] ).order(created_at: :desc)
-
-      respond_to do |format|
-        format.js
+  def tournament_participants_radio_add
+    tournament = Tournament.find_by(id: params[:id])
+    params[:radio_event_add].each do |id_participant|
+      if id_participant[1] == "1"
+        if tournament.participant_ids.include?(id_participant[0].to_i) == false
+          tournament.participant_ids.push(id_participant[0].to_i)
+        end
       end
     end
-    # render :event_tournament_participants, change: [:participant_tournament_list]
+    tournament.save
 
+    redirect_to  backoffice_event_tournament_participants_path(event_id: tournament.event_id, tournament_id: tournament.id)
   end
 
-  def tournament_participants_remove
-    @tournament = Tournament.find_by(id: params[:id])
-    entry = params[:entry]
-    @tournament.participant_ids.delete(entry[:participant_id].to_i)
-    @tournament.save
-    @participants_tounament = Participant.where( "#{params[:tournament_id]} = ANY (tournament_ids)" ).order(created_at: :desc)
-    @participants_event = Participant.where(event_id: params[:event_id] ).order(created_at: :desc)
-
-    respond_to do |format|
-      format.js
+  def tournament_participants_radio_remove
+    tournament = Tournament.find_by(id: params[:id])
+    params[:radio_event_remove].each do |id_participant|
+      if id_participant[1] == "1"
+        tournament.participant_ids.delete(id_participant[0].to_i)
+      end
     end
+    tournament.save
+
+    redirect_to  backoffice_event_tournament_participants_path(event_id: tournament.event_id, tournament_id: tournament.id)
   end
 
   def index

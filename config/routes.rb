@@ -48,8 +48,8 @@ Rails.application.routes.draw do
     post 'game/update/:id'    => 'game#update', as: 'game_update'
 
     get 'event/:event_id/tournament/:tournament_id/participants' => 'participant#event_tournament_participants', as: 'event_tournament_participants'
-    post 'participant/:id/tournament/add'                        => 'participant#tournament_participants_add', as: 'tournament_participants_add'
-    post 'participant/:id/tournament/remove'                     => 'participant#tournament_participants_remove', as: 'tournament_participants_remove'
+    post 'participant/:id/tournament/radio_add'                  => 'participant#tournament_participants_radio_add', as: 'tournament_participants_radio_add'
+    post 'participant/:id/tournament/radio_remove'               => 'participant#tournament_participants_radio_remove', as: 'tournament_participants_radio_remove'
 
     get 'event/:event_id/participant/index'                      => 'participant#index', as: 'event_participant_index'
     post 'event/:event_id/participant/:id/update'                => 'participant#update', as: 'event_participant_update'

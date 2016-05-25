@@ -1,0 +1,15 @@
+= simple_form_for( :radio_event_add, url: backoffice_tournament_participants_radio_add_path(id: params[:tournament_id]),
+  method: 'POST' ) do |add_event|
+
+  - @participants_event.each do |entry|
+    tr
+      td = entry.user_name
+      td = entry.created_at.strftime("%Y/%m/%d %H:%M")
+      td
+        div style="padding: 0px; margin-top: -13px;"
+          = add_event.input "#{entry.id}", as: :boolean, checked: false, label: false
+
+  tr
+    td
+    td
+    td = add_event.submit "Add selections", class: "btn btn-primary", id: "button_add_selection"

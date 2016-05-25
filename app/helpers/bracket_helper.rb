@@ -46,10 +46,7 @@ module BracketHelper
     i_column = 0
     result = ""
     id_first_cell_of_column = 1
-    # ap cells
-    # cells.each do |t|
-    #   ap t.tournament_id
-    # end
+
     while i_column < columns
       result += render partial: 'backoffice/bracket/bracket_column', locals: {
         var_cell: bracket_size,

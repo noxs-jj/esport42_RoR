@@ -1,4 +1,3 @@
-= javascript_include_tag "application", params[:controller]
 h1
   = 'List participant tournament #'
   = params[:tournament_id].to_s
@@ -6,12 +5,12 @@ h1
 .col-xs-12
   table.table.table-striped.text-left
     thead
-      th Name
-      th Register on
-      th Actions
+      th ID
+      th Username
+      th Select
     tbody
       div id="participant_tournament_list"
-        = render 'participants_tournament'
+        = render 'backoffice/participant/forms/participants_tournament'
 
 .col-sm-12
   hr
@@ -21,8 +20,8 @@ h1
     thead
       th Name
       th Register on
-      th Actions
+      th Select
 
     tbody
       div id="participant_event_list"
-        = render 'participants_event'
+        = render 'backoffice/participant/forms/participants_event'
