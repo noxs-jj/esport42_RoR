@@ -1,4 +1,22 @@
 module ParticipantHelper
+  def participant_help_how_many_participant_id_is_assigned_get_color(id_to_check, cells_array)
+    result = 0
+    - to_spawn = (@cells.length + 1) / 2
+    - i = 0
+
+    cells_array.each do |cell|
+      result += 1 if cell.participant_1_id == id_to_check
+      result += 1 if cell.participant_2_id == id_to_check
+      i += 1
+      break if i >= to_spawn
+    end
+
+    return "black" if result == 0
+    return "green" if result == 1
+    return "red" if result > 1
+  end
+
+
   def participant_help_bracket_tournament_list(tournament_id)
     tournament = Tournament.find_by(id: tournament_id)
     result = Participant.where(id: tournament.participant_ids) if !tournament.nil?
@@ -8,6 +26,7 @@ module ParticipantHelper
   end
 
   def participant_help_collection_participant_name_id(arr_objects)
+    result = []
     result = arr_objects.map do |entry|
       [entry.user_name, entry.id]
     end

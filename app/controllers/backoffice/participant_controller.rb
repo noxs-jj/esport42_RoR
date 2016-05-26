@@ -10,7 +10,7 @@ class Backoffice::ParticipantController < Backoffice::ApplicationController
   end
 
   def tournament_participants_radio_add
-    tournament = Tournament.find_by(id: params[:id])
+    tournament = Tournament.find_by(id: params[:tournament_id])
     params[:radio_event_add].each do |id_participant|
       if id_participant[1] == "1"
         if tournament.participant_ids.include?(id_participant[0].to_i) == false
@@ -24,7 +24,7 @@ class Backoffice::ParticipantController < Backoffice::ApplicationController
   end
 
   def tournament_participants_radio_remove
-    tournament = Tournament.find_by(id: params[:id])
+    tournament = Tournament.find_by(id: params[:tournament_id])
     params[:radio_event_remove].each do |id_participant|
       if id_participant[1] == "1"
         tournament.participant_ids.delete(id_participant[0].to_i)

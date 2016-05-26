@@ -1,6 +1,5 @@
-= simple_form_for( :radio_event_add, url: backoffice_tournament_participants_radio_add_path(id: params[:tournament_id]),
+= simple_form_for( :radio_event_add, url: backoffice_tournament_participants_radio_add_path(tournament_id: params[:tournament_id]),
   method: 'POST' ) do |add_event|
-
   - @participants_event.each do |entry|
     tr
       td = entry.user_name

@@ -1,4 +1,4 @@
-= simple_form_for( :radio_event_remove, url:  backoffice_tournament_participants_radio_remove_path(id: params[:tournament_id]),
+= simple_form_for( :radio_event_remove, url:  backoffice_tournament_participants_radio_remove_path(tournament_id: params[:tournament_id]),
   method: 'POST' ) do |remove_event|
 
   - @participants_tounament.each do |entry|

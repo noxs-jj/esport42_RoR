@@ -1,0 +1,28 @@
+- color_switch = 1
+- to_spawn = (@cells.length + 1) / 2
+- i = 0
+
+.div-table-col style="width: 300px;"
+  - @cells.each do |cell|
+    - url = (cell == nil) ? "#" : "/backoffice/cell/edit/#{cell.id.to_s}"
+    .table-row
+      a href="#{url}"
+        .table-row
+          a href="#{url}"
+            div id="cell_#{i}" title="Cell #{i}" style="border-radius: 5px; background-color: rgb(222, 222, 222); height: 60px; color: white; padding: 0px;"
+              span id="slot_#{i * 2 - 1}_participant_1_name"
+                - color = participant_help_how_many_participant_id_is_assigned_get_color(cell.participant_1_id, @cells)
+                a href="#{url}" style="color: #{color}"
+                  b = (cell == nil) ? "Popuate !" : "[ #{cell.participant_1_id} ] -- #{cell.participant_1_name}"
+
+              .text-right style="align: right; color: yellow; font-weight: bold;"
+                = "Cell[ #{cell.id} ]"
+
+              span id="slot_#{i * 2}_participant_2_name"
+                - color = participant_help_how_many_participant_id_is_assigned_get_color(cell.participant_2_id, @cells)
+                a href="#{url}" style="color: #{color}"
+                  b = (cell == nil) ? "Popuate !" : "[ #{cell.participant_2_id} ] -- #{cell.participant_2_name}"
+    - break if i >= to_spawn - 1
+    - color_switch = (color_switch == 1) ? 2 : 1
+    - i += 1
+    = render 'bracket_space_cell'

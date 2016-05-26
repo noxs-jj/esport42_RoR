@@ -1,34 +1,14 @@
-- color_switch = 1
-- to_spawn = (@cells.length + 1) / 2
-- i = 0
-
 h1
   = "Edit Cells Bracket # "
   = params[:id].to_s
 
 .container-fluid
-  .div-table-col style="width: 300px;"
-    - @cells.each do |cell|
-      - url = (cell == nil) ? "#" : "/backoffice/cell/edit/#{cell.id.to_s}"
-      .table-row
-        a href="#{url}"
-          .table-row
-            a href="#{url}"
-              div id="cell_#{i}" title="Cell #{i}" style="border-radius: 5px; background-color: grey; height: 60px; color: white; padding: 0px;"
-                span id="slot_#{i * 2 - 1}_participant_1_name"
-                  a href="#{url}" style="color: inherit"
-                    = (cell == nil) ? "Popuate !" : "Part_ID[ #{cell.participant_1_id} ] -- Username: [ #{cell.participant_1_name} ]"
-
-                .text-right style="align: right; color: yellow; font-weight: bold;"
-                  = "Cell[ #{cell.id} ]"
-
-                span id="slot_#{i * 2}_participant_2_name"
-                  a href="#{url}" style="color: inherit"
-                    = (cell == nil) ? "Popuate !" : "Part_ID[ #{cell.participant_2_id} ] -- Username[ #{cell.participant_2_name} ]"
-      - break if i >= to_spawn - 1
-      - color_switch = (color_switch == 1) ? 2 : 1
-      - i += 1
-      = render 'bracket_space_cell'
+  = render 'edit_cell_first'
+  = render 'edit_cell_second'
 
   .div-table-col
     = render 'backoffice/bracket/bracket'
+
+  .col-sm-12
+    br
+    br

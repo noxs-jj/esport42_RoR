@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require turbolinks
 //= require moment
-//= require bootstrap-datetimepicker
 //= require pickers
+//= require bootstrap-datetimepicker
+//= require turbolinks
 //= require ckeditor/init

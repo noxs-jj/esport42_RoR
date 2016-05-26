@@ -71,9 +71,9 @@ class Backoffice::BracketController < Backoffice::ApplicationController
         redirect_to backoffice_bracket_index_path, alert: "Tournament #{params[:id].to_s} doesn't exist on Bracket #{params[:id].to_s}"
       else
         @participants = []
-        @paricipants = participant_help_bracket_tournament_list(@tournament.id)
+        @participants = participant_help_bracket_tournament_list(@tournament.id)
         @cells = get_cells_if_bracket(params[:id])
-        @participant_collection = participant_help_collection_participant_name_id(@paricipants)
+        @participant_collection = participant_help_collection_participant_name_id(@participants)
       end
     end
   end

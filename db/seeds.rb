@@ -286,7 +286,7 @@ if Rails.env == "development"
     participant.save!
     participant = Participant.new(user_id: 17, event_id: 1, type_id: 3, status_id: 4)
     participant.save!
+    puts "16 Participants created !"
   end
-  puts "16 Participants created !"
 
 end
