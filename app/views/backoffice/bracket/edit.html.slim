@@ -2,7 +2,6 @@ h1
   = "Edit Bracket # "
   = params[:id].to_s
 
-.container-fluid
-  .col-sm-12
-    = simple_form_for( @bracket, url: backoffice_bracket_update_path(@bracket), method: 'POST') do |f|
-      = render 'backoffice/bracket/form', f: f
+
+= simple_form_for( @bracket, url: backoffice_bracket_update_path(@bracket), method: 'POST') do |f|
+  = render 'backoffice/bracket/form', f: f

@@ -1,24 +1,23 @@
 h1 tournament List
 
-.col-xs-12
-  table.table.table-striped.text-left
-    thead
-      th Name
-      th Max Players
-      th Created By
-      th Created at
-      th Brackets
-      th Actions
-    - @tournaments.each do |entry|
-      tr
-        td
-					= link_to entry.name
-        td = entry.max_players
-        td = entry.creator_user_name
-        td = entry.created_at.strftime("%Y/%m/%d %H:%M")
-        td
-          = bracketHelper_brackets_links_with_tournament_id(entry.id).html_safe
-        td
-          = link_to "List", backoffice_event_tournament_participants_path(tournament_id: entry.id, event_id: entry.event_id), class: "btn btn-warning btn-xs"
-          = link_to "Show", backoffice_tournament_show_path(entry.id), class: "btn btn-success btn-xs"
-          = link_to "Edit", backoffice_tournament_edit_path(id: entry.id), class: "btn btn-primary btn-xs"
+table.table.table-striped.text-left
+  thead
+    th Name
+    th Max Players
+    th Created By
+    th Created at
+    th Brackets
+    th Actions
+  - @tournaments.each do |entry|
+    tr
+      td
+				= link_to entry.name
+      td = entry.max_players
+      td = entry.creator_user_name
+      td = entry.created_at.strftime("%Y/%m/%d %H:%M")
+      td
+        = bracketHelper_brackets_links_with_tournament_id(entry.id).html_safe
+      td
+        = link_to "List", backoffice_event_tournament_participants_path(tournament_id: entry.id, event_id: entry.event_id), class: "btn btn-warning btn-xs"
+        = link_to "Show", backoffice_tournament_show_path(entry.id), class: "btn btn-success btn-xs"
+        = link_to "Edit", backoffice_tournament_edit_path(id: entry.id), class: "btn btn-primary btn-xs"

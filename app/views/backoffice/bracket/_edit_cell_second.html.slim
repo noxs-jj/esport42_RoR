@@ -15,8 +15,8 @@
                 a href="#{url}" style="color: #{color}"
                   b = (cell == nil) ? "Popuate !" : "[ #{cell.participant_1_id} ] -- #{cell.participant_1_name}"
 
-              .text-right style="align: right; color: yellow; font-weight: bold;"
-                = "Cell[ #{cell.id} ]"
+              .text-right style="align: right; color: rgb(57, 67, 255); font-weight: bold;"
+                = "[Cell: #{cell.slot_id_cell_in_bracket}] [ID: #{cell.id} ] "
 
               span id="slot_#{i * 2}_participant_2_name"
                 - color = participant_help_how_many_participant_id_is_assigned_get_color(cell.participant_2_id, @cells)

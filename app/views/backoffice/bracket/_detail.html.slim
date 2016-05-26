@@ -1,6 +1,7 @@
 .col-sm-12
   - if user_signed_in? && current_user.admin == true
     = link_to "Populate", backoffice_cell_populate_bracket_path(@bracket.id), data: { confirm: "Are you sure?" }, class: "btn btn-warning"
+    = link_to "Son fillit", backoffice_cell_son_fillit_path(@bracket.id), class: "btn btn-success"
 
 .col-sm-12
   .panel.panel-default

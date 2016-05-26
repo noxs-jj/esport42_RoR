@@ -1,60 +1,89 @@
 .form-group.text-left
-  .col-sm-3
-    b = "tournament_id: "
-    = @cell.tournament_id
-  .col-sm-3
-    b = "event_id: "
-    = @cell.event_id
-  .col-sm-3
-    b = "bracket_id: "
-    = @cell.bracket_id
-  .col-sm-3
-    b = "slot_id_cell_in_bracket: "
-    = @cell.slot_id_cell_in_bracket
-  .col-sm-3
-    b = "cell_id_son: "
-    = @cell.cell_id_son
-  .col-sm-3
-    b = "updated_by: "
-    = @cell.updated_by
-  .col-sm-3
-    b = "created_at: "
-    = @cell.created_at.strftime("%Y/%m/%d %H:%M")
-  .col-sm-3
-    b = "updated_at: "
-    = @cell.updated_at.strftime("%Y/%m/%d %H:%M")
+  .col-md-6
+    .panel.panel-default
+      .panel-body
+        span style="color: blue;"
+          b = "Cell/Slot in Bracket: "
+          = @cell.slot_id_cell_in_bracket
+        br
+        br
+        b = "Tournament: "
+        = " ##{@cell.tournament_id} #{@cell.tournament_name}"
+        br
+        b = "Event: "
+        = " ##{@cell.event_id} #{@cell.event_name} "
+        br
+        b = "Bracket: "
+        = " ##{@cell.bracket_id} #{@cell.bracket_name} "
+        br
 
-  .col-sm-12
-    hr
 
-  .col-sm-3
-    b = "seed_id_parent_openent_1: "
-    = f.input 'seed_id_parent_openent_1'
-  .col-sm-3
-    b = "participant_1_id: "
-    = f.input 'participant_1_id'
-  .col-sm-3
-    b = "score_1: "
-    = f.input 'score_1'
-  .col-sm-3
-    b = "seed_id_parent_openent_2: "
-    = f.input 'seed_id_parent_openent_2'
-  .col-sm-3
-    b = "participant_2_id: "
-    = f.input 'participant_2_id'
-  .col-sm-3
-    b = "score_2: "
-    = f.input 'score_2'
-  .col-sm-3
-    b = "scheduled: "
-    = f.input 'scheduled', as: :datetime_picker
-  .col-sm-3
-    b = "winner_participant_id: "
-    = f.input 'winner_participant_id'
+  .col-md-6
+    .panel.panel-default
+      .panel-body
+        span style="color: green;"
+          b = "Winner Cell/Slot son in Bracket: "
+          = @cell.cell_id_son
+        br
+        br
+        b = "created_at: "
+        = @cell.created_at.strftime("%H:%M %Y/%m/%d")
+        br
+        b = "updated_at: "
+        = @cell.updated_at.strftime("%H:%M %Y/%m/%d")
+        br
+        b = "updated_by: "
+        = @cell.user_name
 
-  .col-sm-12
-    b = "info: "
-    = f.input 'info', :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }
+  .col-md-6
+    .panel.panel-default
+      .panel-body
+        span style="color: red"
+          b = "Cell/Slot Parent Openent 1: "
+          = @cell.seed_id_parent_openent_1
+        br
+        br
+        b = "Opeenent 1: "
+        = "#{@cell.participant_1_id} -- #{@cell.participant_1_name}"
+        br
+        = f.input 'score_1', label: "Score/Round(s): "
 
-.form-actions.col-sm-12.text-left
-  = f.button :submit, "Send", class: 'btn btn-primary'
+  .col-md-6
+    .panel.panel-default
+      .panel-body
+        span style="color: red"
+          b = "Cell/Slot Parent Openent 2: "
+          = @cell.seed_id_parent_openent_2
+        br
+        br
+        b = "Openent 2: "
+        = "#{@cell.participant_2_id} -- #{@cell.participant_2_name}"
+        br
+        = f.input 'score_2', label: "Score/Round(s): "
+
+  .col-md-12
+    .panel.panel-default
+      .panel-body
+        .col-md-4
+          = f.input 'scheduled', as: :datetime_picker
+        .col-md-4
+        .col-md-4
+          span style="color: green;"
+            b = "Winner: "
+            = "#{@cell.winner_participant_id} #{@cell.winner_name}"
+        .col-md-12
+          br
+          .col-md-4
+            = f.input 'winner_participant_id',
+              collection: [["NOTHING #{-1}", -1],
+                ["#{@cell.participant_1_name} #{@cell.participant_1_id}", @cell.participant_1_id],
+                ["#{@cell.participant_2_name} #{@cell.participant_2_id}", @cell.participant_2_id]],
+              include_blank: false
+
+          .col-md-4
+            = f.input 'status_id', collection: CellStatus::status_list, include_blank: false
+          .col-md-4
+            = f.button :submit, "Update", class: 'btn btn-primary'
+
+  .col-md-12
+    = f.input 'info', :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }, label: false

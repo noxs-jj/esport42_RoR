@@ -1,8 +1,10 @@
-h1
-  = "Edit Cell/Match # "
-  = params[:id].to_s
+.panel.panel-primary
+  .panel-heading
+    h4
+      = "Edit Cell/Match ##{params[:id].to_s}"
+      div.pull-right
+        = "#{@cell.winner_participant_id} #{@cell.winner_name}"
 
-.container-fluid
-  .col-sm-12
+  .panel-body
     = simple_form_for( @cell, url: backoffice_cell_update_path(@cell), method: 'POST') do |f|
       = render 'backoffice/cell/form', f: f

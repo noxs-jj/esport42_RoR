@@ -95,7 +95,7 @@ if BracketStatus.all.length < 6
   status.save!
 end
 
-if CellStatus.all.length < 8
+if CellStatus.all.length < 9
   status = CellStatus.new(name: "Unknow")
   status.save!
   status = CellStatus.new(name: "Deleted")
@@ -106,7 +106,9 @@ if CellStatus.all.length < 8
   status.save!
   status = CellStatus.new(name: "Running")
   status.save!
-  status = CellStatus.new(name: "Forfeit win")
+  status = CellStatus.new(name: "Win by opposing cheating")
+  status.save!
+  status = CellStatus.new(name: "Forfeit Win")
   status.save!
   status = CellStatus.new(name: "Win")
   status.save!

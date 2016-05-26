@@ -1,18 +1,30 @@
 class Backoffice::CellController < Backoffice::ApplicationController
   include BracketHelper
+  include CellHelper
   load_and_authorize_resource
 
   def show
   end
 
   def edit
+    @cell = Cell.find_by(id: params[:id])
   end
 
   def update
+    @cell = Cell.find_by(id: params[:id])
+    if @cell.nil?
+      redirect_to request.headers["HTTP_REFERER"], alert: "Cell/Match #{params[:id]} doesn't exist"
+    else
+      if @cell.update(cell_match_edit_params)
+        redirect_to request.headers["HTTP_REFERER"], notice: "Cell/Match #{params[:id]} Update success"
+      else
+        redirect_to request.headers["HTTP_REFERER"], alert: "Cell/Match #{params[:id]} Faled to update"
+      end
+    end
   end
 
   def populate_bracket
-    bracket = Bracket.find_by(id: params[:bracket])
+    bracket = Bracket.find_by(id: params[:bracket_id])
     if bracket.nil?
       redirect_to request.headers["HTTP_REFERER"], alert: "Bracket #{params[:bracket]} doesn't exist"
     else
@@ -59,8 +71,22 @@ class Backoffice::CellController < Backoffice::ApplicationController
     end
   end
 
+  def son_fillit
+    ap "DEB 0"
+    @cells = Cell.where(bracket_id: params[:bracket_id]).all
+    ap "DEB 1"
+    ap @cells.length + 1
+    cellHelper_fill_parent_and_son_id(@cells.length + 1, @cells)
+    ap "DEB 2"
+    redirect_to request.headers["HTTP_REFERER"], notice: "Son fillit !"
+  end
+
   def bracket_cells
     @cells = Cell.where(bracket_id: params[:bracket_id]).order(slot_id_cell_in_bracket: :asc).paginate(page: params[:page])
   end
 
+private
+  def cell_match_edit_params
+    params.require(:cell).permit( :score_1, :score_2, :scheduled, :winner_participant_id, :info, :status_id )
+  end
 end

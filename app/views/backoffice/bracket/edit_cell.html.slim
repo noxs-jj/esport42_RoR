@@ -2,13 +2,13 @@ h1
   = "Edit Cells Bracket # "
   = params[:id].to_s
 
-.container-fluid
-  = render 'edit_cell_first'
-  = render 'edit_cell_second'
 
-  .div-table-col
-    = render 'backoffice/bracket/bracket'
+= render 'edit_cell_first'
+= render 'edit_cell_second'
 
-  .col-sm-12
-    br
-    br
+.div-table-col
+  = render 'backoffice/bracket/bracket'
+
+.col-sm-12
+  br
+  br
