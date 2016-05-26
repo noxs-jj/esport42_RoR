@@ -17,11 +17,10 @@ test:
 production:
   adapter: postgresql
   encoding: UTF8
-  host: esport42.cmgwdvewfzcc.eu-west-1.rds.amazonaws.com
+  host: <%= begin IO.read("/home/ubuntu/apps/esport42/shared/.db_ip_adress") rescue "" end %>
   port: 5432
-  database: esport42
-  username: esport42
+  database: <%= begin IO.read("/home/ubuntu/apps/esport42/shared/.db_database") rescue "" end %>
+  username: <%= begin IO.read("/home/ubuntu/apps/esport42/shared/.db_username") rescue "" end %>
   password: <%= begin IO.read("/home/ubuntu/apps/esport42/shared/.db_password") rescue "" end %>
-  #password: <%= ENV['DATABASE_USER_PASSWORD'] %>
   pool: 5
   timeout: 5000
