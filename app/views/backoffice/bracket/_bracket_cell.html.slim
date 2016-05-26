@@ -5,7 +5,7 @@
   a href="#{url}"
     .table-row
       a href="#{url}"
-        div id="cell_#{id_cell}" title="Cell #{id_cell} parent_openent_1[#{var_data_cell.seed_id_parent_openent_1}] parent_openent_1[#{var_data_cell.seed_id_parent_openent_2}] son_winner[#{var_data_cell.cell_id_son}]" style="border-radius: 5px; background-color: #{color}; height: 60px; color: white; padding: 0px;"
+        div id="cell_#{id_cell}" title="Cell[ #{id_cell} ] -- Parent_1[ #{var_data_cell.seed_id_parent_openent_1} ] --  Parent_2[ #{var_data_cell.seed_id_parent_openent_2} ] -- Son[ #{var_data_cell.cell_id_son} ]" style="border-radius: 5px; background-color: #{color}; height: 60px; color: white; padding: 0px;"
           span id="slot_#{id_cell * 2 - 1}_participant_1_name"
             a href="#{url}" style="color: inherit"
               = (var_data_cell == nil) ? "Popuate !" : var_data_cell.participant_1_name

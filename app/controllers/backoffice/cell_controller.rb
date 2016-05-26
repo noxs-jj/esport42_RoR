@@ -72,13 +72,9 @@ class Backoffice::CellController < Backoffice::ApplicationController
   end
 
   def son_fillit
-    ap "DEB 0"
     @cells = Cell.where(bracket_id: params[:bracket_id]).all
-    ap "DEB 1"
-    ap @cells.length + 1
     cellHelper_fill_parent_and_son_id(@cells.length + 1, @cells)
-    ap "DEB 2"
-    redirect_to request.headers["HTTP_REFERER"], notice: "Son fillit !"
+    redirect_to request.headers["HTTP_REFERER"], notice: "Parent & Son assigned !"
   end
 
   def bracket_cells
