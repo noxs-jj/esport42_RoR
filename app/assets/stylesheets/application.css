@@ -10,13 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require bootstrap_and_overrides
- *= require bootstrap-datetimepicker
+ *= require bootstrap
+ *= require bootstrap-theme
  *= require dropdown_open_on_hover
- *= require contact_us
- *= require game
  *= require rotate-vertical
- *= require tournament
  *= require bracket
  *= require_self
+ *= require_tree .
  */

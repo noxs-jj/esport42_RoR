@@ -13,15 +13,14 @@ gem 'ckeditor'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'will_paginate-bootstrap'
 gem 'turbolinks', '~> 5.0.0.beta'
-# https://github.com/zpaulovics/datetimepicker-rails
-gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
-gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+gem 'jquery-turbolinks'
+
+gem 'momentjs-rails', :github => 'derekprior/momentjs-rails'
+gem 'datetimepicker-rails', :git => 'git://github.com/zpaulovics/datetimepicker-rails.git', :branch => 'master', :submodules => true
 
 # css stylesheets pipeline conpressor...
 gem 'sass-rails'
-gem 'bootstrap-sass'
 gem 'less-rails'
-gem 'twitter-bootstrap-rails'
 gem 'therubyracer'
 gem 'autoprefixer-rails'
 gem 'sprockets'

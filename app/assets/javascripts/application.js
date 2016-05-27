@@ -11,10 +11,12 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require bootstrap
 //= require moment
-//= require pickers
 //= require bootstrap-datetimepicker
-//= require turbolinks
+//= require pickers
 //= require ckeditor/init
+//= require turbolinks
+//= require_tree.
