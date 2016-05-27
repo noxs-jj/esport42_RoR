@@ -17,7 +17,6 @@
         = " ##{@cell.bracket_id} #{@cell.bracket_name} "
         br
 
-
   .col-md-6
     .panel.panel-default
       .panel-body
@@ -64,26 +63,25 @@
   .col-md-12
     .panel.panel-default
       .panel-body
-        .col-md-4
+        .col-md-6
           = f.input 'scheduled', as: :datetime_picker
-        .col-md-4
-        .col-md-4
+          br
           span style="color: green;"
             b = "Winner: "
             = "#{@cell.winner_participant_id} #{@cell.winner_name}"
-        .col-md-12
-          br
-          .col-md-4
-            = f.input 'winner_participant_id',
-              collection: [["NOTHING #{-1}", -1],
-                ["#{@cell.participant_1_name} #{@cell.participant_1_id}", @cell.participant_1_id],
-                ["#{@cell.participant_2_name} #{@cell.participant_2_id}", @cell.participant_2_id]],
-              include_blank: false
+            br
+            br
+            = link_to "Set Winner #{@cell.participant_1_name}", backoffice_cell_set_winner_path(id: params[:id], participant_id: @cell.participant_1_id), class: "btn btn-success", style: "background-color: rgb(144, 22, 134); border-color: rgb(144, 22, 134);", data: { confirm: "Are you sure?" }
+            br
+            br
+            = link_to "Set Winner #{@cell.participant_2_name}", backoffice_cell_set_winner_path(id: params[:id], participant_id: @cell.participant_2_id), class: "btn btn-success", style: "background-color: rgb(239, 118, 42); border-color: rgb(239, 118, 42);", data: { confirm: "Are you sure?" }
 
-          .col-md-4
-            = f.input 'status_id', collection: CellStatus::status_list, include_blank: false
-          .col-md-4
-            = f.button :submit, "Update", class: 'btn btn-primary'
+        .col-md-6
+          = f.input 'winner_participant_id', collection: [["NOTHING #{-1}", -1], ["#{@cell.participant_1_name} #{@cell.participant_1_id}", @cell.participant_1_id], ["#{@cell.participant_2_name} #{@cell.participant_2_id}", @cell.participant_2_id]], include_blank: false
+          br
+          = f.input 'status_id', collection: CellStatus::status_list, include_blank: false
+          br
+          = f.button :submit, "Update", class: 'btn btn-primary'
 
   .col-md-12
     = f.input 'info', :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }, label: false

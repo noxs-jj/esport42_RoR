@@ -3,7 +3,32 @@ class Backoffice::CellController < Backoffice::ApplicationController
   include CellHelper
   load_and_authorize_resource
 
-  def show
+  def set_winner
+    current_cell = Cell.find_by(id: params[:id])
+    winner_participant = Participant.find_by(id: params[:participant_id])
+    if current_cell.nil?
+      redirect_to backoffice_cell_edit_path(params[:id]), alert: "Cell/Match #{params[:id]} doesn't exist"
+    elsif winner_participant.nil?
+      redirect_to backoffice_cell_edit_path(params[:id]), alert: "Participant #{params[:participant_id]} doesn't exist"
+    else
+      if current_cell.cell_id_son = -1337
+        current_cell.winner_participant_id = winner_participant.id
+        current_cell.save
+        redirect_to  backoffice_cell_edit_path(current_cell.id), notice: "Set winner success END OF BRACKET"
+      else
+        next_winner_cell = Cell.find_by( bracket_id: current_cell.bracket_id, slot_id_cell_in_bracket: current_cell.cell_id_son )
+        if next_winner_cell.nil?
+          redirect_to backoffice_cell_edit_path(params[:id]), alert: "Cell winner (next) #{current_cell.cell_id_son} doesn't exist"
+        else
+          current_cell.winner_participant_id = winner_participant.id
+          current_cell.save
+          next_winner_cell.participant_1_id = winner_participant.id if next_winner_cell.seed_id_parent_openent_1 == current_cell.slot_id_cell_in_bracket
+          next_winner_cell.participant_2_id = winner_participant.id if next_winner_cell.seed_id_parent_openent_2 == current_cell.slot_id_cell_in_bracket
+          next_winner_cell.save
+          redirect_to  backoffice_cell_edit_path(next_winner_cell.id), notice: "Set winner success"
+        end
+      end
+    end
   end
 
   def edit
