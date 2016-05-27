@@ -26,23 +26,22 @@ class Backoffice::CellController < Backoffice::ApplicationController
   def populate_bracket
     bracket = Bracket.find_by(id: params[:bracket_id])
     if bracket.nil?
-      redirect_to request.headers["HTTP_REFERER"], alert: "Bracket #{params[:bracket]} doesn't exist"
+      redirect_to backoffice_bracket_show_path(params[:bracket_id]), alert: "Bracket #{params[:bracket]} doesn't exist"
     else
       cells = Cell.where(bracket_id: bracket.id).all
       if cells.count != 0
-          redirect_to request.headers["HTTP_REFERER"], alert: "Cells already generated for bracket #{bracket.id}"
+        redirect_to backoffice_bracket_show_path(params[:bracket_id]), alert: "Cells already generated for bracket #{bracket.id}"
       else
         tournament = Tournament.find_by(id: bracket.tournament_id)
         if tournament.nil?
-          redirect_to request.headers["HTTP_REFERER"], alert: "Tournament #{bracket.tournament_id} doesn't exist on bracket #{bracket.id}"
+          redirect_to backoffice_bracket_show_path(params[:bracket_id]), alert: "Tournament #{bracket.tournament_id} doesn't exist on bracket #{bracket.id}"
         else
           event = Event.find_by(id: bracket.event_id)
           if cells.nil?
-            redirect_to request.headers["HTTP_REFERER"], alert: "Event #{bracket.event_id} doesn't exist on bracket #{bracket.id}"
+            redirect_to backoffice_bracket_show_path(params[:bracket_id]), alert: "Event #{bracket.event_id} doesn't exist on bracket #{bracket.id}"
           else
             i = 0
             bracket_size = bracketHelper_number_cell_with_number_participants(bracket.players)
-            @generated_cells = []
             while i < bracket_size
               new_cell = Cell.new(
                 tournament_id: bracket.tournament_id,
@@ -63,8 +62,12 @@ class Backoffice::CellController < Backoffice::ApplicationController
               )
               i += 1
               new_cell.save
-              @generated_cells << new_cell
             end
+            @cells = Cell.where(bracket_id: params[:bracket_id]).all
+            cellHelper_fill_parent_and_son_id(@cells.length + 1, @cells)
+            bracket.cell_populated = true
+            bracket.save
+            redirect_to backoffice_bracket_show_path(params[:bracket_id]), notice: "Bracket #{bracket.id} populated and parents & sons assignated success"
           end
         end
       end
@@ -74,7 +77,7 @@ class Backoffice::CellController < Backoffice::ApplicationController
   def son_fillit
     @cells = Cell.where(bracket_id: params[:bracket_id]).all
     cellHelper_fill_parent_and_son_id(@cells.length + 1, @cells)
-    redirect_to request.headers["HTTP_REFERER"], notice: "Parent & Son assigned !"
+    redirect_to backoffice_bracket_show_path(params[:bracket_id]), notice: "Parent & Son assigned !"
   end
 
   def bracket_cells

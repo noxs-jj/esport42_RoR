@@ -32,7 +32,6 @@ Rails.application.routes.draw do
     post 'bracket/create'          => 'bracket#create', as: 'bracket_create'
     get 'bracket/:id/edit'         => 'bracket#edit', as: 'bracket_edit'
     post 'bracket/:id/update'      => 'bracket#update', as: 'bracket_update'
-
     get 'bracket/:id/edit_cell'    => 'bracket#edit_cell', as: 'bracket_edit_cell'
     post 'bracket/:id/update_cell' => 'bracket#update_cell', as: 'bracket_update_cell'
 

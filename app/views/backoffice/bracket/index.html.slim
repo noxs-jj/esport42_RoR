@@ -6,7 +6,8 @@ h1 Brackets List
       th Name
       th Tournament
       th Created by
-      th Players
+      th title="Is cells/match generated and Parents & Sons linked ?" Pop?
+      th title="Players on braket, can be changed only if bracket no be populated" Players
       th Created On
       th Actions
     - @brackets.each do |entry|
@@ -14,10 +15,12 @@ h1 Brackets List
         td = link_to entry.name,  backoffice_bracket_show_path(entry.id)
         td = entry.tournament_name
         td = entry.creator_user_name
+        td = entry.cell_populated
         td = entry.players
         td = entry.created_at.strftime("%Y/%m/%d %H:%M")
         td
           = link_to "Cells", backoffice_bracket_cells_list_path(entry.id), class: "btn btn-warning btn-xs"
-          = link_to "Edit", backoffice_bracket_edit_cell_path(entry.id), class: "btn btn-default btn-xs"
+          = link_to "Assign", backoffice_bracket_edit_cell_path(entry.id), class: "btn btn-default btn-xs"
+          br
           = link_to "Show", backoffice_bracket_show_path(entry.id), class: "btn btn-success btn-xs"
           = link_to "Edit", backoffice_bracket_edit_path(entry.id), class: "btn btn-primary btn-xs"

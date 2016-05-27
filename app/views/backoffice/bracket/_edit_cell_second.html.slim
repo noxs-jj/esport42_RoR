@@ -2,12 +2,12 @@
 - to_spawn = (@cells.length + 1) / 2
 - i = 0
 
-.div-table-col style="width: 300px;"
+.div-table-col style="width: 300px; margin-top: -10px;"
   - @cells.each do |cell|
     - url = (cell == nil) ? "#" : "/backoffice/cell/edit/#{cell.id.to_s}"
     .table-row
       a href="#{url}"
-        .table-row
+        .table-row.div-table-row-round
           a href="#{url}"
             div id="cell_#{i}" title="Cell #{i}" style="border-radius: 5px; background-color: rgb(222, 222, 222); height: 60px; color: white; padding: 0px;"
               span id="slot_#{i * 2 - 1}_participant_1_name"

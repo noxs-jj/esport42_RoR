@@ -19,7 +19,7 @@ h1 Populate cells result
       th cell_id_son
       th updated_by.id
       th info.html_safe
-    - @generated_cells.each do |entry|
+    - @@cells.each do |entry|
       tr
         td = entry.tournament_id
         td = entry.event_id

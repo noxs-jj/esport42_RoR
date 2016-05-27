@@ -1,23 +1,22 @@
-.col-sm-12
-  - if user_signed_in? && current_user.admin == true
-    = link_to "Populate", backoffice_cell_populate_bracket_path(@bracket.id), data: { confirm: "Are you sure?" }, class: "btn btn-warning"
-    = link_to "Son fillit", backoffice_cell_son_fillit_path(@bracket.id), class: "btn btn-success"
+- if user_signed_in? && current_user.admin == true
+  - if @bracket.cell_populated == false
+    = link_to "Populate + Assign Parents&Sons", backoffice_cell_populate_bracket_path(@bracket.id), data: { confirm: "Are you sure?" }, class: "btn btn-warning"
+br
 
-.col-sm-12
-  .panel.panel-default
-    .panel-heading
-      h3.panel-title
-        b = @bracket.name
+.panel.panel-default
+  .panel-heading
+    h3.panel-title
+      b = @bracket.name
 
-    .panel-body
-      -if user_signed_in? && current_user.admin?
-        .col-sm-6
-          b = "Created by: "
-          = @bracket.creator_user_name
-        .col-sm-6
-          b = "On: "
-          = @bracket.created_at.strftime("%Y/%m/%d %H:%M")
+  .panel-body
+    -if user_signed_in? && current_user.admin?
+      .col-sm-6
+        b = "Created by: "
+        = @bracket.creator_user_name
+      .col-sm-6
+        b = "On: "
+        = @bracket.created_at.strftime("%Y/%m/%d %H:%M")
 
-      .col-sm-12
-        h2 Infos
-        = @bracket.info.to_s.html_safe
+    .col-sm-12
+      h2 Infos
+      = @bracket.info.to_s.html_safe

@@ -1,10 +1,10 @@
-- color = (var_set_color == 1)? "#195070" : "#b63152"
+- color = (var_set_color == 1)? "rgb(144, 22, 134)" : "rgb(239, 118, 42)"
 - url = (var_data_cell == nil) ? "#" : "/backoffice/cell/edit/#{var_data_cell.id.to_s}"
 - titl = (var_data_cell == nil) ? "Cell[ #{id_cell}" : "Cell[ #{id_cell} ] -- Parent_1[ #{var_data_cell.seed_id_parent_openent_1} ] --  Parent_2[ #{var_data_cell.seed_id_parent_openent_2} ] -- Son[ #{var_data_cell.cell_id_son} ]"
 
 - if action_name == "show" || first_column == false
   a href="#{url}"
-    .table-row
+    .table-row.div-table-row-round
       a href="#{url}"
         div id="cell_#{id_cell}" title="#{titl}" style="border-radius: 5px; background-color: #{color}; height: 60px; color: white; padding: 0px;"
           span id="slot_#{id_cell * 2 - 1}_participant_1_name"
@@ -17,7 +17,7 @@
               = (var_data_cell == nil) ? "Popuate !" : var_data_cell.participant_2_name
 
 - elsif action_name == "edit_cell"
-  .table-row style="color: black;"
+  .table-row.div-table-row-round style="color: black;"
     div.text-center id="cell_#{id_cell}" title="Cell #{id_cell}" style="width: 150px; border-radius: 5px; background-color: #{color}; height: 60px; color: black; padding: 0px;"
       span id="slot_#{id_cell}_participant_1_name"
         = cell_entry.input "slot_#{id_cell * 2 - 1}", collection: @participant_collection,

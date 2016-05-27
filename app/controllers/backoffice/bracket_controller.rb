@@ -79,20 +79,27 @@ class Backoffice::BracketController < Backoffice::ApplicationController
   end
 
   def update_cell
-    i = 1
-    @cells = get_cells_if_bracket(params[:id])
-    data_param = params[:cellules]
-
-    while i - 1 < (data_param.length / 2)
-      cell = Cell.find_by( bracket_id: params[:id], slot_id_cell_in_bracket: i )
-      tmp1 = "slot_#{i  * 2 - 1}"
-      tmp2 = "slot_#{i * 2}"
-      cell.update_attributes(participant_1_id: data_param[tmp1].to_i) if data_param[tmp1].to_i != -1
-      cell.update_attributes(participant_2_id: data_param[tmp2].to_i) if data_param[tmp2].to_i != -1
-      i += 1
+    bracket = Bracket.find_by(id: params[:id])
+    if bracket.nil? && bracket.cell_populated == false
+      redirect_to request.headers["HTTP_REFERER"], alert: "Bracket #{params[:id]} doesn't exist"
+    else
+      if bracket.cell_populated == false
+        redirect_to request.headers["HTTP_REFERER"], alert: "Bracket #{params[:id]} need to be populated"
+      else
+        i = 1
+        @cells = get_cells_if_bracket(params[:id])
+        data_param = params[:cellules]
+        while i - 1 < (data_param.length / 2)
+          cell = Cell.find_by( bracket_id: params[:id], slot_id_cell_in_bracket: i )
+          tmp1 = "slot_#{i  * 2 - 1}"
+          tmp2 = "slot_#{i * 2}"
+          cell.update_attributes(participant_1_id: data_param[tmp1].to_i) if data_param[tmp1].to_i != -1
+          cell.update_attributes(participant_2_id: data_param[tmp2].to_i) if data_param[tmp2].to_i != -1
+          i += 1
+        end
+        redirect_to request.headers["HTTP_REFERER"], notice: "Update Success"
+      end
     end
-
-    redirect_to request.headers["HTTP_REFERER"], notice: "Update Success"
   end
 
 private

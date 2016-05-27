@@ -1,14 +1,18 @@
 .div-table{
   display:table;
   width:auto;
-  border:1px solid black;
 }
-
 .div-table-row{
   display:table-row;
   width:auto;
   background-color: grey;
   padding: 2px;
+}
+
+.div-table-row-round{
+  margin: 0px;
+  padding: 0px;
+  margin-top: 20px;
 }
 
 .div-table-row-empty{
