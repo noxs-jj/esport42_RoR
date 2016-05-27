@@ -28,7 +28,7 @@ module ParticipantHelper
   def participant_help_collection_participant_name_id(arr_objects)
     result = []
     result = arr_objects.map do |entry|
-      [entry.user_name, entry.id]
+      ["#{entry.id} #{entry.user_name}", entry.id]
     end
     result.insert(0, ["NOTHING", -1])
 

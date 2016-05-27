@@ -3,10 +3,8 @@ module BracketHelper
     brackets = Bracket.where(tournament_id: tournament_id)
     result = ""
     i = 1
-
     brackets.each do |entry|
       result += '<a href="/backoffice/bracket/show/' + entry.id.to_s + '" title="' + entry.name + '">#' + i.to_s + '</a> '
-
       i += 1
     end
 

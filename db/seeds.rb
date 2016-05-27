@@ -133,123 +133,124 @@ if TournamentStatus.all.length < 7
   status.save!
 end
 
-if User.find_by(email: 'test_asda@esport.42.fr') == nil
-  user = User.new( email: "test_asda@esport.42.fr", username: "test_asda", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_asda@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_qpskj@esport.42.fr') == nil
-  user = User.new( email: "test_qpskj@esport.42.fr", username: "test_qpskj", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_qpskj@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_6d5gadf@esport.42.fr') == nil
-  user = User.new( email: "test_6d5gadf@esport.42.fr", username: "test_6d5gadf", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_6d5gadf@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_qazxcvb@esport.42.fr') == nil
-  user = User.new( email: "test_qazxcvb@esport.42.fr", username: "test_qazxcvb", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_qazxcvb@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_awfwd@esport.42.fr') == nil
-  user = User.new( email: "test_awfwd@esport.42.fr", username: "test_awfwd", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_awfwd@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_mknjbh@esport.42.fr') == nil
-  user = User.new( email: "test_mknjbh@esport.42.fr", username: "test_mknjbh", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_mknjbh@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_tmxp@esport.42.fr') == nil
-  user = User.new( email: "test_tmxp@esport.42.fr", username: "test_tmxp", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_tmxp@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_a6d4gas@esport.42.fr') == nil
-  user = User.new( email: "test_a6d4gas@esport.42.fr", username: "test_a6d4gas", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_a6d4gas@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_1a2s3d4fg@esport.42.fr') == nil
-  user = User.new( email: "test_1a2s3d4fg@esport.42.fr", username: "test_1a2s3d4fg", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_1a2s3d4fg@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_ddfgdszf@esport.42.fr') == nil
-  user = User.new( email: "test_ddfgdszf@esport.42.fr", username: "test_ddfgdszf", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_ddfgdszf@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_shgdsf@esport.42.fr') == nil
-  user = User.new( email: "test_shgdsf@esport.42.fr", username: "test_shgdsf", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_shgdsf@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_kujmnhgb@esport.42.fr') == nil
-  user = User.new( email: "test_kujmnhgb@esport.42.fr", username: "test_kujmnhgb", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_kujmnhgb@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_xfgsz@esport.42.fr') == nil
-  user = User.new( email: "test_xfgsz@esport.42.fr", username: "test_xfgsz", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_xfgsz@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_fhjdgdsf@esport.42.fr') == nil
-  user = User.new( email: "test_fhjdgdsf@esport.42.fr", username: "test_fhjdgdsf", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_fhjdgdsf@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_dfgxdfzgs@esport.42.fr') == nil
-  user = User.new( email: "test_dfgxdfzgs@esport.42.fr", username: "test_dfgxdfzgs", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_dfgxdfzgs@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_654zdfgzf@esport.42.fr') == nil
-  user = User.new( email: "test_654zdfgzf@esport.42.fr", username: "test_654zdfgzf", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_654zdfgzf@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_fhjgegef@esport.42.fr') == nil
-  user = User.new( email: "test_fhjgegef@esport.42.fr", username: "test_fhjgegef", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_fhjgegef@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_df56gfs@esport.42.fr') == nil
-  user = User.new( email: "test_df56gfs@esport.42.fr", username: "test_df56gfs", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_df56gfs@esport.42.fr created !"
-  user.save!
-end
-if User.find_by(email: 'test_0g0f2sdsf2@esport.42.fr') == nil
-  user = User.new( email: "test_0g0f2sdsf2@esport.42.fr", username: "test_0g0f2sdsf2", password: "00000000", password_confirmation: "00000000" )
-  user.admin = false
-  puts "test_0g0f2sdsf2@esport.42.fr created !"
-  user.save!
-end
-
 ### for DEVELOPEMENT ONLY
-if Rails.env == "development"
+# if Rails.env == "development"
+
+  if User.find_by(email: 'test_asda@esport.42.fr') == nil
+    user = User.new( email: "test_asda@esport.42.fr", username: "test_asda", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_asda@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_qpskj@esport.42.fr') == nil
+    user = User.new( email: "test_qpskj@esport.42.fr", username: "test_qpskj", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_qpskj@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_6d5gadf@esport.42.fr') == nil
+    user = User.new( email: "test_6d5gadf@esport.42.fr", username: "test_6d5gadf", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_6d5gadf@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_qazxcvb@esport.42.fr') == nil
+    user = User.new( email: "test_qazxcvb@esport.42.fr", username: "test_qazxcvb", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_qazxcvb@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_awfwd@esport.42.fr') == nil
+    user = User.new( email: "test_awfwd@esport.42.fr", username: "test_awfwd", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_awfwd@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_mknjbh@esport.42.fr') == nil
+    user = User.new( email: "test_mknjbh@esport.42.fr", username: "test_mknjbh", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_mknjbh@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_tmxp@esport.42.fr') == nil
+    user = User.new( email: "test_tmxp@esport.42.fr", username: "test_tmxp", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_tmxp@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_a6d4gas@esport.42.fr') == nil
+    user = User.new( email: "test_a6d4gas@esport.42.fr", username: "test_a6d4gas", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_a6d4gas@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_1a2s3d4fg@esport.42.fr') == nil
+    user = User.new( email: "test_1a2s3d4fg@esport.42.fr", username: "test_1a2s3d4fg", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_1a2s3d4fg@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_ddfgdszf@esport.42.fr') == nil
+    user = User.new( email: "test_ddfgdszf@esport.42.fr", username: "test_ddfgdszf", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_ddfgdszf@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_shgdsf@esport.42.fr') == nil
+    user = User.new( email: "test_shgdsf@esport.42.fr", username: "test_shgdsf", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_shgdsf@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_kujmnhgb@esport.42.fr') == nil
+    user = User.new( email: "test_kujmnhgb@esport.42.fr", username: "test_kujmnhgb", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_kujmnhgb@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_xfgsz@esport.42.fr') == nil
+    user = User.new( email: "test_xfgsz@esport.42.fr", username: "test_xfgsz", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_xfgsz@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_fhjdgdsf@esport.42.fr') == nil
+    user = User.new( email: "test_fhjdgdsf@esport.42.fr", username: "test_fhjdgdsf", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_fhjdgdsf@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_dfgxdfzgs@esport.42.fr') == nil
+    user = User.new( email: "test_dfgxdfzgs@esport.42.fr", username: "test_dfgxdfzgs", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_dfgxdfzgs@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_654zdfgzf@esport.42.fr') == nil
+    user = User.new( email: "test_654zdfgzf@esport.42.fr", username: "test_654zdfgzf", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_654zdfgzf@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_fhjgegef@esport.42.fr') == nil
+    user = User.new( email: "test_fhjgegef@esport.42.fr", username: "test_fhjgegef", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_fhjgegef@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_df56gfs@esport.42.fr') == nil
+    user = User.new( email: "test_df56gfs@esport.42.fr", username: "test_df56gfs", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_df56gfs@esport.42.fr created !"
+    user.save!
+  end
+  if User.find_by(email: 'test_0g0f2sdsf2@esport.42.fr') == nil
+    user = User.new( email: "test_0g0f2sdsf2@esport.42.fr", username: "test_0g0f2sdsf2", password: "00000000", password_confirmation: "00000000" )
+    user.admin = false
+    puts "test_0g0f2sdsf2@esport.42.fr created !"
+    user.save!
+  end
+
   if Event.all.length == 0
     event = Event.new(name: "event test 01",
       created_by: 1, status_id: EventStatus::REGISTRATION_OPENS,
@@ -315,4 +316,4 @@ if Rails.env == "development"
     puts "16 Participants created !"
   end
 
-end
+# end

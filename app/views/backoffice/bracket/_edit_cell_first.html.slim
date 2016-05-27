@@ -14,10 +14,12 @@
    b = "RED multiple assign"
   br
   br
-
+  = "Part ID | Part Username"
+  br
+  br
   - @participant_collection.each_with_index do |entry, index|
     - if index != 0
       - color = participant_help_how_many_participant_id_is_assigned_get_color(entry[1], @cells)
       span style="color: #{color}"
-        = "#{entry[0]} [ #{entry[1]} ]"
+        = "#{entry[0]}"
       br

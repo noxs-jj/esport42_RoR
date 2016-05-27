@@ -1,2 +1,6 @@
-div.table-row-empty.div-table-row-round
-  div style="background-color: white; height: 60px; border: 0px solid black;"
+- if action_name == "edit_cell"
+  div.table-row-empty
+    div style="background-color: white; height: 60px; border: 0px solid black;"
+- else
+  div.table-row-empty.div-table-row-round
+    div style="background-color: white; height: 60px; border: 0px solid black;"
