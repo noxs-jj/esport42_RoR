@@ -16,18 +16,20 @@ gem 'turbolinks', '~> 5.0.0.beta'
 gem 'jquery-turbolinks'
 
 gem 'momentjs-rails', :github => 'derekprior/momentjs-rails'
-gem 'datetimepicker-rails', :git => 'git://github.com/zpaulovics/datetimepicker-rails.git', :branch => 'master', :submodules => true
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 
 # css stylesheets pipeline conpressor...
 gem 'sass-rails'
-gem 'less-rails'
+gem 'bootstrap-sass'
 gem 'therubyracer'
 gem 'autoprefixer-rails'
 gem 'sprockets'
 gem 'sprockets-rails'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'uglifier'
 gem 'coffee-rails'
+gem "font-awesome-rails"
 
 # authentification
 gem 'bcrypt-ruby'
