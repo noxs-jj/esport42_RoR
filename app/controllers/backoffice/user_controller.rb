@@ -1,10 +1,26 @@
 class Backoffice::UserController < Backoffice::ApplicationController
   load_and_authorize_resource
   def index
-    @users = User.all.order(created_at: :desc)
+    @filterrific = initialize_filterrific(
+      User,
+      params[:filterrific],
+      # select_options: {
+      #   sorted_by: User.options_for_sorted_by,
+      #   with_country_id: Country.options_for_select
+      # },
+      persistence_id: false,
+      # default_filter_params: {},
+      # available_filters: [],
+    ) or return
+    @users = @filterrific.find.page(params[:page])
   end
 
   def show
+    @user = User.find_by(id: params[:id])
+    if @user.nil?
+      redirect_to backoffice_user_index_path, alert: "User #{params[:id].to_s} doesn't exist"
+    end
+    ap @user.username
   end
 
   def edit

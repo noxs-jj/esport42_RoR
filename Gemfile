@@ -15,6 +15,7 @@ gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'will_paginate-bootstrap'
 gem 'turbolinks', '~> 5.0.0.beta'
 gem 'jquery-turbolinks'
+gem 'filterrific'
 
 gem 'momentjs-rails', :github => 'derekprior/momentjs-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true

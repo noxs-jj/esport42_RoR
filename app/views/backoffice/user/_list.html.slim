@@ -1,0 +1,15 @@
+div id="filterrific_results"
+  table.table.table-striped.text-left
+    thead
+      th Username
+      th email
+      th Actions
+    - @users.each do |entry|
+      tr
+        td = entry.username
+        td = entry.email
+        td
+          = link_to "Show", backoffice_user_show_path(entry.id), class: "btn btn-success btn-xs"
+          = link_to "Edit", backoffice_user_edit_path(entry.id), class: "btn btn-primary btn-xs"
+
+  = will_paginate @users, renderer: BootstrapPagination::Rails

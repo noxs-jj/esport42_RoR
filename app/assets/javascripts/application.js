@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require filterrific/filterrific-jquery
 //= require moment
 //= require bootstrap-datetimepicker
 //= require pickers

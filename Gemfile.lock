@@ -131,6 +131,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.7.0)
+    filterrific (2.0.5)
+      rails (>= 3.1.0)
     font-awesome-rails (4.6.3.0)
       railties (>= 3.2, < 5.1)
     globalid (0.3.6)
@@ -333,6 +335,7 @@ DEPENDENCIES
   country_select
   datetimepicker-rails!
   devise
+  filterrific
   font-awesome-rails
   haml2slim
   html2haml

@@ -1,0 +1,155 @@
+.panel-body
+  ul.nav.nav-tabs role="tablist" data-ng-init="tabSelect = 'informations'"
+    li data-ng-class="{true:'active', false:''}[tabSelect=='informations']"
+      a href="#informations" data-ng-click="tabSelect = 'informations'"
+        = "Informations"
+
+    li data-ng-class="{true:'active', false:''}[tabSelect=='socialsgames']"
+      a href="#socialsgames" data-ng-click="tabSelect = 'socialsgames'"
+        = "Socials & Games"
+
+    li data-ng-class="{true:'active', false:''}[tabSelect=='computer']"
+      a href="#computer" data-ng-click="tabSelect = 'computer'"
+        = "Computer"
+
+  .tab-content
+    .tab-pane data-ng-class="{true:'active', false:''}[tabSelect=='informations']"
+      .col-sm-12
+        br
+        b = "email: "
+        = @user.email
+        br
+        b = "username: "
+        = @user.username
+        br
+        b = "first_name: "
+        = @user.first_name
+        br
+        b = "last_name: "
+        = @user.last_name
+        br
+        b = "birthday: "
+        = @user.birthday
+        br
+        br
+
+      .col-sm-6
+        b = "adress_line1: "
+        = @user.adress_line1
+        br
+        b = "adress_line2: "
+        = @user.adress_line2
+        br
+        b = "adress_line3: "
+        = @user.adress_line3
+        br
+        b = "adress_otherDetails: "
+        = @user.adress_otherDetails
+      .col-xs-6
+        b = "adress_city: "
+        b = @user.adress_city
+        br
+        b = "adress_postalcode: "
+        b = @user.adress_postalcode
+        br
+        b = "adress_province: "
+        = @user.adress_province
+        br
+        b= "adress_country: "
+        = @user.adress_country
+
+    .tab-pane data-ng-class="{true:'active', false:''}[tabSelect=='socialsgames']"
+      .col-sm-6
+        br
+        b = "website_url: "
+        = @user.website_url
+        br
+        b = "facebook_private_url: "
+        = @user.facebook_private_url
+        br
+        b = "facebook_gamer_url: "
+        = @user.facebook_gamer_url
+        br
+        b = "youtube_url: "
+        = @user.youtube_url
+        br
+        b = "googleplus_url: "
+        = @user.googleplus_url
+        br
+        b = "sponsor: "
+        = @user.sponsor
+        br
+        b = "quote: "
+        = @user.quote
+
+      .col-sm-6
+        br
+        b = "steam_id: "
+        = @user.steam_id
+        br
+        b = "battlenet_id: "
+        = @user.battlenet_id
+        br
+        b = "origin_id: "
+        = @user.origin_id
+        br
+        b = "maniaplanet_id: "
+        = @user.maniaplanet_id
+        br
+        b = "xbox_live: "
+        = @user.xbox_live
+        br
+        b = "sony_psn: "
+        = @user.sony_psn
+
+    .tab-pane data-ng-class="{true:'active', false:''}[tabSelect=='computer']"
+      .col-sm-6
+        br
+        b = "pc_cpu: "
+        = @user.pc_cpu
+        br
+        b = "pc_ram: "
+        = @user.pc_ram
+        br
+        b = "pc_graphic_card: "
+        = @user.pc_graphic_card
+        br
+        b = "pc_motherboard: "
+        = @user.pc_motherboard
+        br
+        b = "pc_keyboard: "
+        = @user.pc_keyboard
+        br
+        b = "pc_mouse: "
+        = @user.pc_mouse
+        br
+        b = "pc_mousepad: "
+        = @user.pc_mousepad
+        br
+        b = "pc_screen: "
+        = @user.pc_screen
+      .col-sm-6
+        br
+        b = "pc_internet: "
+        = @user.pc_internet
+        br
+        b = "pc_harddisk: "
+        = @user.pc_harddisk
+        br
+        b = "pc_soundcard: "
+        = @user.pc_soundcard
+        br
+        b = "pc_cpu_fan: "
+        = @user.pc_cpu_fan
+        br
+        b = "pc_computer_case: "
+        = @user.pc_computer_case
+        br
+        b = "pc_alim: "
+        = @user.pc_alim
+        br
+        b = "pc_os_sytem: "
+        = @user.pc_os_sytem
+        br
+        b = "pc_smarphone: "
+        = @user.pc_smarphone

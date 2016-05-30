@@ -1,20 +1,26 @@
-h1 User List
+.panel.panel-default
+  .panel-heading
+    h3.panel-title
+      b = "Users Search"
+  .panel-body
+    form-inline
+      = form_for_filterrific @filterrific do |f|
+        .col-sm-1
+          = render_filterrific_spinner
 
-.col-xs-12
-  .panel.panel-default
-    .panel-heading
-      h3.panel-title
-        b = "Users"
-    .panel-body
-      table.table.table-striped.text-left
-        thead
-          th Username
-          th email
-          th Actions
-        - @users.each do |entry|
-          tr
-            td = entry.username
-            td = entry.email
-            td
-              = link_to "Show", "#", class: "btn btn-success btn-xs"
-              = link_to "Edit", "#", class: "btn btn-primary btn-xs"
+        .col-sm-3
+          = "Username"
+          br
+          = f.text_field :search_username, class: 'filterrific-periodically-observed'
+
+        .col-sm-3
+          = "Firstname and/or Lastname"
+          br
+          = f.text_field :search_firstname_lastname, class: 'filterrific-periodically-observed'
+
+        .col-sm-3
+          = "Email"
+          br
+          = f.text_field :search_email, class: 'filterrific-periodically-observed'
+
+        = render 'backoffice/user/list'

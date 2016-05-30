@@ -67,7 +67,7 @@ Rails.application.routes.draw do
     get 'event/delete/:id'  => 'event#delete', as: 'event_delete'
     resources :event
 
-    get 'user/index'
+    get 'user/index'        => 'user#index', as: 'user_index'
     get 'user/show/:id'     => 'user#show', as: 'user_show'
     get 'user/edit/:id'     => 'user#edit', as: 'user_edit'
     post 'user/update/:id'  => 'user#update', as: 'user_update'
