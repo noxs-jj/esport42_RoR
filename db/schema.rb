@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160526135533) do
+ActiveRecord::Schema.define(version: 20160530120037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -213,6 +213,40 @@ ActiveRecord::Schema.define(version: 20160526135533) do
     t.boolean  "organizer",              default: false
     t.boolean  "referee",                default: false
     t.boolean  "volunteer",              default: false
+    t.string   "skype_id",               default: ""
+    t.string   "email_secondary",        default: ""
+    t.string   "phone_mobile",           default: ""
+    t.string   "phone_home",             default: ""
+    t.string   "steam_id",               default: ""
+    t.string   "battlenet_id",           default: ""
+    t.string   "origin_id",              default: ""
+    t.string   "maniaplanet_id",         default: ""
+    t.string   "xbox_live",              default: ""
+    t.string   "sony_psn",               default: ""
+    t.string   "website_url",            default: ""
+    t.string   "facebook_private_url",   default: ""
+    t.string   "facebook_gamer_url",     default: ""
+    t.string   "youtube_url",            default: ""
+    t.string   "twitch_url",             default: ""
+    t.string   "googleplus_url",         default: ""
+    t.string   "sponsor",                default: ""
+    t.string   "quote",                  default: ""
+    t.string   "pc_cpu",                 default: ""
+    t.string   "pc_ram",                 default: ""
+    t.string   "pc_graphic_card",        default: ""
+    t.string   "pc_motherboard",         default: ""
+    t.string   "pc_keyboard",            default: ""
+    t.string   "pc_mouse",               default: ""
+    t.string   "pc_mousepad",            default: ""
+    t.string   "pc_screen",              default: ""
+    t.string   "pc_internet",            default: ""
+    t.string   "pc_harddisk",            default: ""
+    t.string   "pc_soundcard",           default: ""
+    t.string   "pc_cpu_fan",             default: ""
+    t.string   "pc_computer_case",       default: ""
+    t.string   "pc_alim",                default: ""
+    t.string   "pc_os_sytem",            default: ""
+    t.string   "pc_smarphone",           default: ""
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

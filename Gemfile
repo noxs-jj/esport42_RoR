@@ -8,6 +8,7 @@ gem 'puma'
 gem 'pg'
 gem 'slim-rails'
 gem 'simple_form'
+gem 'country_select'
 gem 'mail_form'
 gem 'ckeditor'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
@@ -17,8 +18,6 @@ gem 'jquery-turbolinks'
 
 gem 'momentjs-rails', :github => 'derekprior/momentjs-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
-
-# css stylesheets pipeline conpressor...
 gem 'sass-rails'
 gem 'bootstrap-sass'
 gem 'therubyracer'
@@ -30,6 +29,7 @@ gem 'jquery-ui-rails'
 gem 'uglifier'
 gem 'coffee-rails'
 gem "font-awesome-rails"
+gem 'angularjs-rails'
 
 # authentification
 gem 'bcrypt-ruby'

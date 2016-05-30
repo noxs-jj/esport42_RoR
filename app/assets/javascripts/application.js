@@ -17,3 +17,8 @@
 //= require bootstrap-datetimepicker
 //= require pickers
 //= require ckeditor/init
+//= require angular
+//= require angular-animate
+//= require angular-resource
+
+var esport42 = angular.module('esport42', []);
