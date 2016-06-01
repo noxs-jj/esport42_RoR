@@ -11,7 +11,7 @@ class EventController < ApplicationController
   def show
     @event = Event.find_by(id: params[:id])
     if @event.nil?
-      redirect_to event_index_path
+      redirect_to event_index_path, alert: "Event #{params[:id].to_s} doesn't exist"
     else
       @tournament = tournamentHelper_list_tournaments_from_event_id(@event.id)
     end

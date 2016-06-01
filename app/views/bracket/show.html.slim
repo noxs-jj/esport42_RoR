@@ -1,0 +1,11 @@
+.panel.panel-default
+  .panel-heading
+    panel-title
+      .h1
+        b = "Bracket##{@bracket.id} #{  @bracket.name}"
+
+  .panel-body
+    = render "backoffice/bracket/detail"
+
+
+    = render 'backoffice/bracket/bracket'

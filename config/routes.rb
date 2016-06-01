@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  get 'tournament/index'  => 'tournament#index', as: 'tournament_index'
-  get 'tournament/show'   => 'tournament#show', as: 'tournament_show'
+  get 'bracket/index'     => 'bracket#index', as: 'bracket_index'
+  get 'bracket/show/:id'  => 'bracket#show', as: 'braket_show'
+
+  get 'tournament/index'    => 'tournament#index', as: 'tournament_index'
+  get 'tournament/show/:id' => 'tournament#show', as: 'tournament_show'
 
   get 'game/index'    => 'game#index', as: 'gane_index'
   get 'game/show/:id' => 'game#show', as: 'game_show'

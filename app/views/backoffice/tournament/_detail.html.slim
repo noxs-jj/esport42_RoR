@@ -1,53 +1,63 @@
+.col-xs-6
+  b = "Name: "
+  = @tournament.name
+
+.col-xs-6
+  b = "Event: "
+  = @tournament.event_name
+
+.col-xs-6
+  b = "Game: "
+  = @tournament.game_name
+
+.col-xs-6
+  b = "Participants: "
+  = @tournament.participant_ids.to_s
+
+.col-xs-6
+  b = "Max players: "
+  = @tournament.max_players.to_s
+
+.col-xs-6
+  b = "Created By: "
+  = @tournament.creator_user_name
+
+.col-xs-6
+  b = "Date: "
+  = @tournament.created_at.strftime("%Y/%m/%d %H:%M")
+
+.col-xs-6
+  b = "Status: "
+  = @tournament.status_name
+
+
 .col-xs-12
+  h2 Brackets
   .panel.panel-default
-    .panel-heading
-      h3.panel-title
-        b = @tournament.name
-
     .panel-body
-      .col-sm-6
-        b = "Name: "
-        = @tournament.name
+      - @brackets.each do |bracket|
+        = link_to "##{bracket.id}", braket_show_path(bracket.id), class: 'btn-xs btn-primary', title: "id##{bracket.id} #{bracket.name}"
+        = " "
 
-      .col-sm-6
-        b = "Event: "
-        = @tournament.event_name
+.col-xs-12
+  h2 Participants
+  .panel.panel-default
+    .panel-body
+      ul.two-col-special.text-left
+        - @participants.each do |participant|
+          li = "#{participant.user_name}"
 
-      .col-sm-6
-        b = "Game: "
-        = @tournament.game_name
+.col-xs-12
+  div style="height: 20px;"
+  b = "Rules: "
+  = @tournament.rules.html_safe
 
-      .col-sm-6
-        b = "Participants: "
-        = @tournament.participant_ids.to_s
+.col-xs-12
+  div style="height: 20px;"
+  b = "Brackets_info: "
+  = @tournament.brackets_info.html_safe
 
-      .col-sm-6
-        b = "Max players: "
-        = @tournament.max_players.to_s
-
-      .col-sm-6
-        b = "Created By: "
-        = @tournament.creator_user_name
-
-      .col-sm-6
-        b = "Date: "
-        = @tournament.created_at.strftime("%Y/%m/%d %H:%M")
-
-      .col-sm-6
-        b = "Status: "
-        = @tournament.status_name
-
-      .col-sm-12
-        div style="height: 20px;"
-        b = "Rules: "
-        = @tournament.rules.html_safe
-
-      .col-sm-12
-        div style="height: 20px;"
-        b = "Brackets_info: "
-        = @tournament.brackets_info.html_safe
-
-      .col-sm-12
-        div style="height: 20px;"
-        b = "Other_info: "
-        = @tournament.other_info.html_safe
+.col-xs-12
+  div style="height: 20px;"
+  b = "Other_info: "
+  = @tournament.other_info.html_safe

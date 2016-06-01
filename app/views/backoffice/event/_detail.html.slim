@@ -32,7 +32,7 @@ ul.list-group
       .pull-right
         = "Brackets: "
         - bracket_list.each do |bracket|
-          = link_to "##{bracket.id}", "#", class: 'btn-xs btn-primary', title: "id##{bracket.id} #{bracket.name}"
+          = link_to "##{bracket.id}", braket_show_path(bracket.id), class: 'btn-xs btn-primary', title: "id##{bracket.id} #{bracket.name}"
           = " "
 
 br
