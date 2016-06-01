@@ -1,5 +1,9 @@
 class EventController < ApplicationController
+  include TournamentHelper
+  include BracketHelper
+  include ParticipantHelper
   load_and_authorize_resource
+
   def index
     @events = Event.all.order(created_at: :desc)
   end
@@ -8,6 +12,8 @@ class EventController < ApplicationController
     @event = Event.find_by(id: params[:id])
     if @event.nil?
       redirect_to event_index_path
+    else
+      @tournament = tournamentHelper_list_tournaments_from_event_id(@event.id)
     end
   end
 

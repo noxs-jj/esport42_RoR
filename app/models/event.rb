@@ -1,4 +1,7 @@
 class Event < ActiveRecord::Base
+  def tournament_list
+  end
+
   def self.list_event_registrable
     Event.where(
       "status_id = ? OR status_id = ? OR status_id = ?",

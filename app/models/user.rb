@@ -18,7 +18,6 @@ class User < ActiveRecord::Base
 
   scope :sorted_by, lambda { |x| order(created_at: :desc) }
 
-
   scope :search_username, lambda { |query|
     return nil  if query.blank?
     terms = query.downcase.split(/\s+/)
@@ -58,7 +57,7 @@ class User < ActiveRecord::Base
     num_or_conds = 1
     where(
       terms.map { |term|
-        "(LOWER(users.username) LIKE ?)"
+        "(LOWER(users.email) LIKE ?)"
       }.join(' AND '),
       *terms.map { |e| [e] * num_or_conds }.flatten
     )

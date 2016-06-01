@@ -1,4 +1,8 @@
 module ParticipantHelper
+  def participantHelper_list_participants_from_event_id(event_id)
+    Participant.where(event_id: event_id)
+  end
+
   def participant_help_how_many_participant_id_is_assigned_get_color(id_to_check, cells_array)
     result = 0
     - to_spawn = (@cells.length + 1) / 2

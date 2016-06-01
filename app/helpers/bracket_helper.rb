@@ -1,4 +1,8 @@
 module BracketHelper
+  def bracketHelper_list_brackets_from_tournament_id(tournament_id)
+    Bracket.where(tournament_id: tournament_id)
+  end
+
   def bracketHelper_brackets_links_with_tournament_id(tournament_id)
     brackets = Bracket.where(tournament_id: tournament_id)
     result = ""

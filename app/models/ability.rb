@@ -10,6 +10,7 @@ class Ability
     end
     can :read, Event
     can :read, Participant
+    can :read, Tournament
     can :read, Game
     can :read, Bracket
     can :read, Cell

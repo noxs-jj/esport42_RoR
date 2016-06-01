@@ -1,40 +1,56 @@
 - if user_signed_in?
-  .col-xs-6
-    = link_to "Register Event", main_app.participant_event_create_path(@event.id), class: "btn btn-primary"
-    div style="height: 20px;"
-
-
+  = link_to "Register Event", main_app.participant_event_create_path(@event.id), class: "btn btn-primary"
   - if participant_help_is_user_register_to_event?(current_user.id, params[:id]) == true
-    .col-xs-6
+    .pull-right
       = link_to "Unregister Event", "", class: "btn btn-warning"
+  br
+  br
 
+.col-xs-6
+  b = "Date: "
+  = @event.date.strftime("%Y/%m/%d")
+.col-xs-6
+  b = "Status "
+  = @event.status_name
 
-.col-xs-12
-  .panel.panel-default
-    .panel-heading
-      h3.panel-title
-        b = @event.name
-    .panel-body
+-if user_signed_in? && current_user.admin?
+  .col-xs-6
+    b = "Created by: "
+    = @event.user_name
+  .col-xs-6
+    b = "On: "
+    = @event.created_at.strftime("%Y/%m/%d %H:%M")
 
-      .col-xs-6
-        b = "Date: "
-        = @event.date.strftime("%Y/%m/%d")
-      .col-xs-6
-        b = "Status "
-        = @event.status_name
+br
+br
+h2 Tournaments
+ul.list-group
+  - @tournament.each do |tournament|
+    li.list-group-item
+      = link_to "#{tournament.name}",  tournament_show_path(tournament.id), title: "id##{tournament.id} #{tournament.name}"
+      - bracket_list = bracketHelper_list_brackets_from_tournament_id(tournament.id)
+      .pull-right
+        = "Brackets: "
+        - bracket_list.each do |bracket|
+          = link_to "##{bracket.id}", "#", class: 'btn-xs btn-primary', title: "id##{bracket.id} #{bracket.name}"
+          = " "
 
-      -if user_signed_in? && current_user.admin?
-        .col-xs-6
-          b = "Created by: "
-          = @event.user_name
-        .col-xs-6
-          b = "On: "
-          = @event.created_at.strftime("%Y/%m/%d %H:%M")
+br
+h2 Participants
+.panel.panel-default
+  .panel-body
+    - participants_list = participantHelper_list_participants_from_event_id(@event.id)
+    .center
+      ul.two-col-special.text-left
+        - participants_list.each do |participant|
+          li = "#{participant.user_name}"
 
-      .col-xs-12
-        h2 Infos
-        = @event.info.to_s.html_safe
+h2 Infos
+.panel.panel-default
+  .panel-body
+    = @event.info.to_s.html_safe
 
-      .col-xs-12
-        h3 Address
-        = render "layouts/address", entry: @event
+h2 Address
+.panel.panel-default
+  .panel-body
+    = render "layouts/address", entry: @event

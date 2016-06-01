@@ -1,4 +1,6 @@
 class Backoffice::EventController < Backoffice::ApplicationController
+  include TournamentHelper
+  include BracketHelper
   load_and_authorize_resource
 
   def index
@@ -9,6 +11,8 @@ class Backoffice::EventController < Backoffice::ApplicationController
     @event = Event.find_by(id: params[:id])
     if @event.nil?
       redirect_to backoffice_event_index_path, alert: "Event #{params[:id].to_s} doesn't exist"
+    else
+      @tournament = tournamentHelper_list_tournaments_from_event_id(@event.id)
     end
   end
 

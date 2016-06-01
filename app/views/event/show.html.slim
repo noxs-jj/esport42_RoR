@@ -1,4 +1,8 @@
-h1
-  = "Event ##{@event.id}"
+.panel.panel-default
+  .panel-heading
+    panel-title
+      .h1
+        b = "Event##{@event.id} #{  @event.name}"
 
-= render "backoffice/event/detail"
+  .panel-body
+    = render "backoffice/event/detail"

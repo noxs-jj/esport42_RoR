@@ -1,0 +1,17 @@
+.two-col-special {
+    margin: 0;
+    padding: 0;
+}
+
+.two-col-special li {
+    display: inline-block;
+    width: 33%;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+.two-col-special li:before {
+    padding: 0px;
+    margin-right: 0px;
+    display: inline-block;
+}

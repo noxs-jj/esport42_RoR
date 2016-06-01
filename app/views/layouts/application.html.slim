@@ -9,7 +9,7 @@ head
 body data-ng-app="esport42"
   = render('layouts/navbar_top_main')
 
-  .container-fluid
+  .container
     .col-xs-12 style="margin-top: 55px"
       - if !notice.blank?
         .alert.alert-info
@@ -18,11 +18,7 @@ body data-ng-app="esport42"
         .alert.alert-danger
           = alert
 
-  - if false == request.env['PATH_INFO'].to_s.include?('/backoffice/')
-    .container-fluid.col-xs-12 style="background-image: url(' #{image_url("esport42_banner_001.png")} ');
-        background-repeat:no-repeat; background-position:right center;
-        background-color: #31384d; height: 317px;"
-      = image_tag("esport42_logo_001.png", size: "317x317")
+  // = render 'layouts/banner'
 
   .container
     .col-sm-12
