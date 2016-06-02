@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'user/show/:id'     => 'user#show', as: 'user_show'
+
   get 'bracket/index'     => 'bracket#index', as: 'bracket_index'
   get 'bracket/show/:id'  => 'bracket#show', as: 'braket_show'
 

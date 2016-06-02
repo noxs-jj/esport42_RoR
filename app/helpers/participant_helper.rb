@@ -1,4 +1,26 @@
 module ParticipantHelper
+  def participantHelper_list_participants_where_user_is_registered(user_id)
+    Participant.where(user_id: user_id).order(created_at: :desc).first(10)
+  end
+
+  def participantHelper_list_event_from_participants_array(array_participants)
+    result = []
+    array_participants.each do |participant|
+      event = Event.find_by(id: participant.event_id)
+      result << event if !event.nil?
+    end
+    return result
+  end
+
+  def participantHelper_list_tournament_from_participants_array(array_participants)
+    result = []
+    array_participants.each do |participant|
+      tournament = Tournament.find_by(event_id: participant.event_id)
+      result << tournament if !tournament.nil?
+    end
+    return result
+  end
+
   def participantHelper_list_participants_from_event_id(event_id)
     Participant.where(event_id: event_id)
   end

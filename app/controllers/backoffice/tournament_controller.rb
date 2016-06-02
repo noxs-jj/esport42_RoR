@@ -38,7 +38,7 @@ class Backoffice::TournamentController < Backoffice::ApplicationController
       tournament.created_by = current_user.id
       tournament.save
       if tournament
-        redirect_to backoffice_user_show_path(tournament.id), notice: "Tournament created success"
+        redirect_to backoffice_tournament_show_path(tournament.id), notice: "Tournament created success"
       else
         redirect_to request.headers["HTTP_REFERER"], alert: "Failed to create Tournament, plz contact admin"
       end

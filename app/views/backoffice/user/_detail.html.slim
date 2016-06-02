@@ -12,6 +12,10 @@
       a href="#computer" data-ng-click="tabSelect = 'computer'"
         = "Computer"
 
+    li data-ng-class="{true:'active', false:''}[tabSelect=='event_tournament']"
+      a href="#event_tournament" data-ng-click="tabSelect = 'event_tournament'"
+        = "Event&Tournaments"
+
   .tab-content
     .tab-pane data-ng-class="{true:'active', false:''}[tabSelect=='informations']"
       .col-sm-12
@@ -153,3 +157,16 @@
         br
         b = "pc_smarphone: "
         = @user.pc_smarphone
+
+    .tab-pane data-ng-class="{true:'active', false:''}[tabSelect=='event_tournament']"
+      .col-sm-12
+        h2 = "Events"
+        ul.list-group
+          - @events.each do |event|
+            li.list-group-item
+              = link_to event.name, event_show_path(event.id)
+        h2 = "Tournaments"
+        ul.list-group
+          - @tournaments.each do |tournament|
+            li.list-group-item
+              = link_to tournament.name, tournament_show_path(tournament.id)

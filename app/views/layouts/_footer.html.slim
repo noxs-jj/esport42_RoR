@@ -1,0 +1,25 @@
+hr
+footer.footer
+  .container-fluid
+    .text-center
+      = link_to 'https://www.facebook.com/esport42/' do
+        - fa_stacked_icon "facebook 3x", base: ''
+      = " "
+      = link_to 'https://twitter.com/esport42' do
+        - fa_stacked_icon "twitter 3x", base: ''
+
+    br
+    br
+    .pull-right
+      = 'By Jean-Jacques MOIROUX '
+      = mail_to 'jjmoiroux@gmail.com' do
+        - fa_stacked_icon "envelope-o"
+      = link_to 'https://twitter.com/jjmoiroux' do
+        - fa_stacked_icon "twitter"
+      = link_to 'https://www.linkedin.com/in/jeanjacquesmoiroux' do
+        - fa_stacked_icon "linkedin"
+
+    .pull-left
+      = link_to "SchemaUML", "https://drive.google.com/file/d/0B3hIuq7aIydrN3NPUjJqTnJQckU/view?usp=sharing"
+      = " -- "
+      = link_to "Task&Issues", "https://trello.com/b/7hCzoC9l/esport42-app-main-website"
