@@ -2,10 +2,10 @@ hr
 footer.footer
   .container-fluid
     .text-center
-      = link_to 'https://www.facebook.com/esport42/' do
+      = link_to 'https://www.facebook.com/esport42/', target: "_blank" do
         - fa_stacked_icon "facebook 3x", base: ''
       = " "
-      = link_to 'https://twitter.com/esport42' do
+      = link_to 'https://twitter.com/esport42', target: "_blank" do
         - fa_stacked_icon "twitter 3x", base: ''
 
     br
@@ -14,9 +14,9 @@ footer.footer
       = 'By Jean-Jacques MOIROUX '
       = mail_to 'jjmoiroux@gmail.com' do
         - fa_stacked_icon "envelope-o"
-      = link_to 'https://twitter.com/jjmoiroux' do
+      = link_to 'https://twitter.com/jjmoiroux', target: "_blank" do
         - fa_stacked_icon "twitter"
-      = link_to 'https://www.linkedin.com/in/jeanjacquesmoiroux' do
+      = link_to 'https://www.linkedin.com/in/jeanjacquesmoiroux', target: "_blank" do
         - fa_stacked_icon "linkedin"
 
     .pull-left

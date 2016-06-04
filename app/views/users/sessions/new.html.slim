@@ -1,6 +1,9 @@
 h2 Log in
 
 .col-sm-12
+  = render 'user/admin_test_access'
+
+.col-sm-12
   = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .col-sm-6
       .form-group
