@@ -1,0 +1,6 @@
+.panel.panel-default
+  .panel-heading
+    h1 Post/news new
+  .panel-body
+    = simple_form_for( @post, url: backoffice_post_create_path(@post)) do |f|
+      = render 'backoffice/post/form', f: f

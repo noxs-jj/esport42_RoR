@@ -52,9 +52,6 @@ class Backoffice::ParticipantController < Backoffice::ApplicationController
     end
   end
 
-  def delete
-  end
-
 private
   def participant_param
     params.require(:participant).permit( :type_id, :status_id, :tournament_ids )

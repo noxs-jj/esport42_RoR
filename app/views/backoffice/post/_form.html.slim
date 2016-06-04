@@ -1,0 +1,31 @@
+.form-group
+  .col-sm-6
+    = f.input :user_id
+
+.form-group
+  .col-sm-6
+    = f.input :visible
+
+.form-group
+  .col-sm-12
+    = f.input :banner
+
+.form-group
+  .col-sm-12
+    = f.input :title
+
+.form-group
+  .col-sm-12
+    = f.input :description
+
+.form-group
+  .col-sm-12
+    = f.input :body, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }
+
+.form-group
+  .col-sm-12
+    = f.input :sources
+
+.form-group
+  .col-sm-12
+    = f.submit "Send", class: 'btn btn-primary'

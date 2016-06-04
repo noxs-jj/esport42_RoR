@@ -1,0 +1,20 @@
+.panel.panel-default
+  .panel-heading
+    h1 Post/news List
+  .panel-body
+    table.table.table-striped.text-left
+      thead
+        th
+        th
+
+      tbody
+        - @posts.each do |post|
+          tr
+            td = post.user_id
+            td = post.visible
+            td = post.title
+            td = post.description
+            td = post.body.html_safe
+            td = post.body.html_safe
+            td = post.body.html_safe
+            td = post.sources

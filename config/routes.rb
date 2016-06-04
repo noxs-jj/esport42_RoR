@@ -24,6 +24,13 @@ Rails.application.routes.draw do
   get 'welcome' => 'welcome#index'
 
   namespace :backoffice do
+    get 'post/index'    => 'post#index', as: 'post_index'
+    get 'post/show/:id' => 'post#show', as: 'post_show'
+    get 'post/new'      => 'post#new', as: 'post_new'
+    post 'post/create'  => 'post#create', as: 'post_create'
+    get 'post/edit/:id' => 'post#edit', as: 'post_edit'
+    post 'post/update'  => 'post#update', as: 'post_update'
+
     get 'bracket/:bracket_id/cell/index'        => 'cell#bracket_cells', as: 'bracket_cells_list'
     get 'cell/:id/set_winner/:participant_id'   => 'cell#set_winner', as: 'cell_set_winner'
     get 'cell/show/:id'                         => 'cell#show', as: 'cell_show'
