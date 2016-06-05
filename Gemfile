@@ -16,7 +16,6 @@ gem 'will_paginate-bootstrap'
 gem 'turbolinks', '~> 5.0.0.beta'
 gem 'jquery-turbolinks'
 gem 'filterrific'
-
 gem 'momentjs-rails', :github => 'derekprior/momentjs-rails'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem 'sass-rails'
@@ -31,6 +30,8 @@ gem 'uglifier'
 gem 'coffee-rails'
 gem "font-awesome-rails"
 gem 'angularjs-rails'
+gem "mini_magick"
+gem 'carrierwave'
 
 # authentification
 gem 'bcrypt-ruby'
@@ -48,10 +49,10 @@ group :development, :test do
   gem 'capistrano-rails',require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano3-puma', require: false
-  #gem 'rvm-capistrano'
   gem 'spring'
   gem 'quiet_assets'
   gem 'awesome_print'
   gem 'html2haml'
   gem 'haml2slim'
+  gem 'rubocop'
 end

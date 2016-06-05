@@ -14,6 +14,7 @@ class Ability
     can :read, Game
     can :read, Bracket
     can :read, Cell
+    can :read, Post
     can :create, ContactUs
   end
 end

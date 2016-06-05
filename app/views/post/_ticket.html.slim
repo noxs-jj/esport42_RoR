@@ -1,0 +1,12 @@
+.hidden-sm.hidden-xs
+  a href=post_show_url(post.id) style="color: inherit; text-decoration: none;"
+    div.center-block style="border: solid 1px white; color: white; border-radius: 5px; background-image: url(#{post.banner}); background-repeat:no-repeat; min-height: 90xp; height: 90xp; width: 728px;"
+      h3 = post.title.truncate(59)
+      = post.description.truncate(150)
+
+.visible-sm.visible-xs
+  a href=post_show_url(post.id) style="color: inherit; text-decoration: none;"
+    div.center-block style="min-height: 90xp; height: 90xp; color: white; border-radius: 5px; background-image: url(#{post.banner}); background-position:center center; background-repeat:no-repeat; background-color: black; border: solid 1px white;"
+      h3
+        = post.title.truncate(22)
+      = post.description.truncate(56)

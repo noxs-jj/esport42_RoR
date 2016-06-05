@@ -1,29 +1,48 @@
+.panel.panel-primary
+  .panel-body
+    .col-sm-12
+      b = "Banner Speciment 728 x 90"
+      br
+      a href=image_url("post_banner_specimen_728x90.gif") title="Download Specimen"
+        = image_tag("post_banner_specimen_728x90.gif")
+      br
+      br
+
+    .col-sm-12
+      - if !@post.banner.blank?
+        b = "Current: "
+        br
+        a href=image_url(@post.banner) title="Download banner"
+          = image_tag(@post.banner)
+        br
+        br
+      = f.input :banner, label: "Banner (emptry if you don't want to replace it)"
+      br
+      br
+
 .form-group
   .col-sm-6
     = f.input :user_id
     - if @post.user_id
       = "Author: "
       = @post.user_name
+  br
 
 .form-group
   .col-sm-6
     = f.input :visible
 
-.form-group
-  .col-sm-12
-    = f.input :banner
-    - if !@post.banner.blank?
-      = "Current: "
-      br
-      = @post.banner
+
 
 .form-group
   .col-sm-12
     = f.input :title
+    br
 
 .form-group
   .col-sm-12
     = f.input :description
+    br
 
 .form-group
   .col-sm-12
