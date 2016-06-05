@@ -1,0 +1,35 @@
+- if current_user.admin == true || current_user.id == @post.user_id
+  .col-sm-12
+    = link_to "Edit",  backoffice_post_edit_path(@post.id), class: 'btn btn-success'
+    br
+    br
+
+.col-sm-6
+  b = "Author: "
+  = @post.user_name
+
+.col-sm-6
+  b = "Is visible: "
+  = @post.visible
+
+.col-sm-12
+  b = "Banner: "
+  = @post.banner
+
+.col-sm-12
+  b = "Title: "
+  = @post.title
+
+.col-sm-12
+  b = "Description: "
+  = @post.description
+
+.col-sm-12
+  b = "Body: "
+  = @post.body.html_safe
+
+.col-sm-12
+  b = "Sources: "
+  - @post.sources.each do |source|
+    = source
+    = " "

@@ -1,6 +1,9 @@
 .form-group
   .col-sm-6
     = f.input :user_id
+    - if @post.user_id
+      = "Author: "
+      = @post.user_name
 
 .form-group
   .col-sm-6
@@ -9,6 +12,10 @@
 .form-group
   .col-sm-12
     = f.input :banner
+    - if !@post.banner.blank?
+      = "Current: "
+      br
+      = @post.banner
 
 .form-group
   .col-sm-12

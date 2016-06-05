@@ -1,2 +1,7 @@
-h1 Backoffice::Post#edit
-p Find me in app/views/backoffice/post/edit.html.slim
+.panel.panel-default
+  .panel-heading
+    h1 Post/news Edit
+
+  .panel-body
+    = simple_form_for( @post, url:  backoffice_post_update_path(@post), method: 'POST') do |f|
+      = render 'backoffice/post/form', f: f

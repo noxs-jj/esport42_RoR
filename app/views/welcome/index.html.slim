@@ -1,4 +1,12 @@
-h1 = t('welcome.h1_title') + "  " + t('application.title')
+//h1 = t('welcome.h1_title') + "  " + t('application.title')
 
 .col-sm-12
   = render 'user/admin_test_access'
+
+.col-sm-12
+  - @posts.each do |post|
+    a href= post_show_url(post.id) style="color: inherit; text-decoration: none;"
+      .panel.panel-default
+        .panel-body
+          h3 = post.title.truncate(59)
+          = post.description.truncate(150)

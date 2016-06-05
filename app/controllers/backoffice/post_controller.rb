@@ -26,9 +26,23 @@ class Backoffice::PostController < Backoffice::ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
+    if @post.nil?
+      redirect_to backoffice_post_index_path, alert: "Post #{params[:id].to_s} doesn't exist"
+    end
   end
 
   def update
+    @post = Post.find(params[:id])
+    if @post.nil?
+      redirect_to backoffice_post_index_path, alert: "Post #{params[:id].to_s} doesn't exist"
+    else
+      if @post.update(post_params)
+        redirect_to backoffice_post_show_path(@post.id), notice: "Update success"
+      else
+        redirect_to backoffice_post_index_path, alert: "Failed to update post."
+      end
+    end
   end
 
 private

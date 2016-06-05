@@ -4,17 +4,19 @@
   .panel-body
     table.table.table-striped.text-left
       thead
-        th
-        th
+        th ID
+        th Author
+        th Visible?
+        th Title
+        th Description
+        th Actions
 
       tbody
         - @posts.each do |post|
           tr
-            td = post.user_id
+            td = post.id
+            td = post.user_name
             td = post.visible
-            td = post.title
-            td = post.description
-            td = post.body.html_safe
-            td = post.body.html_safe
-            td = post.body.html_safe
-            td = post.sources
+            td = link_to post.title.truncate(20), backoffice_post_show_path(post.id)
+            td = post.description.truncate(20)
+            td = link_to "Edit",  backoffice_post_edit_path(post.id), class: 'btn btn-success'
