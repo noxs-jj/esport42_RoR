@@ -10,7 +10,7 @@ set :puma_threads,    [2, 4]
 set :puma_workers,    4
 
 # carrierewave upload file
-set :linked_dirs, %w{public/uploads}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads public/ckeditor_assets}
 
 # Don't change these unless you know what you're doing
 set :pty,             true
