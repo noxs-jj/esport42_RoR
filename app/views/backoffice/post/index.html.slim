@@ -5,6 +5,7 @@
     table.table.table-striped.text-left
       thead
         th ID
+        th Created at
         th Author
         th Visible?
         th Title
@@ -15,8 +16,23 @@
         - @posts.each do |post|
           tr
             td = post.id
+            td = post.created_at.strftime("%Y/%m/%d %H:%M")
             td = post.user_name
             td = post.visible
             td = link_to post.title.truncate(20), backoffice_post_show_path(post.id)
             td = post.description.truncate(20)
-            td = link_to "Edit",  backoffice_post_edit_path(post.id), class: 'btn btn-success'
+            td
+              = link_to "Edit",  backoffice_post_edit_path(post.id), class: 'btn btn-success'
+              = " "
+              - if false == post.visible
+                = link_to "Set Visible", backoffice_post_set_visible_path(post.id), class: 'btn btn-danger'
+              - else
+                = link_to "Set Invisible", backoffice_post_set_invisible_path(post.id), class: 'btn btn-success'
+                = " "
+              - if false == post.highlight
+                = link_to "Set Highlight", backoffice_post_set_highlight_path(post.id), class: 'btn btn-default'
+              - else
+                .btn.btn-info
+                  = "Highlight"
+
+    = will_paginate @posts, renderer: BootstrapPagination::Rails

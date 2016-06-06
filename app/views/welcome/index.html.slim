@@ -4,6 +4,7 @@
   = render 'user/admin_test_access'
 
 .col-xs-12
+  = render 'post/highlight', post: @post_highlight
   - @posts.each do |post|
     = render 'post/ticket', post: post
     br

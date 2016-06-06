@@ -1,2 +1,4 @@
 h1 Post#index
 p Find me in app/views/post/index.html.slim
+
+= will_paginate @posts, renderer: BootstrapPagination::Rails

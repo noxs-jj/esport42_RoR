@@ -1,8 +1,8 @@
 class Backoffice::PostController < Backoffice::ApplicationController
-  require 'open-uri'
+  load_and_authorize_resource
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :desc).page(params[:page])
   end
 
   def show
@@ -50,6 +50,62 @@ class Backoffice::PostController < Backoffice::ApplicationController
         redirect_to backoffice_post_index_path,
                     alert: 'Failed to update post.'
       end
+    end
+  end
+
+  def set_visible
+    @post = Post.find_by(id: params[:id])
+    if @post.nil?
+      redirect_to backoffice_post_index_path,
+                  alert: "Post #{params[:id].to_s} doesn't exist"
+    end
+    @post.visible = true
+    @post.save
+    if @post
+      redirect_to  backoffice_post_index_path,
+                  notice: 'Set visible success'
+    else
+      redirect_to backoffice_post_index_path,
+                  alert: 'Failed to set visible.'
+    end
+  end
+
+  def set_invisible
+    @post = Post.find_by(id: params[:id])
+    if @post.nil?
+      redirect_to backoffice_post_index_path,
+                  alert: "Post #{params[:id].to_s} doesn't exist"
+    end
+    @post.visible = false
+    @post.save
+    if @post
+      redirect_to backoffice_post_index_path,
+                  notice: 'Set invisible success'
+    else
+      redirect_to backoffice_post_index_path,
+                  alert: 'Failed to set invisible.'
+    end
+  end
+
+  def set_highlight
+    @old_highlight_post = Post.find_by(highlight: true)
+    @post = Post.find_by(id: params[:id])
+    if @post.nil?
+      redirect_to backoffice_post_index_path,
+                  alert: "Post #{params[:id].to_s} doesn't exist"
+    elsif @old_highlight_post
+      @old_highlight_post.highlight = false
+      @old_highlight_post.save
+    end
+    @post.highlight = true
+    @post.visible = true
+    @post.save
+    if @post
+      redirect_to backoffice_post_index_path,
+                  notice: 'Set highlight success'
+    else
+      redirect_to backoffice_post_index_path,
+                  alert: 'Failed to set highlight.'
     end
   end
 

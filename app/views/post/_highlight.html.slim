@@ -1,0 +1,23 @@
+- if post
+  .hidden-xs
+    a href=post_show_url(post.id) style="color: inherit; text-decoration: none;"
+      div.center-block style="overflow:hidden; border: solid 3px rgb(195, 0, 255); color: white; border-radius: 5px; background-image: url(#{post.banner}); background-repeat:no-repeat; background-color: black; min-height: 90xp; height: 90xp; max-height: 180px; max-width: 728px; background-position:center top;"
+        h3 = post.title.truncate(59)
+        span style="font-style: italic;"
+          = post.description
+        br
+        br
+        = post.body.html_safe
+
+  .visible-xs
+    a href=post_show_url(post.id) style="color: inherit; text-decoration: none;"
+      div.center-block style="overflow:hidden; min-height: 90xp; height: 90xp; max-height: 180px; color: white; border-radius: 3px; background-image: url(#{post.banner}); background-position:center top; background-repeat:no-repeat; background-color: black; border: solid 5px rgb(195, 0, 255);"
+        h3 = post.title.truncate(22)
+        = post.description.truncate(56)
+        br
+        br
+        = post.body.html_safe
+
+  br
+  br
+  br
