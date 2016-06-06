@@ -1,0 +1,16 @@
+.form-group
+  .col-sm-4
+    = f.input :visible
+
+.form-group
+  .col-sm-4
+    = f.input :name
+    br
+
+.form-group
+  .col-sm-4
+    = f.input :color, label: "syntax: '#HEXHEX'"
+
+.form-group
+  .col-sm-12
+    = f.submit "Send", class: 'btn btn-primary'

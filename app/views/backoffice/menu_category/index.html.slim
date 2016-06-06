@@ -1,2 +1,22 @@
-h1 Backoffice::MenuCategory#index
-p Find me in app/views/backoffice/menu_category/index.html.slim
+.panel.panel-default
+  .panel-heading
+    h1 MenuCategory List
+
+  .panel-body
+    table.table.table-striped.text-left
+      thead
+        th ID
+        th name
+        th Visible?
+        th Actions
+
+      tbody
+        - @menus.each do |menu|
+          tr
+            td = menu.id
+            td = menu.name
+            td = menu.visible
+            td
+              = link_to "Edit",   backoffice_menu_category_edit_path(menu.id), class: 'btn btn-success'
+
+    = will_paginate @menus, renderer: BootstrapPagination::Rails

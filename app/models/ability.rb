@@ -15,6 +15,8 @@ class Ability
     can :read, Bracket
     can :read, Cell
     can :read, Post
+    can :read, Page
+    can :read, MenuCategory
     can :create, ContactUs
   end
 end

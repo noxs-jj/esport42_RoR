@@ -1,0 +1,48 @@
+.panel.panel-primary
+  .panel-body
+    .col-sm-12
+      b = "Banner Speciment 728 x 90"
+      br
+      a href=image_url("page_banner_specimen_728x210.gif") title="Download Specimen"
+        = image_tag("page_banner_specimen_728x210.gif")
+      br
+      br
+
+    .col-sm-12
+      - if !@page.banner.blank?
+        b = "Current: "
+        br
+        a href=image_url(@page.banner) title="Download banner"
+          = image_tag(@page.banner)
+        br
+        br
+      = f.input :banner, label: "Banner (emptry if you don't want to replace it)"
+      br
+      br
+
+
+.form-group
+  .col-sm-4
+    = f.input :visible
+
+.form-group
+  .col-sm-4
+    = f.input :menu_category_id, collection: collection_menu_category, include_blank: false
+
+.form-group
+  .col-sm-12
+    = f.input :name
+    br
+
+.form-group
+  .col-sm-12
+    = f.input :description
+
+.form-group
+  .col-sm-12
+    = f.input :body, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} }
+    br
+
+.form-group
+  .col-sm-12
+    = f.submit "Send", class: 'btn btn-primary'

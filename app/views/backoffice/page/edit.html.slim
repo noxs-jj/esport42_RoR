@@ -1,2 +1,6 @@
-h1 Backoffice::Page#edit
-p Find me in app/views/backoffice/page/edit.html.slim
+.panel.panel-default
+  .panel-heading
+    h1 Page edit
+  .panel-body
+    = simple_form_for( @page, url:  backoffice_page_update_path( @page ), method: 'POST') do |f|
+      = render 'backoffice/page/form', f: f

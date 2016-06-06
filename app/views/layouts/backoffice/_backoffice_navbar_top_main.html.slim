@@ -66,6 +66,26 @@ nav.navbar.navbar-default role="navigation" style="background-color: #ab1e1e; co
 
   .collapse.navbar-collapse
     ul.nav.navbar-nav
+      li.dropdown
+        a.dropdown-toggle data-toggle="dropdown" href="#" style="color: white;"
+          | Pages
+          b.caret
+        ul.dropdown-menu
+          li = link_to "List", main_app.backoffice_page_index_path
+          li = link_to "Create page", main_app.backoffice_page_new_path
+
+  .collapse.navbar-collapse
+    ul.nav.navbar-nav
+      li.dropdown
+        a.dropdown-toggle data-toggle="dropdown" href="#" style="color: white;"
+          | MenuCategry
+          b.caret
+        ul.dropdown-menu
+          li = link_to "List", main_app.backoffice_menu_category_index_path
+          li = link_to "Create menu", main_app.backoffice_menu_category_new_path
+
+  .collapse.navbar-collapse
+    ul.nav.navbar-nav
       li = " ----- "
 
   .collapse.navbar-collapse

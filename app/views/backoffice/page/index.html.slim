@@ -1,2 +1,24 @@
-h1 Backoffice::Page#index
-p Find me in app/views/backoffice/page/index.html.slim
+.panel.panel-default
+  .panel-heading
+    h1 Pages List
+
+  .panel-body
+    table.table.table-striped.text-left
+      thead
+        th ID
+        th Name
+        th Menu
+        th Visible?
+        th Actions
+
+      tbody
+        - @pages.each do |page|
+          tr
+            td = page.id
+            td = link_to page.name, backoffice_page_show_path(page.id)
+            td = page.menu_category_name
+            td = page.visible
+            td
+              = link_to "Edit", backoffice_page_edit_path(page.id), class: 'btn btn-success'
+
+    = will_paginate @pages, renderer: BootstrapPagination::Rails

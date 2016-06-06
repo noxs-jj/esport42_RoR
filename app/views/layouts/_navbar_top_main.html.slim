@@ -1,9 +1,22 @@
+- buttons = get_menu_category_visible
+
 nav.navbar.navbar-default.navbar-fixed-top style="padding: 0px; padding-left: 20px; padding-right: 20px; background-color: #81a410;"
   .navbar-collapse.collapse
     ul.nav.navbar-nav
       li = link_to t('navbar.welcome'), main_app.welcome_path
       li = link_to t('navbar.events'), main_app.event_index_path
       li = link_to t('navbar.contact'), main_app.contact_us_path
+
+      - buttons.each do |button|
+        - pages = get_page_from_menu_category_id(button.id)
+        - if pages.count >= 1
+          li.dropdown
+            a.dropdown-toggle data-toggle="dropdown" href="#"
+              = button.name
+              b.caret
+            ul.dropdown-menu
+              - pages.each do |page|
+                li = link_to page.name, page_show_path(page.id)
 
       - if user_signed_in?
         li.dropdown

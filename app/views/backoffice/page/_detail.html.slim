@@ -1,0 +1,28 @@
+- if user_signed_in? && ( current_user.admin == true || current_user.id == @page.user_id )
+  .col-sm-12
+    = link_to "Edit",  backoffice_page_edit_path(@page.id), class: 'btn btn-success'
+    = " -- "
+    b = "Is visible: "
+    = @page.visible
+    br
+    br
+
+.col-sm-12
+  = image_tag(@page.banner, class: 'center-block', style: "border-radius: 5px;")
+
+.col-sm-8
+  h1 = @page.name
+
+.col-sm-4
+  = @page.menu_category_id
+
+.col-sm-12
+  span style="font-style: italic;"
+    = @page.description
+  br
+  br
+
+.col-sm-12
+  .panel.panel-default
+    .panel-body
+      = @page.body.html_safe

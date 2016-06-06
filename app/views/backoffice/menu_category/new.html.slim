@@ -1,2 +1,6 @@
-h1 Backoffice::MenuCategory#new
-p Find me in app/views/backoffice/menu_category/new.html.slim
+.panel.panel-default
+  .panel-heading
+    h1 MenuCategory new
+  .panel-body
+    = simple_form_for( @menu, url:  backoffice_menu_category_create_path(@menu), method: 'POST') do |f|
+      = render 'backoffice/menu_category/form', f: f

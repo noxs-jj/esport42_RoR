@@ -1,2 +1,6 @@
-h1 Backoffice::Page#new
-p Find me in app/views/backoffice/page/new.html.slim
+.panel.panel-default
+  .panel-heading
+    h1 Page new
+  .panel-body
+    = simple_form_for( @page, url:  backoffice_page_create_path( @page ), method: 'POST') do |f|
+      = render 'backoffice/page/form', f: f

@@ -1,2 +1,6 @@
-h1 Backoffice::MenuCategory#edit
-p Find me in app/views/backoffice/menu_category/edit.html.slim
+.panel.panel-default
+  .panel-heading
+    h1 MenuCategory edit
+  .panel-body
+    = simple_form_for( @menu, url: backoffice_menu_category_update_path(@menu.id), method: 'POST') do |f|
+      = render 'backoffice/menu_category/form', f: f
