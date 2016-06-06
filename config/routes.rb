@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'page/index'    => 'page#index', as: 'page_index'
+  get 'page/show/:id' => 'page#show', as: 'page_show'
+
   get 'post/index'    => 'post#index', as: 'post_index'
   get 'post/show/:id' => 'post#show', as: 'post_show'
 
@@ -27,6 +30,19 @@ Rails.application.routes.draw do
   get 'welcome' => 'welcome#index'
 
   namespace :backoffice do
+    get 'page/index'       => 'page#index', as: 'page_index'
+    get 'page/show/:id'    => 'page#show', as: 'page_show'
+    get 'page/new'         => 'page#new', as: 'page_new'
+    post 'page/create'     => 'page#create', as: 'page_create'
+    get 'page/edit/:id'    => 'page#edit', as: 'page_edit'
+    post 'page/update/:id' => 'page#update', as: 'page_update'
+
+    get 'menu_category/index'       => 'menucategory#index', as: 'menu_category_index'
+    get 'menu_category/new'         => 'menucategory#new', as: 'menu_category_new'
+    post 'menu_category/create'     => 'menucategory#create', as: 'menu_category_create'
+    get 'menu_category/edit/:id'    => 'menucategory#edit', as: 'menu_category_edit'
+    post 'menu_category/update/:id' => 'menucategory#update', as: 'menu_category_update'
+
     get 'post/index'              => 'post#index', as: 'post_index'
     get 'post/show/:id'           => 'post#show', as: 'post_show'
     get 'post/new'                => 'post#new', as: 'post_new'

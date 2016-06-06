@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606140454) do
+ActiveRecord::Schema.define(version: 20160606144350) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -135,6 +135,24 @@ ActiveRecord::Schema.define(version: 20160606140454) do
     t.text     "info",       default: ""
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "menu_categories", force: :cascade do |t|
+    t.string   "name",                       null: false
+    t.string   "color",      default: ""
+    t.boolean  "visible",    default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "name",                        null: false
+    t.string   "description", default: ""
+    t.string   "body",        default: ""
+    t.boolean  "visible",     default: false
+    t.string   "banner",      default: ""
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "participant_statuses", force: :cascade do |t|

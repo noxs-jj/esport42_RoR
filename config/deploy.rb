@@ -9,6 +9,9 @@ set :user,            'ubuntu'
 set :puma_threads,    [2, 4]
 set :puma_workers,    4
 
+# carrierewave upload file
+set :linked_dirs, %w{public/uploads}
+
 # Don't change these unless you know what you're doing
 set :pty,             true
 set :use_sudo,        false
