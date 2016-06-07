@@ -1,8 +1,7 @@
 .panel.panel-default
   .panel-heading
     panel-title
-      .h1
-        b = "Bracket##{@bracket.id} #{  @bracket.name}"
+      h1 = "Bracket##{@bracket.id} '#{@bracket.name}'"
 
   .panel-body
     = render "backoffice/bracket/detail"

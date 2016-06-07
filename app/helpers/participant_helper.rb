@@ -84,8 +84,8 @@ module ParticipantHelper
   end
 
   def participantHelper_participant_user_and_event(user_id, event_id)
-    event = Participant.unscoped.find_by(event_id: event_id, user_id: user_id)
-    return event if !event.nil?
+    participant = Participant.unscoped.find_by(event_id: event_id, user_id: user_id)
+    return participant if !participant.nil?
 
     nil
   end

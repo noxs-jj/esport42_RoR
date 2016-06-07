@@ -4,18 +4,8 @@ class Backoffice::TournamentController < Backoffice::ApplicationController
   include ParticipantHelper
   load_and_authorize_resource
 
-  def bracket_show
-    @tournament = Tournament.find_by(id: params[:id])
-    if @tournament.nil?
-      redirect_to request.headers["HTTP_REFERER"], alert: "tournament #{params[:id].to_s} doesn't exist"
-    else
-      @bracket_column = bracketHelper_number_column_with_number_participants(@tournament.max_players)
-      @bracket_cell = bracketHelper_number_cell_with_number_participants(@tournament.max_players)
-    end
-  end
-
   def index
-    @tournaments = Tournament.all.order(created_at: :desc)
+    @tournaments = Tournament.all.order(created_at: :desc).page(params[:page])
   end
 
   def show
@@ -68,6 +58,16 @@ class Backoffice::TournamentController < Backoffice::ApplicationController
       end
     else
       redirect_to request.headers["HTTP_REFERER"], alert: "Can't to update Tournament, the event isn't registrable/pending/open"
+    end
+  end
+
+  def bracket_show
+    @tournament = Tournament.find_by(id: params[:id])
+    if @tournament.nil?
+      redirect_to request.headers["HTTP_REFERER"], alert: "tournament #{params[:id].to_s} doesn't exist"
+    else
+      @bracket_column = bracketHelper_number_column_with_number_participants(@tournament.max_players)
+      @bracket_cell = bracketHelper_number_cell_with_number_participants(@tournament.max_players)
     end
   end
 

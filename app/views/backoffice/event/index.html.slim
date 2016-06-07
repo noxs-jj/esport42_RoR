@@ -27,4 +27,4 @@
               = link_to "Edit", backoffice_event_edit_path(entry.id), class: "btn btn-primary btn-xs"
               = link_to "Delete", backoffice_event_delete_path(entry.id), class: "btn btn-warning btn-xs"
 
-      = will_paginate @events, renderer: BootstrapPagination::Rails
+    = will_paginate @events, renderer: BootstrapPagination::Rails

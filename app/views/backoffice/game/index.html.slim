@@ -10,7 +10,7 @@ h1 Games List
     - @games.each do |entry|
       tr
         td
-					= link_to entry.name,  event_show_path(entry.id)
+					= link_to entry.name, backoffice_game_show_path(entry.id)
         td = entry.icon
         td = entry.url
         td

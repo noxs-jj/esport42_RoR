@@ -6,7 +6,7 @@
   - if !participant.nil?
     .col-sm-6.text-center
       mark
-        = "You're registered on this event with id ##{participant.id}"
+        = "You're registered on this event with ParticipantID ##{participant.id}"
     .col-sm-3
       .pull-right
         = link_to "Unregister Event", participant_unregister_path(user_id: current_user.id, event_id: @event.id), class: "btn btn-warning", data: { confirm: "Unregister Event##{@event.id}, are you sure?" }

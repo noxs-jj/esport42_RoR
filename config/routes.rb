@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   get 'bracket/index'     => 'bracket#index', as: 'bracket_index'
   get 'bracket/show/:id'  => 'bracket#show', as: 'braket_show'
 
-  get 'tournament/index'    => 'tournament#index', as: 'tournament_index'
-  get 'tournament/show/:id' => 'tournament#show', as: 'tournament_show'
+  get 'tournament/index'                                      => 'tournament#index', as: 'tournament_index'
+  get 'tournament/show/:id'                                   => 'tournament#show', as: 'tournament_show'
+  get 'tournament/:id/participant_register/:participant_id'   => 'tournament#participant_register', as: 'tournament_participant_register'
+  get 'tournament/:id/participant_unregister/:participant_id' => 'tournament#participant_unregister', as: 'tournament_participant_unregister'
+
 
   get 'game/index'    => 'game#index', as: 'gane_index'
   get 'game/show/:id' => 'game#show', as: 'game_show'

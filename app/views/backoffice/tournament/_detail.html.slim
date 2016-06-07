@@ -1,14 +1,33 @@
+- if user_signed_in?
+  - participant_event = participantHelper_participant_user_and_event(current_user.id, @tournament.event_id)
+  - participant_tournament = tournamentHelper_get_participant_from_user_event_tournament(current_user.id, @tournament.event_id, @tournament.id)
+  - if participant_tournament.nil?
+    .col-sm-3
+      .pull-left
+      = link_to "Register Tournament", tournament_participant_register_path(id: @tournament.id, participant_id: participant_event.id), class: "btn btn-primary", data: { confirm: "Register Tournament##{@tournament.id}, are you sure?" }
+  - else
+    .col-sm-3
+      .pull-left
+        = link_to "Unregister Tournament", tournament_participant_unregister_path(user_id: current_user.id, participant_id: participant_event.id), class: "btn btn-warning", data: { confirm: "Unregister Tournament##{@tournament.id}, are you sure?" }
+    .col-sm-6.text-center
+      mark
+        = "You're registered on this Tournament with ParticipantID ##{participant_tournament.id}"
+  br
+  br
+  br
+
+
 .col-xs-6
   b = "Name: "
   = @tournament.name
 
 .col-xs-6
   b = "Event: "
-  = @tournament.event_name
+  = link_to @tournament.event_name, event_show_path(@tournament.event_id)
 
 .col-xs-6
   b = "Game: "
-  = @tournament.game_name
+  = link_to @tournament.game_name, game_show_path(@tournament.game_id)
 
 .col-xs-6
   b = "Participants: "

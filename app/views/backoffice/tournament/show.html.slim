@@ -1,4 +1,7 @@
-h1
-  = "Event ##{@tournament.id} - #{@tournament.name}"
+.panel.panel-info
+  .panel-heading
+    panel-title
+      h1 = "Tournament##{@tournament.id} '#{@tournament.name}'"
 
-= render "backoffice/tournament/detail"
+  .panel-body
+    = render "backoffice/tournament/detail"

@@ -1,8 +1,7 @@
 .panel.panel-default
   .panel-heading
     panel-title
-      .h1
-        b = "tournament##{@tournament.id} #{  @tournament.name}"
+      h1 = "Tournament##{@tournament.id} '#{@tournament.name}'"
 
   .panel-body
     = render 'backoffice/tournament/detail'

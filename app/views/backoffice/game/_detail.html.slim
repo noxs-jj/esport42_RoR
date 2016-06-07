@@ -1,25 +1,18 @@
+.col-xs-6
+  b = "Icon "
+  = @game.icon
+.col-xs-6
+  b = "Url: "
+  = @game.url
+.col-xs-6
+  b = "Editor "
+  = @game.editor
+
+-if user_signed_in? && current_user.admin?
+  .col-xs-6
+    b = "On: "
+    = @game.created_at.strftime("%Y/%m/%d %H:%M")
+
 .col-xs-12
-  .panel.panel-default
-    .panel-heading
-      h3.panel-title
-        b = @game.name
-    .panel-body
-
-      .col-xs-6
-        b = "Icon "
-        = @game.icon
-      .col-xs-6
-        b = "Url: "
-        = @game.url
-      .col-xs-6
-        b = "Editor "
-        = @game.editor
-
-      -if user_signed_in? && current_user.admin?
-        .col-xs-6
-          b = "On: "
-          = @game.created_at.strftime("%Y/%m/%d %H:%M")
-
-      .col-xs-12
-        h2 Infos
-        = @game.info.to_s.html_safe
+  h2 Infos
+  = @game.info.to_s.html_safe
