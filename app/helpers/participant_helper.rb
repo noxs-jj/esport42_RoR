@@ -1,4 +1,19 @@
 module ParticipantHelper
+  def participantHelper_delete_participant_from_tournaments_and_events(participant_id)
+    tournaments = Tournament.where("'#{participant_id}' = ANY (participant_ids)")
+    events = Event.where("'#{participant_id}' = ANY (participant_ids)")
+    if !tournaments.nil?
+      tournaments.each do |tournament|
+        tournament.participant_ids.delete(participant_id)
+      end
+    end
+    if !events.nil?
+      events.each do |event|
+        event.participant_ids.delete(participant_id)
+      end
+    end
+  end
+
   def participantHelper_list_participants_where_user_is_registered(user_id)
     Participant.where(user_id: user_id).order(created_at: :desc).first(10)
   end
@@ -61,17 +76,17 @@ module ParticipantHelper
     result
   end
 
-  def participant_help_is_event_registration_opend?(event_id)
+  def participantHelper_is_event_registration_opend?(event_id)
     event = Event.unscoped.find_by(id: event_id)
     return true if !event.nil? && event.status_id == EventStatus::REGISTRATION_OPENS
 
     false
   end
 
-  def participant_help_is_user_register_to_event?(user_id, event_id)
+  def participantHelper_participant_user_and_event(user_id, event_id)
     event = Participant.unscoped.find_by(event_id: event_id, user_id: user_id)
-    return true if !event.nil?
+    return event if !event.nil?
 
-    false
+    nil
   end
 end

@@ -1,24 +1,30 @@
-h1 Events List
+.panel.panel-info
+  .panel-heading
+    h1 Event List
 
-.col-xs-12
-  table.table.table-striped.text-left
-    thead
-      th Name
-      th Status
-      th Created By
-      th Date Event
-      th Created On
-      th Actions
-    - @events.each do |entry|
-      tr
-        td
-					= link_to entry.name,  event_show_path(entry.id)
-        td = entry.status_name
-        td = entry.user_name
-        td = entry.date.strftime("%Y/%m/%d")
-        td = entry.created_at.strftime("%Y/%m/%d %H:%M")
-        td
-          = link_to "List", backoffice_event_participant_index_path(entry.id), class: "btn btn-default btn-xs"
-          = link_to "Show", backoffice_event_show_path(entry.id), class: "btn btn-success btn-xs"
-          = link_to "Edit", backoffice_event_edit_path(entry.id), class: "btn btn-primary btn-xs"
-          = link_to "Delete", backoffice_event_delete_path(entry.id), class: "btn btn-warning btn-xs"
+  .panel-body
+    .col-xs-12
+      table.table.table-striped.text-left
+        thead
+          th ID
+          th Name
+          th Status
+          th Created By
+          th Date Event
+          th Created On
+          th Actions
+        - @events.each do |entry|
+          tr
+            td = entry.id
+            td = link_to entry.name, backoffice_event_show_path(entry.id)
+            td = entry.status_name
+            td = entry.user_name
+            td = entry.date.strftime("%Y/%m/%d")
+            td = entry.created_at.strftime("%Y/%m/%d %H:%M")
+            td
+              = link_to "List", backoffice_event_participant_index_path(entry.id), class: "btn btn-default btn-xs"
+              = link_to "Show", backoffice_event_show_path(entry.id), class: "btn btn-success btn-xs"
+              = link_to "Edit", backoffice_event_edit_path(entry.id), class: "btn btn-primary btn-xs"
+              = link_to "Delete", backoffice_event_delete_path(entry.id), class: "btn btn-warning btn-xs"
+
+      = will_paginate @events, renderer: BootstrapPagination::Rails

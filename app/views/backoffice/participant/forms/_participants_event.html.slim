@@ -2,6 +2,7 @@
   method: 'POST' ) do |add_event|
   - @participants_event.each do |entry|
     tr
+      td = entry.id
       td = entry.user_name
       td = entry.created_at.strftime("%Y/%m/%d %H:%M")
       td

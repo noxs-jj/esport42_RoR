@@ -2,6 +2,7 @@ h1 tournament List
 
 table.table.table-striped.text-left
   thead
+    th ID
     th Name
     th Max Players
     th Created By
@@ -10,8 +11,8 @@ table.table.table-striped.text-left
     th Actions
   - @tournaments.each do |entry|
     tr
-      td
-				= link_to entry.name
+      td = entry.id
+      td = link_to entry.name
       td = entry.max_players
       td = entry.creator_user_name
       td = entry.created_at.strftime("%Y/%m/%d %H:%M")

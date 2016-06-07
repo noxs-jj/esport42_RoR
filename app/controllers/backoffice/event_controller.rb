@@ -4,7 +4,7 @@ class Backoffice::EventController < Backoffice::ApplicationController
   load_and_authorize_resource
 
   def index
-    @events = Event.all.order(created_at: :desc)
+    @events = Event.all.order(created_at: :desc).page(params[:page])
   end
 
   def show

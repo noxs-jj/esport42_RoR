@@ -5,11 +5,13 @@ h1
 .col-xs-12
   table.table.table-striped.text-left
     thead
+      th ID
       th Name
       th Register on
       th Actions
     - @participants.each do |entry|
       tr
+        td = entry.id
         td = entry.user_name
         td = entry.created_at.strftime("%Y/%m/%d %H:%M")
         td

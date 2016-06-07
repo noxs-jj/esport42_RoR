@@ -1,8 +1,7 @@
 .panel.panel-default
   .panel-heading
     panel-title
-      .h1
-        b = "Event##{@event.id} #{  @event.name}"
+      h1 = "Event##{@event.id} '#{  @event.name}'"
 
   .panel-body
     = render "backoffice/event/detail"

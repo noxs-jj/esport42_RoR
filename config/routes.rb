@@ -19,10 +19,10 @@ Rails.application.routes.draw do
 	get 'contact_us/new'     => 'contact_us#new', as: 'contact_us'
   post 'contact_us/create' => 'contact_us#create', as: 'contact_us_create'
 
-  get 'participant/index/:event_id' 	=> 'participant#index', as: 'participants_event_index'
-	get 'participant/show/:id'					=> 'participant#show', as: 'participant_show'
-	get 'participant/:event_id/create'	=> 'participant#create', as: 'participant_event_create'
-  get 'participant/:id/delete'				=> 'participant#delete', as: 'participant_delete'
+  get 'participant/event/:event_id/index' 	                  => 'participant#index', as: 'participants_event_index'
+	get 'participant/show/:id'					                        => 'participant#show', as: 'participant_show'
+	get 'participant/event/:event_id/create'	                  => 'participant#create', as: 'participant_event_create'
+  get 'participant/user/:user_id/event/:event_id/unregister'  => 'participant#unregister', as: 'participant_unregister'
 
   get 'event/index'
   get 'event/show/:id' => 'event#show', as: 'event_show'
