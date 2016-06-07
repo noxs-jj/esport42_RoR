@@ -1,15 +1,16 @@
 - if user_signed_in? && true == participantHelper_is_event_registration_opend?(@event.id)
   - participant = participantHelper_participant_user_and_event(current_user.id, params[:id])
-  .col-sm-3
-    .pull-left
-    = link_to "Register Event", main_app.participant_event_create_path(@event.id), class: "btn btn-primary", data: { confirm: "Register Event##{@event.id}, are you sure?" }
-  - if !participant.nil?
+  - if participant.nil?
+    .col-sm-3
+      .pull-left
+      = link_to "Register Event", main_app.participant_event_create_path(@event.id), class: "btn btn-primary", data: { confirm: "Register Event##{@event.id}, are you sure?" }
+  - else
+    .col-sm-3
+      .pull-left
+        = link_to "Unregister Event", participant_unregister_path(user_id: current_user.id, event_id: @event.id), class: "btn btn-warning", data: { confirm: "Unregister Event##{@event.id}, are you sure?" }
     .col-sm-6.text-center
       mark
         = "You're registered on this event with ParticipantID ##{participant.id}"
-    .col-sm-3
-      .pull-right
-        = link_to "Unregister Event", participant_unregister_path(user_id: current_user.id, event_id: @event.id), class: "btn btn-warning", data: { confirm: "Unregister Event##{@event.id}, are you sure?" }
   br
   br
   br
