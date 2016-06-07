@@ -48,7 +48,6 @@ class ParticipantController < ApplicationController
     if true == participantHelper_is_event_registration_opend?(params[:event_id])
       participant = Participant.find_by(user_id: params[:user_id],
                                       event_id: params[:event_id])
-      ap participant
       if participant.nil?
         redirect_to request.headers["HTTP_REFERER"],
                     alert: "Participant from User##{params[:user_id].to_s} \
