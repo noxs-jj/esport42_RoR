@@ -1,35 +1,36 @@
-h2
-  | Sign up
+= render 'user/admin_test_access'
 
-.col-sm-12
-  = render 'user/admin_test_access'
+.panel.panel-success
+  .panel-heading
+    panel-title
+      h1 = "Sign up"
 
-.col-sm-12
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-    = f.error_notification
-    .form-inputs
-      .col-sm-6
-        .form-group
-          = f.input :username, required: false, input_html: { style: 'width: 100%' }
-        .form-group
-          = f.input :first_name, required: false, input_html: { style: 'width: 100%' }
-        .form-group
-          = f.input :last_name, required: false, input_html: { style: 'width: 100%' }
-        .form-group
-          div.in-line style="max-width:250px;"
-            = f.input :birthday, required: false, as: :date_picker, input_html: { style: 'width: 100%' }
+  .panel-body
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = f.error_notification
+      .form-inputs
+        .col-sm-6
+          .form-group
+            = f.input :username, required: false, input_html: { style: 'width: 100%' }
+          .form-group
+            = f.input :first_name, required: false, input_html: { style: 'width: 100%' }
+          .form-group
+            = f.input :last_name, required: false, input_html: { style: 'width: 100%' }
+          .form-group
+            div.in-line style="max-width:250px;"
+              = f.input :birthday, required: false, as: :date_picker, input_html: { style: 'width: 100%' }
 
-      .col-sm-6
-        .form-group
-          = f.input :email, required: true, autofocus: true, input_html: { style: 'width: 100%' }
+        .col-sm-6
+          .form-group
+            = f.input :email, required: true, autofocus: true, input_html: { style: 'width: 100%' }
 
-        .form-group
-          = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { style: 'width: 100%' }
-        .form-group
-          = f.input :password_confirmation, required: true, input_html: { style: 'width: 100%' }
+          .form-group
+            = f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { style: 'width: 100%' }
+          .form-group
+            = f.input :password_confirmation, required: true, input_html: { style: 'width: 100%' }
 
-        .form-actions
-          = f.button :submit, "Sign up", class: "btn btn-primary"
+          .form-actions
+            = f.button :submit, "Sign up", class: "btn btn-primary"
 
-          div style="height: 20px;"
-          = render "users/shared/links"
+            div style="height: 20px;"
+            = render "users/shared/links"

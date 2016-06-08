@@ -1,151 +1,154 @@
-h2
-  | Edit
-  = resource_name.to_s.humanize
+.panel.panel-success
+  .panel-heading
+    panel-title
+      h1 = "Edit my profile"
+        //= resource_name.to_s.humanize
 
-.form-horizontal
-  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-    = f.error_notification
+  .panel-body
+    .form-horizontal
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = f.error_notification
 
-    ul.nav.nav-tabs role="tablist" data-ng-init="tabSelect = 'informations'"
-      li data-ng-class="{true:'active', false:''}[tabSelect=='informations']"
-        a href="#informations" data-ng-click="tabSelect = 'informations'"
-          = "Informations"
+        ul.nav.nav-tabs role="tablist" data-ng-init="tabSelect = 'informations'"
+          li data-ng-class="{true:'active', false:''}[tabSelect=='informations']"
+            a href="#informations" data-ng-click="tabSelect = 'informations'"
+              = "Informations"
 
-      li data-ng-class="{true:'active', false:''}[tabSelect=='socialsgames']"
-        a href="#socialsgames" data-ng-click="tabSelect = 'socialsgames'"
-          = "Socials & Games"
+          li data-ng-class="{true:'active', false:''}[tabSelect=='socialsgames']"
+            a href="#socialsgames" data-ng-click="tabSelect = 'socialsgames'"
+              = "Socials & Games"
 
-      li data-ng-class="{true:'active', false:''}[tabSelect=='computer']"
-        a href="#computer" data-ng-click="tabSelect = 'computer'"
-          = "Computer"
+          li data-ng-class="{true:'active', false:''}[tabSelect=='computer']"
+            a href="#computer" data-ng-click="tabSelect = 'computer'"
+              = "Computer"
 
-      li data-ng-class="{true:'active', false:''}[tabSelect=='passwords']"
-        a href="#passwords" data-ng-click="tabSelect = 'passwords'"
-          = "Passwords"
+          li data-ng-class="{true:'active', false:''}[tabSelect=='passwords']"
+            a href="#passwords" data-ng-click="tabSelect = 'passwords'"
+              = "Passwords"
 
-      li
-        = f.button :submit, "Update", class: "btn btn-primary"
+          li
+            = f.button :submit, "Update", class: "btn btn-primary"
 
-    br
-    .tab-content
-      .tab-pane data-ng-class="{true:'active', false:''}[tabSelect=='informations']"
-        .col-sm-6
-          .form-group
-            = f.input :email, required: true, autofocus: true
-          .form-group
-            = f.input :username, required: false
-          .form-group
-            = f.input :first_name, required: false
-          .form-group
-            = f.input :last_name, required: false
-          .form-group
-            .in-line style="max-width:250px;"
-              = f.input :birthday, required: false, as: :date_picker
+        br
+        .tab-content
+          .tab-pane data-ng-class="{true:'active', false:''}[tabSelect=='informations']"
+            .col-sm-6
+              .form-group
+                = f.input :email, required: true, autofocus: true
+              .form-group
+                = f.input :username, required: false
+              .form-group
+                = f.input :first_name, required: false
+              .form-group
+                = f.input :last_name, required: false
+              .form-group
+                .in-line style="max-width:250px;"
+                  = f.input :birthday, required: false, as: :date_picker
 
-        .col-sm-6
-          .form-group
-            = f.input :adress_line1
-          .form-group
-            = f.input :adress_line1
-          .form-group
-            = f.input :adress_line3
-          .form-group
-            = f.input :adress_city
-          .form-group
-            = f.input :adress_province
-          .form-group
-            = f.input :adress_postalcode
-          .form-group
-            b = "Country"
-            = f.input :adress_country, label: false, as: :country
-          .form-group
-            b = "Other details"
-            = f.text_area :adress_otherDetails, label: false
+            .col-sm-6
+              .form-group
+                = f.input :adress_line1
+              .form-group
+                = f.input :adress_line1
+              .form-group
+                = f.input :adress_line3
+              .form-group
+                = f.input :adress_city
+              .form-group
+                = f.input :adress_province
+              .form-group
+                = f.input :adress_postalcode
+              .form-group
+                b = "Country"
+                = f.input :adress_country, label: false, as: :country
+              .form-group
+                b = "Other details"
+                = f.text_area :adress_otherDetails, label: false
 
-      .tab-pane data-ng-class="{true:'active', false:''}[tabSelect=='socialsgames']"
-        .col-sm-6
-          .form-group
-            = f.input :website_url
-          .form-group
-            = f.input :facebook_private_url
-          .form-group
-            = f.input :facebook_gamer_url
-          .form-group
-            = f.input :youtube_url
-          .form-group
-            = f.input :googleplus_url
-          .form-group
-            = f.input :sponsor
-          .form-group
-            = f.input :quote
+          .tab-pane data-ng-class="{true:'active', false:''}[tabSelect=='socialsgames']"
+            .col-sm-6
+              .form-group
+                = f.input :website_url
+              .form-group
+                = f.input :facebook_private_url
+              .form-group
+                = f.input :facebook_gamer_url
+              .form-group
+                = f.input :youtube_url
+              .form-group
+                = f.input :googleplus_url
+              .form-group
+                = f.input :sponsor
+              .form-group
+                = f.input :quote
 
-        .col-sm-6
-          .form-group
-            = f.input :steam_id
-          .form-group
-            = f.input :battlenet_id
-          .form-group
-            = f.input :origin_id
-          .form-group
-            = f.input :maniaplanet_id
-          .form-group
-            = f.input :xbox_live
-          .form-group
-            = f.input :sony_psn
+            .col-sm-6
+              .form-group
+                = f.input :steam_id
+              .form-group
+                = f.input :battlenet_id
+              .form-group
+                = f.input :origin_id
+              .form-group
+                = f.input :maniaplanet_id
+              .form-group
+                = f.input :xbox_live
+              .form-group
+                = f.input :sony_psn
 
-      .tab-pane data-ng-class="{true:'active', false:''}[tabSelect=='computer']"
-        .col-sm-6
-          .form-group
-            = f.input :pc_cpu
-          .form-group
-            = f.input :pc_ram
-          .form-group
-            = f.input :pc_graphic_card
-          .form-group
-            = f.input :pc_motherboard
-          .form-group
-            = f.input :pc_keyboard
-          .form-group
-            = f.input :pc_mouse
-          .form-group
-            = f.input :pc_mousepad
-          .form-group
-            = f.input :pc_screen
-        .col-sm-6
-          .form-group
-            = f.input :pc_internet
-          .form-group
-            = f.input :pc_harddisk
-          .form-group
-            = f.input :pc_soundcard
-          .form-group
-            = f.input :pc_cpu_fan
-          .form-group
-            = f.input :pc_computer_case
-          .form-group
-            = f.input :pc_alim
-          .form-group
-            = f.input :pc_os_sytem
-          .form-group
-            = f.input :pc_smarphone
+          .tab-pane data-ng-class="{true:'active', false:''}[tabSelect=='computer']"
+            .col-sm-6
+              .form-group
+                = f.input :pc_cpu
+              .form-group
+                = f.input :pc_ram
+              .form-group
+                = f.input :pc_graphic_card
+              .form-group
+                = f.input :pc_motherboard
+              .form-group
+                = f.input :pc_keyboard
+              .form-group
+                = f.input :pc_mouse
+              .form-group
+                = f.input :pc_mousepad
+              .form-group
+                = f.input :pc_screen
+            .col-sm-6
+              .form-group
+                = f.input :pc_internet
+              .form-group
+                = f.input :pc_harddisk
+              .form-group
+                = f.input :pc_soundcard
+              .form-group
+                = f.input :pc_cpu_fan
+              .form-group
+                = f.input :pc_computer_case
+              .form-group
+                = f.input :pc_alim
+              .form-group
+                = f.input :pc_os_sytem
+              .form-group
+                = f.input :pc_smarphone
 
-      .tab-pane data-ng-class="{true:'active', false:''}[tabSelect=='passwords']"
-        .col-sm-6
-          - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-            p
-              | Currently waiting confirmation for:
-              = resource.unconfirmed_email
+          .tab-pane data-ng-class="{true:'active', false:''}[tabSelect=='passwords']"
+            .col-sm-6
+              - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+                p
+                  | Currently waiting confirmation for:
+                  = resource.unconfirmed_email
 
-          .form-group
-            = f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false
-          .form-group
-            = f.input :password_confirmation, required: false
+              .form-group
+                = f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false
+              .form-group
+                = f.input :password_confirmation, required: false
 
-          //.form-group
-          //  = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
+              //.form-group
+              //  = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
 
-//h3
-//  | Cancel my account
-//p
-//  | Unhappy?
-//  = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
+    //h3
+    //  | Cancel my account
+    //p
+    //  | Unhappy?
+    //  = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
